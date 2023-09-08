@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://hhrqek32u4i5"]
+
+[node name="ShopLineItem" type="PanelContainer"]
+theme_type_variation = &"PanelContainerLineItem"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelMenu"
+text = "Fire Sword"
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"LabelMenu"
+text = "300c"
+vertical_alignment = 1

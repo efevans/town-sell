@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5ryc8v3ex1ae"]
+
+[ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/gate.tscn" id="1_2d4nf"]
+[ext_resource type="PackedScene" uid="uid://c7d2p03aarywf" path="res://scene/player.tscn" id="2_hdwl7"]
+[ext_resource type="PackedScene" uid="uid://755l4g054bp8" path="res://scene/npc/npc.tscn" id="3_fbbyu"]
+[ext_resource type="PackedScene" uid="uid://bhbioi44kauyo" path="res://scene/ui/shop_menu/shop_menu.tscn" id="4_yk1w6"]
+[ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera.tscn" id="5_2fs1g"]
+
+[node name="Main" type="Node"]
+
+[node name="GameCamera" parent="." instance=ExtResource("5_2fs1g")]
+
+[node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Entities" instance=ExtResource("2_hdwl7")]
+position = Vector2(273, 199)
+
+[node name="Gate" parent="Entities" instance=ExtResource("1_2d4nf")]
+position = Vector2(330, 133)
+
+[node name="NPC" parent="Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(332, 54)
+npc_interaction_scene = ExtResource("4_yk1w6")
