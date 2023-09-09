@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://755l4g054bp8"]
+[gd_scene load_steps=12 format=3 uid="uid://755l4g054bp8"]
 
 [ext_resource type="Script" path="res://scene/npc/npc.gd" id="1_blpw5"]
 [ext_resource type="Texture2D" uid="uid://cqh15khgvhl3x" path="res://scene/npc/npc.png" id="1_isbdm"]
+[ext_resource type="PackedScene" uid="uid://c3bgeca2hkk7f" path="res://scene/component/random_audio_stream_player_2d.tscn" id="2_p40eb"]
 [ext_resource type="Texture2D" uid="uid://obgbeqkc64ns" path="res://scene/npc/exclamationmarket.png" id="3_ggm4e"]
 [ext_resource type="PackedScene" uid="uid://dblgeh1gl5xb0" path="res://scene/npc/npc_interact_area_2d.tscn" id="3_px6qu"]
+[ext_resource type="AudioStream" uid="uid://xnu5q81exnw0" path="res://assets/audio/npcvoice1.ogg" id="3_wer0s"]
+[ext_resource type="AudioStream" uid="uid://dnm2jl5g8tbbv" path="res://assets/audio/npcvoice2.ogg" id="4_awq7m"]
+[ext_resource type="AudioStream" uid="uid://c3juj3mv143ql" path="res://assets/audio/npcvoice3.ogg" id="5_hjqyp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ehed2"]
-radius = 3.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35ws8"]
 radius = 11.0
@@ -27,6 +31,9 @@ damping_max = 3.0
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_blpw5")
+
+[node name="RandomAudioStreamPlayer2D" parent="." instance=ExtResource("2_p40eb")]
+streams = Array[AudioStream]([ExtResource("3_wer0s"), ExtResource("4_awq7m"), ExtResource("5_hjqyp")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_isbdm")

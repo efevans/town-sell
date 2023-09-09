@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhbioi44kauyo"]
+[gd_scene load_steps=11 format=3 uid="uid://bhbioi44kauyo"]
 
 [ext_resource type="Script" path="res://scene/ui/shop_menu/shop_menu.gd" id="1_ja2t0"]
-[ext_resource type="PackedScene" uid="uid://hhrqek32u4i5" path="res://scene/ui/shop_line_item/shop_line_item.tscn" id="1_oc4c7"]
+[ext_resource type="PackedScene" uid="uid://hhrqek32u4i5" path="res://scene/ui/shop_line_item/shop_line_item.tscn" id="2_bmr84"]
+[ext_resource type="AudioStream" uid="uid://ws7dhpdi1ota" path="res://assets/audio/menucursormove.ogg" id="2_t8tc4"]
+[ext_resource type="Texture2D" uid="uid://cvybg47nt3bqp" path="res://assets/ui/Cursor.png" id="3_p7c5d"]
 
 [sub_resource type="Animation" id="Animation_t432t"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer:position")
+tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,11 +25,23 @@ resource_name = "in"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("MarginContainer:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(640, 0), Vector2(-10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -40,12 +54,60 @@ _data = {
 "in": SubResource("Animation_okek6")
 }
 
+[sub_resource type="Animation" id="Animation_gh6pq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/ShopMenu/Control/CursorParent/CursorHint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8qc5g"]
+resource_name = "oscillate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/ShopMenu/Control/CursorParent/CursorHint:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqogr"]
+_data = {
+"RESET": SubResource("Animation_gh6pq"),
+"oscillate": SubResource("Animation_8qc5g")
+}
+
 [node name="ShopMenu" type="CanvasLayer"]
 script = ExtResource("1_ja2t0")
+
+[node name="MoveCursorAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t8tc4")
+volume_db = -12.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_432gv")
+}
+
+[node name="CursorAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "oscillate"
+libraries = {
+"": SubResource("AnimationLibrary_sqogr")
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -61,7 +123,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ShopMenu"]
 layout_mode = 2
-theme_override_constants/margin_left = 4
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
@@ -69,13 +131,31 @@ theme_override_constants/margin_bottom = 4
 [node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/ShopMenu/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="ShopLineItem" parent="MarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("1_oc4c7")]
+[node name="ShopLineItem" parent="MarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("2_bmr84")]
 layout_mode = 2
 
-[node name="ShopLineItem2" parent="MarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("1_oc4c7")]
+[node name="ShopLineItem2" parent="MarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("2_bmr84")]
 layout_mode = 2
 
-[node name="ShopLineItem3" parent="MarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("1_oc4c7")]
+[node name="ShopLineItem3" parent="MarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("2_bmr84")]
 layout_mode = 2
-focus_neighbor_top = NodePath("../ShopLineItem2")
+
+[node name="Control" type="Control" parent="MarginContainer/ShopMenu"]
+layout_mode = 2
+
+[node name="CursorParent" type="Control" parent="MarginContainer/ShopMenu/Control"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -5.0
+offset_right = -5.0
+
+[node name="CursorHint" type="TextureRect" parent="MarginContainer/ShopMenu/Control/CursorParent"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_p7c5d")

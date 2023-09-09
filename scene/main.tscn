@@ -1,13 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=12 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/gate.tscn" id="1_2d4nf"]
+[ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
 [ext_resource type="TileSet" uid="uid://ujg37uru0myo" path="res://resources/tileset/tileset.tres" id="2_fayvw"]
 [ext_resource type="PackedScene" uid="uid://c7d2p03aarywf" path="res://scene/player.tscn" id="2_hdwl7"]
 [ext_resource type="PackedScene" uid="uid://755l4g054bp8" path="res://scene/npc/npc.tscn" id="3_fbbyu"]
 [ext_resource type="PackedScene" uid="uid://bhbioi44kauyo" path="res://scene/ui/shop_menu/shop_menu.tscn" id="4_yk1w6"]
 [ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera.tscn" id="5_2fs1g"]
+[ext_resource type="Texture2D" uid="uid://ba8f8cc2sr33u" path="res://assets/environment/smoke.png" id="7_q61mj"]
+
+[sub_resource type="Curve" id="Curve_1e6oh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.528889, 0.854545), -0.568182, -0.568182, 0, 0, Vector2(0.982222, 0.0454545), -2.42424, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_emaf0"]
+curve = SubResource("Curve_1e6oh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_68ip0"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 8.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 360.0
+scale_min = 0.4
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_emaf0")
 
 [node name="Main" type="Node"]
+script = ExtResource("1_xmxft")
 
 [node name="GameCamera" parent="." instance=ExtResource("5_2fs1g")]
 
@@ -44,3 +68,21 @@ position = Vector2(328, 128)
 [node name="NPC" parent="Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(332, 9)
 npc_interaction_scene = ExtResource("4_yk1w6")
+
+[node name="NPC2" parent="Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(395, 150)
+npc_interaction_scene = ExtResource("4_yk1w6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(440, 182)
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_68ip0")
+texture = ExtResource("7_q61mj")
+lifetime = 4.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(153, -105)
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_68ip0")
+texture = ExtResource("7_q61mj")
+lifetime = 4.0

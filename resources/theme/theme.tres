@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bvhb3i3wnvnt0"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bvhb3i3wnvnt0"]
 
 [ext_resource type="Texture2D" uid="uid://cl1wdt3imxyj4" path="res://assets/ui/InnerPanel.png" id="1_33nrx"]
 [ext_resource type="FontFile" uid="uid://dw7o6ptmkpcdi" path="res://resources/theme/Rockboxcond12.ttf" id="1_w6bsd"]
@@ -12,14 +12,30 @@ texture_margin_bottom = 11.0
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vh7h"]
-content_margin_left = 5.0
-content_margin_top = 4.0
-content_margin_right = 5.0
 bg_color = Color(0.537255, 0.556863, 0.6, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlbkk"]
+bg_color = Color(0.537255, 0.556863, 0.6, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.337255, 0.266667, 0.537255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
 
 [resource]
 default_font = ExtResource("1_w6bsd")
@@ -38,3 +54,5 @@ MarginContainerNPCMenu/constants/margin_top = 16
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_eusxa")
 PanelContainerLineItem/base_type = &"PanelContainer"
 PanelContainerLineItem/styles/panel = SubResource("StyleBoxFlat_5vh7h")
+PanelContainerLineItemSelected/base_type = &"PanelContainer"
+PanelContainerLineItemSelected/styles/panel = SubResource("StyleBoxFlat_dlbkk")
