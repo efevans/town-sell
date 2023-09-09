@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hhrqek32u4i5"]
+[gd_scene load_steps=3 format=3 uid="uid://hhrqek32u4i5"]
 
 [ext_resource type="Script" path="res://scene/ui/shop_line_item/shop_line_item.gd" id="1_w7dqo"]
+[ext_resource type="Texture2D" uid="uid://c6ayptk8dvnrd" path="res://resources/item/items/fire_sword/sword.png" id="2_tgabr"]
 
 [node name="ShopLineItem" type="PanelContainer"]
 focus_mode = 2
@@ -19,13 +20,21 @@ theme_override_constants/margin_right = 4
 layout_mode = 2
 mouse_filter = 2
 
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_tgabr")
+
 [node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"LabelMenu"
 text = "Fire Sword"
 vertical_alignment = 1
 
 [node name="Price" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 theme_type_variation = &"LabelMenu"

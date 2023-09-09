@@ -5,10 +5,11 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eusxa"]
 texture = ExtResource("1_33nrx")
-texture_margin_left = 11.0
-texture_margin_top = 11.0
-texture_margin_right = 11.0
-texture_margin_bottom = 11.0
+texture_margin_left = 6.0
+texture_margin_top = 10.0
+texture_margin_right = 6.0
+texture_margin_bottom = 10.0
+axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vh7h"]
@@ -48,7 +49,7 @@ LabelMenu/constants/shadow_offset_x = 0
 LabelMenu/constants/shadow_offset_y = 0
 MarginContainerNPCMenu/base_type = &"MarginContainer"
 MarginContainerNPCMenu/constants/margin_bottom = 160
-MarginContainerNPCMenu/constants/margin_left = 128
+MarginContainerNPCMenu/constants/margin_left = 240
 MarginContainerNPCMenu/constants/margin_right = 16
 MarginContainerNPCMenu/constants/margin_top = 16
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_eusxa")

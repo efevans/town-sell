@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bsl6yfnw5mfax"]
+
+[ext_resource type="Script" path="res://resources/item/item.gd" id="1_3psso"]
+[ext_resource type="Texture2D" uid="uid://c6ayptk8dvnrd" path="res://resources/item/items/fire_sword/sword.png" id="1_404wy"]
+
+[resource]
+script = ExtResource("1_3psso")
+id = "fire_sword"
+name = "Fire Sword"
+base_price = 240
+icon = ExtResource("1_404wy")

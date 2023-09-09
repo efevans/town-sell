@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhbioi44kauyo"]
+[gd_scene load_steps=12 format=3 uid="uid://bhbioi44kauyo"]
 
 [ext_resource type="Script" path="res://scene/ui/shop_menu/shop_menu.gd" id="1_ja2t0"]
 [ext_resource type="PackedScene" uid="uid://hhrqek32u4i5" path="res://scene/ui/shop_line_item/shop_line_item.tscn" id="2_bmr84"]
 [ext_resource type="AudioStream" uid="uid://ws7dhpdi1ota" path="res://assets/audio/menucursormove.ogg" id="2_t8tc4"]
+[ext_resource type="AudioStream" uid="uid://la2jigrl35c6" path="res://assets/audio/buy.ogg" id="3_jxpnp"]
 [ext_resource type="Texture2D" uid="uid://cvybg47nt3bqp" path="res://assets/ui/Cursor.png" id="3_p7c5d"]
 
 [sub_resource type="Animation" id="Animation_t432t"]
@@ -98,6 +99,12 @@ script = ExtResource("1_ja2t0")
 [node name="MoveCursorAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_t8tc4")
 volume_db = -12.0
+pitch_scale = 0.8
+
+[node name="BuyItemAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jxpnp")
+volume_db = -12.0
+pitch_scale = 1.07
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -14,12 +14,6 @@ func _ready():
 	npc_interact_area_2d.area_entered.connect(on_player_entered_area)
 	npc_interact_area_2d.area_exited.connect(on_player_exited_area)
 	npc_interact_area_2d.npc_interaction_scene = npc_interaction_scene
-	
-	
-func _process(_delta):
-	if Input.is_action_just_pressed("interact"):
-		if player_in_range:
-			print("npc interacted with!")
 
 
 func on_player_entered_area(other_area: Area2D):
