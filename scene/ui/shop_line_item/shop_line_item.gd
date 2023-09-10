@@ -21,7 +21,7 @@ func set_item(new_item: Item):
 	
 func update_labels():
 	%ItemName.text = item.name
-	%Price.text = str(item.base_price) + "c"
+	%Price.text = str(item.base_price) + GameStrings.GOLD_SUFFIX
 	
 func on_focus_entered():
 	theme_type_variation = in_focus_theme

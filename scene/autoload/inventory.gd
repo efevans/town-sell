@@ -1,5 +1,7 @@
 extends Node
 
+signal gold_changed(new_amount: int)
+
 var storage: Dictionary = {
 	"gold": 500,
 	"items": {}
@@ -15,9 +17,16 @@ func _process(delta):
 func get_gold():
 	return storage["gold"]
 	
+
+func add_gold(amount: int):
+	storage["gold"] += amount
+	gold_changed.emit(get_gold())
+		
+
 	
 func subtract_gold(amount: int):
 	storage["gold"] -= amount
+	gold_changed.emit(get_gold())
 
 
 func add_item(item: Item):
