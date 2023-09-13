@@ -24,11 +24,11 @@ func update_labels():
 	%Price.text = str(item.base_price) + GameStrings.GOLD_SUFFIX
 	
 func on_focus_entered():
+	print("I'm in focus")
 	theme_type_variation = in_focus_theme
 	selected.emit(self)
-	print("I'm in focus")
 	
 	
 func on_focus_exited():
-	theme_type_variation = default_theme
 	print("I'm out of focus")
+	theme_type_variation = default_theme

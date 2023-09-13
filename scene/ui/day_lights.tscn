@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbrj6b3vmnwxl"]
+
+[ext_resource type="Shader" path="res://scene/ui/day_lights.gdshader" id="1_djw4w"]
+[ext_resource type="Script" path="res://scene/ui/day_lights.gd" id="1_dtrdh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4l2c5"]
+shader = ExtResource("1_djw4w")
+shader_parameter/light_intensity = 1.0
+shader_parameter/western_bias = 11.0
+shader_parameter/max_intensity = 0.76
+shader_parameter/light_rgb = Color(0.933333, 0.705882, 0.0588235, 1)
+
+[node name="DayLights" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_dtrdh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4l2c5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

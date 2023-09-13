@@ -3,6 +3,11 @@
 [ext_resource type="Script" path="res://scene/ui/gold_panel_container/gold_panel_container.gd" id="1_t0mub"]
 
 [node name="GoldPanelContainer" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.087
+anchor_bottom = 0.128
+offset_right = 0.319996
+offset_bottom = -0.0800018
 script = ExtResource("1_t0mub")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

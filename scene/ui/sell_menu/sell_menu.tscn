@@ -1,14 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhbioi44kauyo"]
+[gd_scene load_steps=12 format=3 uid="uid://cvfh80wygdck7"]
 
-[ext_resource type="Script" path="res://scene/ui/shop_menu/shop_menu.gd" id="1_ja2t0"]
-[ext_resource type="PackedScene" uid="uid://hhrqek32u4i5" path="res://scene/ui/shop_line_item/shop_line_item.tscn" id="2_bmr84"]
-[ext_resource type="Resource" uid="uid://bsl6yfnw5mfax" path="res://resources/item/items/fire_sword/fire_sword.tres" id="2_dwnlr"]
-[ext_resource type="AudioStream" uid="uid://ws7dhpdi1ota" path="res://assets/audio/menucursormove.ogg" id="2_t8tc4"]
-[ext_resource type="AudioStream" uid="uid://la2jigrl35c6" path="res://assets/audio/buy.ogg" id="3_jxpnp"]
-[ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="3_ksqm4"]
-[ext_resource type="Texture2D" uid="uid://cvybg47nt3bqp" path="res://assets/ui/Cursor.png" id="3_p7c5d"]
-[ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="4_7eswv"]
-[ext_resource type="PackedScene" uid="uid://mdr0cluepn05" path="res://scene/ui/gold_panel_container/gold_panel_container.tscn" id="6_27hgv"]
+[ext_resource type="Script" path="res://scene/ui/sell_menu/sell_menu.gd" id="1_7ddv0"]
+[ext_resource type="AudioStream" uid="uid://ws7dhpdi1ota" path="res://assets/audio/menucursormove.ogg" id="2_dr6lj"]
+[ext_resource type="AudioStream" uid="uid://la2jigrl35c6" path="res://assets/audio/buy.ogg" id="3_cnhb5"]
+[ext_resource type="Texture2D" uid="uid://cvybg47nt3bqp" path="res://assets/ui/Cursor.png" id="5_8batm"]
+[ext_resource type="PackedScene" uid="uid://mdr0cluepn05" path="res://scene/ui/gold_panel_container/gold_panel_container.tscn" id="6_wmidw"]
 
 [sub_resource type="Animation" id="Animation_t432t"]
 length = 0.001
@@ -97,18 +93,16 @@ _data = {
 "oscillate": SubResource("Animation_8qc5g")
 }
 
-[node name="ShopMenu" type="CanvasLayer"]
-layer = 5
-script = ExtResource("1_ja2t0")
-test_items = Array[Resource("res://resources/item/item.gd")]([ExtResource("2_dwnlr"), ExtResource("3_ksqm4"), ExtResource("4_7eswv")])
+[node name="SellMenu" type="CanvasLayer"]
+script = ExtResource("1_7ddv0")
 
 [node name="MoveCursorAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_t8tc4")
+stream = ExtResource("2_dr6lj")
 volume_db = -12.0
 pitch_scale = 0.8
 
 [node name="BuyItemAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_jxpnp")
+stream = ExtResource("3_cnhb5")
 volume_db = -12.0
 pitch_scale = 1.07
 
@@ -146,15 +140,6 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ShopLineItem" parent="ShopMarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("2_bmr84")]
-layout_mode = 2
-
-[node name="ShopLineItem2" parent="ShopMarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("2_bmr84")]
-layout_mode = 2
-
-[node name="ShopLineItem3" parent="ShopMarginContainer/ShopMenu/MarginContainer/ItemContainer" instance=ExtResource("2_bmr84")]
-layout_mode = 2
-
 [node name="Control" type="Control" parent="ShopMarginContainer/ShopMenu"]
 layout_mode = 2
 
@@ -171,7 +156,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_p7c5d")
+texture = ExtResource("5_8batm")
 
 [node name="PlayerGoldMarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -184,6 +169,6 @@ theme_override_constants/margin_top = 204
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 110
 
-[node name="GoldPanelContainer" parent="PlayerGoldMarginContainer" node_paths=PackedStringArray("canvas_layer") instance=ExtResource("6_27hgv")]
+[node name="GoldPanelContainer" parent="PlayerGoldMarginContainer" node_paths=PackedStringArray("canvas_layer") instance=ExtResource("6_wmidw")]
 layout_mode = 2
 canvas_layer = NodePath("../..")

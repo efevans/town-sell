@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bwmer40jwvct5"]
+
+[ext_resource type="Texture2D" uid="uid://dcbahc8gqu6mx" path="res://resources/item/items/wooden_shield/wooden_shield.png" id="1_ha87t"]
+[ext_resource type="Script" path="res://resources/item/item.gd" id="2_ryoyo"]
+
+[resource]
+script = ExtResource("2_ryoyo")
+id = "wooden_shield"
+name = "Wooden Shield"
+base_price = 300
+icon = ExtResource("1_ha87t")

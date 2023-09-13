@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=14 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bhbioi44kauyo" path="res://scene/ui/shop_menu/shop_menu.tscn" id="4_yk1w6"]
 [ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera.tscn" id="5_2fs1g"]
 [ext_resource type="Texture2D" uid="uid://ba8f8cc2sr33u" path="res://assets/environment/smoke.png" id="7_q61mj"]
+[ext_resource type="PackedScene" uid="uid://cvfh80wygdck7" path="res://scene/ui/sell_menu/sell_menu.tscn" id="8_uwcig"]
+[ext_resource type="PackedScene" uid="uid://cbrj6b3vmnwxl" path="res://scene/ui/day_lights.tscn" id="10_guf5h"]
 
 [sub_resource type="Curve" id="Curve_1e6oh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.528889, 0.854545), -0.568182, -0.568182, 0, 0, Vector2(0.982222, 0.0454545), -2.42424, 0.0, 0, 0]
@@ -66,12 +68,12 @@ position = Vector2(273, 199)
 position = Vector2(328, 128)
 
 [node name="NPC" parent="Entities" instance=ExtResource("3_fbbyu")]
-position = Vector2(332, 9)
+position = Vector2(381, 237)
 npc_interaction_scene = ExtResource("4_yk1w6")
 
 [node name="NPC2" parent="Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(395, 150)
-npc_interaction_scene = ExtResource("4_yk1w6")
+npc_interaction_scene = ExtResource("8_uwcig")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(440, 182)
@@ -86,3 +88,7 @@ amount = 3
 process_material = SubResource("ParticleProcessMaterial_68ip0")
 texture = ExtResource("7_q61mj")
 lifetime = 4.0
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
+
+[node name="DayLights" parent="." instance=ExtResource("10_guf5h")]

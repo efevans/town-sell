@@ -8,9 +8,12 @@ const cursor_offset = Vector2(-22, 6)
 @onready var cursor_parent = %CursorParent
 @onready var move_cursor_audio_player = $MoveCursorAudioPlayer
 
-var cursor_pointing_at_line_item = false
+@export var test_items: Array[Item]
+
 var current_line_item_in_focus: PanelContainer
-var test_item = preload("res://resources/item/items/fire_sword/fire_sword.tres")
+#var test_item = preload("res://resources/item/items/fire_sword/fire_sword.tres")
+#var test_item2 = preload("res://resources/item/items/healing_potion/healing_potion.tres")
+#var test_item3 = preload("res://resources/item/items/wooden_shield/wooden_shield.png")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +23,9 @@ func _ready():
 	play_in()
 	if item_container.get_child_count() > 0:
 		for line_item in item_container.get_children() as Array[ShopLineItem]:
-			line_item.set_item(test_item)
+#			var item = test_item if randi() % 2 == 0 else test_item2
+			var item = test_items.pick_random()
+			line_item.set_item(item)
 			line_item.selected.connect(on_line_item_selected)
 		
 		var line_item = item_container.get_child(0) as ShopLineItem

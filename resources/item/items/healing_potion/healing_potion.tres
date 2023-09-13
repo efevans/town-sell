@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cvk6fl1psjw20"]
+
+[ext_resource type="Texture2D" uid="uid://bnp8dcm4ewatg" path="res://resources/item/items/healing_potion/healing_potion.png" id="1_st0vh"]
+[ext_resource type="Script" path="res://resources/item/item.gd" id="2_oynxq"]
+
+[resource]
+script = ExtResource("2_oynxq")
+id = "healing_potion"
+name = "Healing Potion"
+base_price = 430
+icon = ExtResource("1_st0vh")
