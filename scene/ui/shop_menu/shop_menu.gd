@@ -10,36 +10,40 @@ const cursor_offset = Vector2(-22, 6)
 
 @export var test_items: Array[Item]
 
+var shop_line_item_scene: PackedScene = preload(GameStrings.SHOP_LINE_ITEM_SCENE_PATH)
 var current_line_item_in_focus: PanelContainer
-#var test_item = preload("res://resources/item/items/fire_sword/fire_sword.tres")
-#var test_item2 = preload("res://resources/item/items/healing_potion/healing_potion.tres")
-#var test_item3 = preload("res://resources/item/items/wooden_shield/wooden_shield.png")
+
+var inventory: Inventory = Inventory.new()
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-#	for child in item_container.get_children():
-#		child.queue_free()
 	play_in()
-	if item_container.get_child_count() > 0:
-		for line_item in item_container.get_children() as Array[ShopLineItem]:
-#			var item = test_item if randi() % 2 == 0 else test_item2
-			var item = test_items.pick_random()
-			line_item.set_item(item)
-			line_item.selected.connect(on_line_item_selected)
-		
-		var line_item = item_container.get_child(0) as ShopLineItem
-		Callable(line_item.grab_focus).call_deferred()
+	init_inventory()
 		
 		
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		try_buy_focused_item()
 		
+		
+func init_inventory():
+	for child in item_container.get_children():
+		child.queue_free()
+		
+	for item_index in 4:
+		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
+		item_container.add_child(line_item_instance)
+		var item = test_items.pick_random()
+		line_item_instance.set_item(item, 2)
+		line_item_instance.selected.connect(on_line_item_selected)
+		
+	var first_line_item = item_container.get_child(0) as ShopLineItem
+	Callable(first_line_item.grab_focus).call_deferred()
+		
 
 func try_buy_focused_item():
 	var item = current_line_item_in_focus.item
-	if Inventory.get_gold() < item.base_price:
+	if PlayerInventory.inventory.get_gold() < item.base_price:
 		return false
 		
 	buy_item(item)
@@ -49,8 +53,8 @@ func try_buy_focused_item():
 func buy_item(item: Item):
 	print("buying item " + str(current_line_item_in_focus))
 	$BuyItemAudioPlayer.play()
-	Inventory.subtract_gold(item.base_price)
-	Inventory.add_item(item)
+	PlayerInventory.inventory.subtract_gold(item.base_price)
+	PlayerInventory.inventory.add_item(item)
 
 
 func play_in():

@@ -1,4 +1,4 @@
-extends Node
+class_name Inventory
 
 signal gold_changed(new_amount: int, original_amount: int, amount_changed: int)
 
@@ -9,12 +9,6 @@ var storage: Dictionary = {
 #			"item_resource": item}}
 }
 
-
-func _process(delta):
-	if Input.is_action_just_pressed("debut_print_inventory"):
-		print(storage)
-		
-		
 func get_gold():
 	return storage["gold"]
 	

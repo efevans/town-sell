@@ -67,11 +67,11 @@ position = Vector2(273, 199)
 [node name="Gate" parent="Entities" instance=ExtResource("1_2d4nf")]
 position = Vector2(328, 128)
 
-[node name="NPC" parent="Entities" instance=ExtResource("3_fbbyu")]
+[node name="ShopNPC" parent="Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(381, 237)
 npc_interaction_scene = ExtResource("4_yk1w6")
 
-[node name="NPC2" parent="Entities" instance=ExtResource("3_fbbyu")]
+[node name="SellNPC" parent="Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(395, 150)
 npc_interaction_scene = ExtResource("8_uwcig")
 

@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 GameEvents="*res://scene/autoload/game_events.tscn"
 MusicPlayer="*res://scene/autoload/music_player.tscn"
-Inventory="*res://scene/autoload/inventory.tscn"
+PlayerInventory="*res://scene/autoload/player_inventory.tscn"
 GameStrings="*res://scene/autoload/game_strings.tscn"
 
 [debug]

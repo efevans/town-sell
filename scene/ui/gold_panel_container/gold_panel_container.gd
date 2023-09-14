@@ -7,7 +7,7 @@ var floating_text_scene: PackedScene = preload("res://scene/ui/floating_text/flo
 
 
 func _ready():
-	Inventory.gold_changed.connect(on_gold_changed)
+	PlayerInventory.inventory.gold_changed.connect(on_gold_changed)
 	update_gold()
 	
 	
@@ -16,7 +16,7 @@ func set_gold_text(amount: int):
 	
 	
 func update_gold():
-	set_gold_text(Inventory.get_gold())
+	set_gold_text(PlayerInventory.inventory.get_gold())
 	
 	
 func update_gold_with_animation(new_amount: int, amount_changed: int):

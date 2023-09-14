@@ -15,10 +15,22 @@ var current_line_item_in_focus: PanelContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	play_in()
-	for item in Inventory.storage["items"]:
+	update_shop_with_player_items()
+		
+		
+func _process(delta):
+	if Input.is_action_just_pressed("interact"):
+		try_sell_focused_item()
+		
+		
+func update_shop_with_player_items():
+	for child in item_container.get_children():
+		child.queue_free()
+		
+	for item in PlayerInventory.inventory.storage["items"]:
 		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
 		item_container.add_child(line_item_instance)
-		line_item_instance.set_item(Inventory.storage["items"][item]["item_resource"])
+		line_item_instance.set_item(PlayerInventory.inventory.storage["items"][item]["item_resource"], PlayerInventory.inventory.storage["items"][item]["quantity"])
 		line_item_instance.selected.connect(on_line_item_selected)
 		
 	if item_container.get_child_count() > 0:
@@ -27,13 +39,11 @@ func _ready():
 	else:
 		cursor_parent.visible = false
 		
-		
-func _process(delta):
-	if Input.is_action_just_pressed("interact"):
-		try_sell_focused_item()
-		
 
 func try_sell_focused_item():
+	if current_line_item_in_focus == null:
+		return false
+	
 	var item = current_line_item_in_focus.item as Item
 	sell_item(item)
 	
@@ -43,10 +53,10 @@ func try_sell_focused_item():
 func sell_item(item: Item):
 	print("buying item " + str(current_line_item_in_focus))
 	$BuyItemAudioPlayer.play()
-	Inventory.remove_item(item)
-	Inventory.add_gold(item.base_price)
+	PlayerInventory.inventory.remove_item(item)
+	PlayerInventory.inventory.add_gold(item.base_price)
 	
-	if !Inventory.has_item(item):
+	if !PlayerInventory.inventory.has_item(item):
 		remove_item_from_menu_and_update_focus()
 		
 

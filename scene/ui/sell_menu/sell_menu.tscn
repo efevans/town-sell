@@ -146,8 +146,6 @@ layout_mode = 2
 [node name="CursorParent" type="Control" parent="ShopMarginContainer/ShopMenu/Control"]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_left = -5.0
-offset_right = -5.0
 
 [node name="CursorHint" type="TextureRect" parent="ShopMarginContainer/ShopMenu/Control/CursorParent"]
 unique_name_in_owner = true
