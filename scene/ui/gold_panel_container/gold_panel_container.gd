@@ -30,8 +30,8 @@ func update_gold_with_animation(new_amount: int, amount_changed: int):
 	
 	floating_text.global_position = gold_label.global_position + gold_label.size - Vector2(0, 10)
 	
-	var sign = "+" if amount_changed > 0 else ""
-	var text = sign + str(amount_changed) + "G"
+	var sign_char = "+" if amount_changed > 0 else ""
+	var text = sign_char + str(amount_changed) + "G"
 	floating_text.start(text)
 	
 	

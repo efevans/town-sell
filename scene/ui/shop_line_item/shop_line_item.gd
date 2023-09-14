@@ -28,7 +28,7 @@ func update_labels():
 	
 	
 func on_focus_entered():
-	print("I'm in focus")
+	print("I'm " + str(self) + " in focus")
 	theme_type_variation = in_focus_theme
 	selected.emit(self)
 	

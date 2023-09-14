@@ -30,6 +30,7 @@ func init_inventory():
 	for child in item_container.get_children():
 		child.queue_free()
 		
+	var first_line_item: ShopLineItem
 	for item_index in 4:
 		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
 		item_container.add_child(line_item_instance)
@@ -37,8 +38,16 @@ func init_inventory():
 		line_item_instance.set_item(item, 2)
 		line_item_instance.selected.connect(on_line_item_selected)
 		
-	var first_line_item = item_container.get_child(0) as ShopLineItem
-	Callable(first_line_item.grab_focus).call_deferred()
+		if item_index == 0:
+			first_line_item = line_item_instance
+		
+	Callable(grab_focus_after_break.bind(first_line_item)).call_deferred()
+#	Callable(first_line_item.grab_focus).call_deferred()
+	
+
+func grab_focus_after_break(next_focus_item: ShopLineItem):
+	await get_tree().create_timer(0.01).timeout
+	next_focus_item.grab_focus()
 		
 
 func try_buy_focused_item():

@@ -167,7 +167,8 @@ offset_right = -5.0
 [node name="CursorHint" type="TextureRect" parent="ShopMarginContainer/ShopMenu/Control/CursorParent"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_right = 16.0
+offset_left = -5.0
+offset_right = 11.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2

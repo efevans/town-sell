@@ -76,14 +76,14 @@ func remove_item_from_menu_and_update_focus():
 			# Not last item, set focus to next item
 			next_focus_item = item_container.get_child(current_line_item_index + 1) as ShopLineItem
 			
-		Callable(temp_test.bind(next_focus_item)).call_deferred()
+		Callable(grab_focus_after_break.bind(next_focus_item)).call_deferred()
 #		Callable(next_focus_item.grab_focus).call_deferred()
 		
 	print("removing sold item from shop")
 	current_line_item_in_focus.queue_free()
 
 
-func temp_test(next_focus_item: ShopLineItem):
+func grab_focus_after_break(next_focus_item: ShopLineItem):
 	await get_tree().create_timer(0.01).timeout
 	next_focus_item.grab_focus()
 
