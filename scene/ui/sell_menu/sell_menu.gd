@@ -8,8 +8,10 @@ const cursor_offset = Vector2(-22, 6)
 @onready var cursor_parent = %CursorParent
 @onready var move_cursor_audio_player = $MoveCursorAudioPlayer
 
-var shop_line_item_scene: PackedScene = preload("res://scene/ui/shop_line_item/shop_line_item.tscn")
-var current_line_item_in_focus: PanelContainer
+var shop_line_item_scene: PackedScene = preload(GameStrings.SHOP_LINE_ITEM_SCENE_PATH)
+var current_line_item_in_focus: ShopLineItem
+
+var inventory: Inventory = PlayerInventory.inventory
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +32,8 @@ func update_shop_with_player_items():
 	for item in PlayerInventory.inventory.storage["items"]:
 		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
 		item_container.add_child(line_item_instance)
-		line_item_instance.set_item(PlayerInventory.inventory.storage["items"][item]["item_resource"], PlayerInventory.inventory.storage["items"][item]["quantity"])
+		line_item_instance.set_inventory_to_track(inventory)
+		line_item_instance.set_item(PlayerInventory.inventory.storage["items"][item]["item_resource"])
 		line_item_instance.selected.connect(on_line_item_selected)
 		
 	if item_container.get_child_count() > 0:
@@ -54,6 +57,7 @@ func sell_item(item: Item):
 	print("buying item " + str(current_line_item_in_focus))
 	$BuyItemAudioPlayer.play()
 	PlayerInventory.inventory.remove_item(item)
+	current_line_item_in_focus.set_item(item, )
 	PlayerInventory.inventory.add_gold(item.base_price)
 	
 	if !PlayerInventory.inventory.has_item(item):

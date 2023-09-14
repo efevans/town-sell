@@ -11,9 +11,10 @@ const cursor_offset = Vector2(-22, 6)
 @export var test_items: Array[Item]
 
 var shop_line_item_scene: PackedScene = preload(GameStrings.SHOP_LINE_ITEM_SCENE_PATH)
-var current_line_item_in_focus: PanelContainer
+var current_line_item_in_focus: ShopLineItem
 
 var inventory: Inventory = Inventory.new()
+var item_count: int = 5
 
 
 func _ready():
@@ -30,15 +31,19 @@ func init_inventory():
 	for child in item_container.get_children():
 		child.queue_free()
 		
-	var first_line_item: ShopLineItem
-	for item_index in 4:
+	for item_index in item_count:
+		var item = test_items.pick_random()
+		inventory.add_item(item)
+		
+	var first_line_item: ShopLineItem = null
+	for item in inventory.storage["items"]:
 		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
 		item_container.add_child(line_item_instance)
-		var item = test_items.pick_random()
-		line_item_instance.set_item(item, 2)
+		line_item_instance.set_inventory_to_track(inventory)
+		line_item_instance.set_item(inventory.storage["items"][item]["item_resource"])
 		line_item_instance.selected.connect(on_line_item_selected)
 		
-		if item_index == 0:
+		if first_line_item == null:
 			first_line_item = line_item_instance
 		
 	Callable(grab_focus_after_break.bind(first_line_item)).call_deferred()
@@ -51,6 +56,9 @@ func grab_focus_after_break(next_focus_item: ShopLineItem):
 		
 
 func try_buy_focused_item():
+	if current_line_item_in_focus == null:
+		return false
+		
 	var item = current_line_item_in_focus.item
 	if PlayerInventory.inventory.get_gold() < item.base_price:
 		return false
@@ -64,6 +72,34 @@ func buy_item(item: Item):
 	$BuyItemAudioPlayer.play()
 	PlayerInventory.inventory.subtract_gold(item.base_price)
 	PlayerInventory.inventory.add_item(item)
+	
+	inventory.remove_item(item)
+	current_line_item_in_focus.item
+	if !inventory.has_item(item):
+		remove_item_from_menu_and_update_focus()
+	
+	
+func remove_item_from_menu_and_update_focus():
+	var current_line_item_index = item_container.get_children().find(current_line_item_in_focus)
+	
+	var items_in_shop = item_container.get_child_count()
+	print("before buying, " + str(items_in_shop) + " items in shop")
+	if items_in_shop == 1:
+		cursor_parent.visible = false
+	else:
+		var next_focus_item
+		if current_line_item_index == items_in_shop - 1:
+			# Last item, set focus to previous item
+			next_focus_item = item_container.get_child(current_line_item_index - 1) as ShopLineItem
+		else:
+			# Not last item, set focus to next item
+			next_focus_item = item_container.get_child(current_line_item_index + 1) as ShopLineItem
+			
+		Callable(grab_focus_after_break.bind(next_focus_item)).call_deferred()
+#		Callable(next_focus_item.grab_focus).call_deferred()
+		
+	print("removing bought item from shop")
+	current_line_item_in_focus.queue_free()
 
 
 func play_in():
