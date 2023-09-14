@@ -15,6 +15,7 @@ var current_line_item_in_focus: ShopLineItem
 
 var inventory: Inventory = Inventory.new()
 var item_count: int = 5
+var tracked_inventory: Inventory
 
 
 func _ready():
@@ -25,6 +26,10 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		try_buy_focused_item()
+		
+		
+func set_inventory_to_track(new_inventory: Inventory):
+	tracked_inventory = new_inventory
 		
 		
 func init_inventory():

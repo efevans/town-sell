@@ -6,7 +6,7 @@ extends Node2D
 
 @export var npc_interaction_scene: PackedScene
 
-var player_in_range = false
+var current_interact_instance
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,12 +17,15 @@ func _ready():
 
 
 func on_player_entered_area(other_area: Area2D):
-	player_in_range = true
 	gpu_particles_2d.emitting = true
 	random_audio_stream_player_2d.play_random()
+	current_interact_instance = npc_interaction_scene.instantiate()
+	get_tree().root.add_child(current_interact_instance)
+	GameEvents.emit_npc_menu_opened()
 	print("NPC: A player entered my area")
 
 
 func on_player_exited_area(other_area: Area2D):
-	player_in_range = false
+	current_interact_instance.close()
+	GameEvents.emit_npc_menu_closed()
 	print("NPC: A player exited my area");

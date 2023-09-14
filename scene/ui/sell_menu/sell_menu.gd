@@ -12,6 +12,7 @@ var shop_line_item_scene: PackedScene = preload(GameStrings.SHOP_LINE_ITEM_SCENE
 var current_line_item_in_focus: ShopLineItem
 
 var inventory: Inventory = PlayerInventory.inventory
+var tracked_inventory: Inventory
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +24,10 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		try_sell_focused_item()
+		
+		
+func set_inventory_to_track(new_inventory: Inventory):
+	tracked_inventory = new_inventory
 		
 		
 func update_shop_with_player_items():
