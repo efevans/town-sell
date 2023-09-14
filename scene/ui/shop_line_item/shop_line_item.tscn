@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://hhrqek32u4i5"]
+[gd_scene load_steps=3 format=3 uid="uid://mig4ysrwl5tu"]
 
 [ext_resource type="Script" path="res://scene/ui/shop_line_item/shop_line_item.gd" id="1_w7dqo"]
-[ext_resource type="Texture2D" uid="uid://c6ayptk8dvnrd" path="res://resources/item/items/fire_sword/sword.png" id="2_tgabr"]
+[ext_resource type="Texture2D" uid="uid://c6ayptk8dvnrd" path="res://resources/item/items/fire_sword/fire_sword.png" id="2_2cgxm"]
 
 [node name="ShopLineItem" type="PanelContainer"]
 focus_mode = 2
@@ -25,7 +25,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("2_tgabr")
+texture = ExtResource("2_2cgxm")
 
 [node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true

@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://bhbioi44kauyo"]
 
 [ext_resource type="Script" path="res://scene/ui/shop_menu/shop_menu.gd" id="1_ja2t0"]
-[ext_resource type="PackedScene" uid="uid://hhrqek32u4i5" path="res://scene/ui/shop_line_item/shop_line_item.tscn" id="2_bmr84"]
-[ext_resource type="Resource" uid="uid://bsl6yfnw5mfax" path="res://resources/item/items/fire_sword/fire_sword.tres" id="2_dwnlr"]
+[ext_resource type="PackedScene" uid="uid://mig4ysrwl5tu" path="res://scene/ui/shop_line_item/shop_line_item.tscn" id="2_bmr84"]
+[ext_resource type="Resource" path="res://resources/item/items/fire_sword/fire_sword.tres" id="2_dwnlr"]
 [ext_resource type="AudioStream" uid="uid://ws7dhpdi1ota" path="res://assets/audio/menucursormove.ogg" id="2_t8tc4"]
 [ext_resource type="AudioStream" uid="uid://la2jigrl35c6" path="res://assets/audio/buy.ogg" id="3_jxpnp"]
 [ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="3_ksqm4"]

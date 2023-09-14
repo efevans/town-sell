@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=17 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bhbioi44kauyo" path="res://scene/ui/shop_menu/shop_menu.tscn" id="4_yk1w6"]
 [ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera.tscn" id="5_2fs1g"]
 [ext_resource type="Texture2D" uid="uid://ba8f8cc2sr33u" path="res://assets/environment/smoke.png" id="7_q61mj"]
+[ext_resource type="Resource" path="res://resources/item/items/fire_sword/fire_sword.tres" id="8_kmtkt"]
 [ext_resource type="PackedScene" uid="uid://cvfh80wygdck7" path="res://scene/ui/sell_menu/sell_menu.tscn" id="8_uwcig"]
+[ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="9_xah63"]
+[ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="10_0365f"]
 [ext_resource type="PackedScene" uid="uid://cbrj6b3vmnwxl" path="res://scene/ui/day_lights.tscn" id="10_guf5h"]
 
 [sub_resource type="Curve" id="Curve_1e6oh"]
@@ -70,6 +73,7 @@ position = Vector2(328, 128)
 [node name="ShopNPC" parent="Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(381, 237)
 npc_interaction_scene = ExtResource("4_yk1w6")
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
 
 [node name="SellNPC" parent="Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(395, 150)
