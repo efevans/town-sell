@@ -31,7 +31,6 @@ damping_max = 3.0
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_blpw5")
-item_pool = null
 
 [node name="RandomAudioStreamPlayer2D" parent="." instance=ExtResource("2_p40eb")]
 streams = Array[AudioStream]([ExtResource("3_wer0s"), ExtResource("4_awq7m"), ExtResource("5_hjqyp")])

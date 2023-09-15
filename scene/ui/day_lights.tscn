@@ -5,7 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4l2c5"]
 shader = ExtResource("1_djw4w")
-shader_parameter/light_intensity = 1.0
+shader_parameter/light_intensity = 0.0
 shader_parameter/western_bias = 11.0
 shader_parameter/max_intensity = 0.76
 shader_parameter/light_rgb = Color(0.933333, 0.705882, 0.0588235, 1)

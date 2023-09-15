@@ -11,24 +11,28 @@ const cursor_offset = Vector2(-22, 6)
 
 @export var test_items: Array[Item]
 
-static var scene: PackedScene = preload("res://scene/ui/shop_menu/shop_menu.tscn")
+static var my_scene: PackedScene = preload("res://scene/ui/shop_menu/shop_menu.tscn")
 
 var shop_line_item_scene: PackedScene = preload(GameStrings.SHOP_LINE_ITEM_SCENE_PATH)
 var current_line_item_in_focus: ShopLineItem
 
-var inventory: Inventory = Inventory.new()
-var item_count: int = 5
 var tracked_inventory: Inventory
 
 
 static func create(npc_owner: NPC = null):
-	var instance = scene.instantiate() as ShopMenu
+	var instance = my_scene.instantiate() as ShopMenu
 	instance.tracked_inventory = npc_owner.inventory
+	return instance
+	
+
+func setup(npc_owner: NPC):
+	tracked_inventory = npc_owner.inventory
+	return self
 
 
 func _ready():
 	play_in()
-	init_inventory2()
+	setup_inventory()
 		
 		
 func _process(delta):
@@ -40,9 +44,13 @@ func set_inventory_to_track(new_inventory: Inventory):
 	tracked_inventory = new_inventory
 	
 	
-func init_inventory2():
+func setup_inventory():
 	for child in item_container.get_children():
 		child.queue_free()
+		
+	if tracked_inventory.is_empty():
+		cursor_parent.visible = false
+		return
 		
 	var first_line_item: ShopLineItem = null
 	for item in tracked_inventory.storage["items"]:
@@ -57,35 +65,6 @@ func init_inventory2():
 		
 	Callable(grab_focus_after_break.bind(first_line_item)).call_deferred()
 #	Callable(first_line_item.grab_focus).call_deferred()
-	pass
-		
-		
-func init_inventory():
-	for child in item_container.get_children():
-		child.queue_free()
-		
-	for item_index in item_count:
-		var item = test_items.pick_random()
-		inventory.add_item(item)
-		
-	var first_line_item: ShopLineItem = null
-	for item in inventory.storage["items"]:
-		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
-		item_container.add_child(line_item_instance)
-		line_item_instance.set_inventory_to_track(inventory)
-		line_item_instance.set_item(inventory.storage["items"][item]["item_resource"])
-		line_item_instance.selected.connect(on_line_item_selected)
-		
-		if first_line_item == null:
-			first_line_item = line_item_instance
-		
-	Callable(grab_focus_after_break.bind(first_line_item)).call_deferred()
-#	Callable(first_line_item.grab_focus).call_deferred()
-	
-
-func grab_focus_after_break(next_focus_item: ShopLineItem):
-	await get_tree().create_timer(0.01).timeout
-	next_focus_item.grab_focus()
 		
 
 func try_buy_focused_item():
@@ -107,10 +86,8 @@ func buy_item(item: Item):
 	PlayerInventory.inventory.add_item(item)
 	
 	tracked_inventory.remove_item(item)
-#	inventory.remove_item(item)
 	current_line_item_in_focus.item
 	if !tracked_inventory.has_item(item):
-#	if !inventory.has_item(item):
 		remove_item_from_menu_and_update_focus()
 	
 	
@@ -135,6 +112,11 @@ func remove_item_from_menu_and_update_focus():
 		
 	print("removing bought item from shop")
 	current_line_item_in_focus.queue_free()
+	
+
+func grab_focus_after_break(next_focus_item: ShopLineItem):
+	await get_tree().create_timer(0.01).timeout
+	next_focus_item.grab_focus()
 
 
 func play_in():

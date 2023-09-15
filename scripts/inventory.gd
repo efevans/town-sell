@@ -2,6 +2,7 @@ class_name Inventory
 
 signal gold_changed(new_amount: int, original_amount: int, amount_changed: int)
 signal item_removed(item: Item)
+signal item_added(item: Item, count: int)
 
 var storage: Dictionary = {
 	"gold": 5000,
@@ -34,6 +35,10 @@ func get_item_count(item: Item):
 	if !has_item(item):
 		return 0
 	return storage["items"][item.id]["quantity"]
+	
+	
+func is_empty():
+	return storage["items"].is_empty()
 
 
 func add_item(item: Item):
@@ -43,6 +48,7 @@ func add_item(item: Item):
 			"item_resource": item
 		}
 	storage["items"][item.id]["quantity"] += 1
+	item_added.emit(item, storage["items"][item.id]["quantity"])
 
 
 func remove_item(item: Item):

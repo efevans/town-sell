@@ -8,17 +8,29 @@ const cursor_offset = Vector2(-22, 6)
 @onready var cursor_parent = %CursorParent
 @onready var move_cursor_audio_player = $MoveCursorAudioPlayer
 
+static var my_scene: PackedScene = preload("res://scene/ui/shop_menu/shop_menu.tscn")
+
 var shop_line_item_scene: PackedScene = preload(GameStrings.SHOP_LINE_ITEM_SCENE_PATH)
 var current_line_item_in_focus: ShopLineItem
 
-var inventory: Inventory = PlayerInventory.inventory
-var tracked_inventory: Inventory
+var tracked_inventory: Inventory = PlayerInventory.inventory
+
+
+static func create(npc_owner: NPC = null):
+	var instance = my_scene.instantiate() as ShopMenu
+	instance.tracked_inventory = PlayerInventory.inventory
+	return instance
+	
+
+func setup(npc_owner: NPC):
+	tracked_inventory = PlayerInventory.inventory
+	return self
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	play_in()
-	update_shop_with_player_items()
+	setup_inventory()
 		
 		
 func _process(delta):
@@ -26,26 +38,26 @@ func _process(delta):
 		try_sell_focused_item()
 		
 		
-func set_inventory_to_track(new_inventory: Inventory):
-	tracked_inventory = new_inventory
-		
-		
-func update_shop_with_player_items():
+func setup_inventory():
 	for child in item_container.get_children():
 		child.queue_free()
 		
-	for item in PlayerInventory.inventory.storage["items"]:
+	if tracked_inventory.is_empty():
+		cursor_parent.visible = false
+		return
+		
+	var first_line_item: ShopLineItem = null
+	for item in tracked_inventory.storage["items"]:
 		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
 		item_container.add_child(line_item_instance)
-		line_item_instance.set_inventory_to_track(inventory)
-		line_item_instance.set_item(PlayerInventory.inventory.storage["items"][item]["item_resource"])
+		line_item_instance.set_inventory_to_track(tracked_inventory)
+		line_item_instance.set_item(tracked_inventory.storage["items"][item]["item_resource"])
 		line_item_instance.selected.connect(on_line_item_selected)
 		
-	if item_container.get_child_count() > 0:
-		var line_item = item_container.get_child(0) as ShopLineItem
-		Callable(line_item.grab_focus).call_deferred()
-	else:
-		cursor_parent.visible = false
+		if first_line_item == null:
+			first_line_item = line_item_instance
+		
+	Callable(grab_focus_after_break.bind(first_line_item)).call_deferred()
 		
 
 func try_sell_focused_item():

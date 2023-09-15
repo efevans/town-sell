@@ -34,8 +34,8 @@ func init_inventory():
 func on_player_entered_area(other_area: Area2D):
 	gpu_particles_2d.emitting = true
 	random_audio_stream_player_2d.play_random()
-#	current_interact_instance = npc_interaction_scene.instantiate()
-	current_interact_instance = ShopMenu.create(self)
+	current_interact_instance = npc_interaction_scene.instantiate().setup(self)
+#	current_interact_instance = ShopMenu.create(self)
 	get_tree().root.add_child(current_interact_instance)
 	GameEvents.emit_npc_menu_opened()
 	print("NPC: A player entered my area")
