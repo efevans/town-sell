@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bni8p60g2fp2y"
-path="res://.godot/imported/crab.png-8c38f565bcebc60cd07bbeb37f01f45a.ctex"
+path="res://.godot/imported/crab.png-32be1a0bd05010bd396b2fe2d73dc98e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/crab.png"
-dest_files=["res://.godot/imported/crab.png-8c38f565bcebc60cd07bbeb37f01f45a.ctex"]
+source_file="res://scene/game_object/player/crab.png"
+dest_files=["res://.godot/imported/crab.png-32be1a0bd05010bd396b2fe2d73dc98e.ctex"]
 
 [params]
 

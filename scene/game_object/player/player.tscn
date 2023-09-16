@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7d2p03aarywf"]
 
-[ext_resource type="Texture2D" uid="uid://bni8p60g2fp2y" path="res://scene/crab.png" id="1_tpput"]
-[ext_resource type="Script" path="res://scene/player.gd" id="1_y6lcu"]
+[ext_resource type="Script" path="res://scene/game_object/player/player.gd" id="1_lsjey"]
+[ext_resource type="Texture2D" uid="uid://bni8p60g2fp2y" path="res://scene/game_object/player/crab.png" id="2_0e2px"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j2hix"]
 radius = 9.0
@@ -12,14 +12,14 @@ radius = 25.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_y6lcu")
+script = ExtResource("1_lsjey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_j2hix")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_tpput")
+texture = ExtResource("2_0e2px")
 offset = Vector2(0, -3)
 
 [node name="NPCInteractionArea2D" type="Area2D" parent="." groups=["player"]]
