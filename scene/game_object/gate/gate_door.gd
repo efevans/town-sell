@@ -3,10 +3,10 @@ extends StaticBody2D
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 
-var door_1 = preload("res://scene/door.png")
-var door_2 = preload("res://scene/door2.png")
-var door_3 = preload("res://scene/door3.png")
-var door_4 = preload("res://scene/door_open.png")
+var door_1 = preload("res://scene/game_object/gate/door1.png")
+var door_2 = preload("res://scene/game_object/gate/door2.png")
+var door_3 = preload("res://scene/game_object/gate/door3.png")
+var door_4 = preload("res://scene/game_object/gate/door4.png")
 
 
 func open_door():

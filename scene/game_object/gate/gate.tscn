@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://g1yujt1qmkg8"]
 
-[ext_resource type="Script" path="res://scene/gate.gd" id="1_de7k5"]
-[ext_resource type="PackedScene" uid="uid://cyjwdtg8p5p23" path="res://scene/gate_door.tscn" id="1_uj2d7"]
+[ext_resource type="Script" path="res://scene/game_object/gate/gate.gd" id="1_de7k5"]
+[ext_resource type="PackedScene" uid="uid://cyjwdtg8p5p23" path="res://scene/game_object/gate/gate_door.tscn" id="1_uj2d7"]
 
 [node name="Gate" type="Node2D"]
 script = ExtResource("1_de7k5")

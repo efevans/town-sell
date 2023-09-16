@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyjwdtg8p5p23"]
 
-[ext_resource type="Script" path="res://scene/gate_door.gd" id="1_i1uka"]
-[ext_resource type="Texture2D" uid="uid://54lvmtve03v4" path="res://scene/door.png" id="2_7pulf"]
+[ext_resource type="Script" path="res://scene/game_object/gate/gate_door.gd" id="1_f18pm"]
+[ext_resource type="Texture2D" uid="uid://54lvmtve03v4" path="res://scene/game_object/gate/door1.png" id="2_0xa70"]
 
 [sub_resource type="Animation" id="Animation_kgdii"]
 length = 0.001
@@ -136,7 +136,7 @@ _data = {
 size = Vector2(32, 6)
 
 [node name="GateDoor" type="StaticBody2D"]
-script = ExtResource("1_i1uka")
+script = ExtResource("1_f18pm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -144,7 +144,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7pulf")
+texture = ExtResource("2_0xa70")
 offset = Vector2(4, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
