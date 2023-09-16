@@ -17,6 +17,7 @@ func _ready():
 	
 func set_inventory_to_track(inventory: Inventory):
 	tracked_inventory = inventory
+	tracked_inventory.item_added.connect(on_tracked_inventory_item_added)
 	tracked_inventory.item_removed.connect(on_tracked_inventory_item_removed)
 	
 	
@@ -40,6 +41,11 @@ func on_focus_entered():
 func on_focus_exited():
 	print("I'm out of focus")
 	theme_type_variation = default_theme
+	
+	
+func on_tracked_inventory_item_added(added_item: Item):
+	if added_item.id == item.id:
+		update_labels()
 	
 	
 func on_tracked_inventory_item_removed(removed_item: Item):

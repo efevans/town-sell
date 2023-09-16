@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwq5msqhrm6jn"]
+
+[ext_resource type="AudioStream" uid="uid://ws7dhpdi1ota" path="res://assets/audio/menucursormove.ogg" id="1_4vyca"]
+[ext_resource type="PackedScene" uid="uid://mig4ysrwl5tu" path="res://scene/ui/shop_line_item/shop_line_item.tscn" id="1_6mxqc"]
+[ext_resource type="Script" path="res://scene/ui/line_item_menu/line_item_menu.gd" id="1_xjmh1"]
+[ext_resource type="Texture2D" uid="uid://cvybg47nt3bqp" path="res://assets/ui/Cursor.png" id="2_5m2j1"]
+[ext_resource type="AudioStream" uid="uid://la2jigrl35c6" path="res://assets/audio/buy.ogg" id="2_mcb62"]
+
+[sub_resource type="Animation" id="Animation_d2kxb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CursorParent/CursorHint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bbhn7"]
+resource_name = "oscillate"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CursorParent/CursorHint:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7j8ap"]
+_data = {
+"RESET": SubResource("Animation_d2kxb"),
+"oscillate": SubResource("Animation_bbhn7")
+}
+
+[node name="LineItemMenu" type="MarginContainer"]
+theme_type_variation = &"MarginContainerNPCSubMenu"
+script = ExtResource("1_xjmh1")
+
+[node name="MoveCursorAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_4vyca")
+volume_db = -12.0
+pitch_scale = 0.8
+
+[node name="InteractLineItemAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mcb62")
+volume_db = -12.0
+pitch_scale = 1.07
+
+[node name="CursorAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7j8ap")
+}
+
+[node name="ItemContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ShopLineItem" parent="ItemContainer" instance=ExtResource("1_6mxqc")]
+layout_mode = 2
+
+[node name="ShopLineItem2" parent="ItemContainer" instance=ExtResource("1_6mxqc")]
+layout_mode = 2
+
+[node name="ShopLineItem3" parent="ItemContainer" instance=ExtResource("1_6mxqc")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="CursorParent" type="Control" parent="Control"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -5.0
+offset_right = -5.0
+
+[node name="CursorHint" type="TextureRect" parent="Control/CursorParent"]
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5m2j1")
