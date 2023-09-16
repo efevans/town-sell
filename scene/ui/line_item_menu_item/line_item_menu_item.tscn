@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://mig4ysrwl5tu"]
 
-[ext_resource type="Script" path="res://scene/ui/shop_line_item/shop_line_item.gd" id="1_w7dqo"]
-[ext_resource type="Texture2D" uid="uid://c6ayptk8dvnrd" path="res://resources/item/items/fire_sword/fire_sword.png" id="2_2cgxm"]
+[ext_resource type="Script" path="res://scene/ui/line_item_menu_item/line_item_menu_item.gd" id="1_g64px"]
+[ext_resource type="Texture2D" uid="uid://c6ayptk8dvnrd" path="res://resources/item/items/fire_sword/fire_sword.png" id="2_3xlmo"]
 
-[node name="ShopLineItem" type="PanelContainer"]
+[node name="LineItemMenuItem" type="PanelContainer"]
 focus_mode = 2
 mouse_filter = 2
 theme_type_variation = &"PanelContainerLineItem"
-script = ExtResource("1_w7dqo")
+script = ExtResource("1_g64px")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -25,7 +25,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("2_2cgxm")
+texture = ExtResource("2_3xlmo")
 
 [node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true

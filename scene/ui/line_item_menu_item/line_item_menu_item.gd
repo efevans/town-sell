@@ -1,7 +1,7 @@
 extends PanelContainer
-class_name ShopLineItem
+class_name LineItemMenuItem
 
-signal selected(line_item: ShopLineItem)
+signal selected(line_item: LineItemMenuItem)
 
 const default_theme: String = "PanelContainerLineItem"
 const in_focus_theme: String = "PanelContainerLineItemSelected"

@@ -1,5 +1,5 @@
 extends CanvasLayer
-class_name ShopMenu
+class_name NPCMenu
 
 @onready var animation_player = $AnimationPlayer
 @onready var inner_menu_container = %InnerMenuContainer
@@ -43,9 +43,9 @@ func set_inner_menu(inner_menu: Container):
 #		cursor_parent.visible = false
 #		return
 #
-#	var first_line_item: ShopLineItem = null
+#	var first_line_item: LineItemMenuItem = null
 #	for item in tracked_inventory.storage["items"]:
-#		var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
+#		var line_item_instance = shop_line_item_scene.instantiate() as LineItemMenuItem
 #		item_container.add_child(line_item_instance)
 #		line_item_instance.set_inventory_to_track(tracked_inventory)
 #		line_item_instance.set_item(tracked_inventory.storage["items"][item]["item_resource"])
@@ -92,10 +92,10 @@ func set_inner_menu(inner_menu: Container):
 #		var next_focus_item
 #		if current_line_item_index == items_in_shop - 1:
 #			# Last item, set focus to previous item
-#			next_focus_item = item_container.get_child(current_line_item_index - 1) as ShopLineItem
+#			next_focus_item = item_container.get_child(current_line_item_index - 1) as LineItemMenuItem
 #		else:
 #			# Not last item, set focus to next item
-#			next_focus_item = item_container.get_child(current_line_item_index + 1) as ShopLineItem
+#			next_focus_item = item_container.get_child(current_line_item_index + 1) as LineItemMenuItem
 #
 #		Callable(grab_focus_after_break.bind(next_focus_item)).call_deferred()
 ##		Callable(next_focus_item.grab_focus).call_deferred()
@@ -104,7 +104,7 @@ func set_inner_menu(inner_menu: Container):
 #	current_line_item_in_focus.queue_free()
 	
 
-#func grab_focus_after_break(next_focus_item: ShopLineItem):
+#func grab_focus_after_break(next_focus_item: LineItemMenuItem):
 #	await get_tree().create_timer(0.01).timeout
 #	next_focus_item.grab_focus()
 
@@ -119,11 +119,11 @@ func close():
 	queue_free()
 	
 
-#func get_cursor_position_for_line_item(line_item: ShopLineItem):
+#func get_cursor_position_for_line_item(line_item: LineItemMenuItem):
 #	return line_item.global_position + cursor_offset
 #
 #
-#func move_cursor_to_line_item(line_item: ShopLineItem):
+#func move_cursor_to_line_item(line_item: LineItemMenuItem):
 #	print("selected line item at " + str(line_item.global_position))
 #	var target_position = get_cursor_position_for_line_item(line_item)
 #	var tween = create_tween()
@@ -131,7 +131,7 @@ func close():
 #	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 #
 #
-#func on_line_item_selected(line_item: ShopLineItem):
+#func on_line_item_selected(line_item: LineItemMenuItem):
 #	current_line_item_in_focus = line_item
 #	move_cursor_audio_player.play()
 #	move_cursor_to_line_item(line_item)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
 [ext_resource type="TileSet" uid="uid://ujg37uru0myo" path="res://resources/tileset/tileset.tres" id="2_fayvw"]
 [ext_resource type="PackedScene" uid="uid://c7d2p03aarywf" path="res://scene/player.tscn" id="2_hdwl7"]
-[ext_resource type="PackedScene" uid="uid://755l4g054bp8" path="res://scene/npc/npc.tscn" id="3_fbbyu"]
+[ext_resource type="PackedScene" uid="uid://755l4g054bp8" path="res://scene/game_object/npc/npc.tscn" id="3_fbbyu"]
 [ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera.tscn" id="5_2fs1g"]
 [ext_resource type="Texture2D" uid="uid://ba8f8cc2sr33u" path="res://assets/environment/smoke.png" id="7_q61mj"]
 [ext_resource type="PackedScene" uid="uid://dwq5msqhrm6jn" path="res://scene/ui/line_item_menu/line_item_menu.tscn" id="7_qf5ao"]

@@ -10,8 +10,8 @@ const CURSOR_OFFSET = Vector2(-22, 6)
 @onready var cursor_parent = %CursorParent
 @onready var move_cursor_audio_player = $MoveCursorAudioPlayer
 
-var shop_line_item_scene: PackedScene = preload(GameStrings.SHOP_LINE_ITEM_SCENE_PATH)
-var current_line_item_in_focus: ShopLineItem
+var shop_line_item_scene: PackedScene = preload(GameStrings.LINE_ITEM_MENU_ITEM_SCENE_PATH)
+var current_line_item_in_focus: LineItemMenuItem
 
 var buyer_inventory: Inventory
 
@@ -41,7 +41,7 @@ func setup_items():
 		cursor_parent.visible = false
 		return
 		
-	var first_line_item: ShopLineItem = null
+	var first_line_item: LineItemMenuItem = null
 	for item in type_controller.seller_inventory.storage["items"]:
 		var line_item_instance = add_line_item(type_controller.seller_inventory.storage["items"][item]["item_resource"])
 		
@@ -62,7 +62,7 @@ func try_interact_focused_item():
 	
 
 func add_line_item(item: Item):
-	var line_item_instance = shop_line_item_scene.instantiate() as ShopLineItem
+	var line_item_instance = shop_line_item_scene.instantiate() as LineItemMenuItem
 	item_container.add_child(line_item_instance)
 	line_item_instance.set_inventory_to_track(type_controller.seller_inventory)
 	line_item_instance.set_item(item)
@@ -70,12 +70,12 @@ func add_line_item(item: Item):
 	return line_item_instance
 
 
-func grab_focus_after_break(next_focus_item: ShopLineItem):
+func grab_focus_after_break(next_focus_item: LineItemMenuItem):
 	await get_tree().create_timer(0.01).timeout
 	next_focus_item.grab_focus()
 	
 	
-func remove_item_and_update_focus(line_item: ShopLineItem):
+func remove_item_and_update_focus(line_item: LineItemMenuItem):
 	var item_index = item_container.get_children().find(line_item)
 	
 	var items_in_shop = item_container.get_child_count()
@@ -88,10 +88,10 @@ func remove_item_and_update_focus(line_item: ShopLineItem):
 		var next_focus_item
 		if item_index == items_in_shop - 1:
 			# Last item, set focus to previous item
-			next_focus_item = item_container.get_child(item_index - 1) as ShopLineItem
+			next_focus_item = item_container.get_child(item_index - 1) as LineItemMenuItem
 		else:
 			# Not last item, set focus to next item
-			next_focus_item = item_container.get_child(item_index + 1) as ShopLineItem
+			next_focus_item = item_container.get_child(item_index + 1) as LineItemMenuItem
 			
 		Callable(grab_focus_after_break.bind(next_focus_item)).call_deferred()
 #		Callable(next_focus_item.grab_focus).call_deferred()
@@ -100,11 +100,11 @@ func remove_item_and_update_focus(line_item: ShopLineItem):
 	current_line_item_in_focus.queue_free()
 	
 
-func get_cursor_position_for_line_item(line_item: ShopLineItem):
+func get_cursor_position_for_line_item(line_item: LineItemMenuItem):
 	return line_item.global_position + CURSOR_OFFSET
 	
 	
-func move_cursor_to_line_item(line_item: ShopLineItem):
+func move_cursor_to_line_item(line_item: LineItemMenuItem):
 	print("selected line item at " + str(line_item.global_position))
 	var target_position = get_cursor_position_for_line_item(line_item)
 	var tween = create_tween()
@@ -112,14 +112,14 @@ func move_cursor_to_line_item(line_item: ShopLineItem):
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 
-func on_line_item_selected(line_item: ShopLineItem):
+func on_line_item_selected(line_item: LineItemMenuItem):
 	current_line_item_in_focus = line_item
 	move_cursor_audio_player.play()
 	move_cursor_to_line_item(line_item)
 	
 	
 func on_item_added_to_inventory(item: Item):
-	var item_already_tracked = item_container.get_children().any(func (line_item: ShopLineItem):
+	var item_already_tracked = item_container.get_children().any(func (line_item: LineItemMenuItem):
 		if line_item.item.id == item.id:
 			return true
 		return false
@@ -137,8 +137,8 @@ func on_item_removed_from_inventory(item: Item):
 	if item_still_in_stock:
 		return
 	
-	var line_item_for_depleted_item: ShopLineItem = null
-	for line_item in item_container.get_children() as Array[ShopLineItem]:
+	var line_item_for_depleted_item: LineItemMenuItem = null
+	for line_item in item_container.get_children() as Array[LineItemMenuItem]:
 		if line_item.item.id == item.id:
 			line_item_for_depleted_item = line_item
 			break

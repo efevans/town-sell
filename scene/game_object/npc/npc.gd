@@ -37,7 +37,7 @@ func init_inventory():
 		
 		
 func setup_menu_instance():
-	current_interact_instance = BASE_SHOP_MENU_SCENE.instantiate().setup(self) as ShopMenu
+	current_interact_instance = BASE_SHOP_MENU_SCENE.instantiate().setup(self) as NPCMenu
 	get_tree().root.add_child(current_interact_instance)
 	
 	var inner_shop_instance = menu_type_scene.instantiate() as LineItemMenu
