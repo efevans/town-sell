@@ -37,6 +37,13 @@ func get_item_count(item: Item):
 	return storage["items"][item.id]["quantity"]
 	
 	
+func get_random_item() -> Item:
+	var rand = storage["items"].keys().pick_random()
+	if rand == null:
+		return
+	return storage["items"][rand]["item_resource"]
+	
+	
 func is_empty():
 	return storage["items"].is_empty()
 

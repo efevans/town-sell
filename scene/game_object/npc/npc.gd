@@ -27,6 +27,15 @@ func _ready():
 	npc_interact_area_2d.area_exited.connect(on_player_exited_area)
 	
 	
+func _process(delta):
+	if Input.is_action_just_pressed("debut_print_inventory"):
+		var item = inventory.get_random_item()
+		if item == null:
+			return
+		inventory.remove_item(item)
+
+	
+	
 func init_inventory():
 	if item_pool == null || item_pool.is_empty():
 		return

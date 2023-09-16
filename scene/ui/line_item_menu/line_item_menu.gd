@@ -71,7 +71,7 @@ func add_line_item(item: Item):
 
 
 func grab_focus_after_break(next_focus_item: LineItemMenuItem):
-	await get_tree().create_timer(0.01).timeout
+	await get_tree().create_timer(0.02).timeout
 	next_focus_item.grab_focus()
 	
 	
@@ -94,10 +94,10 @@ func remove_item_and_update_focus(line_item: LineItemMenuItem):
 			next_focus_item = item_container.get_child(item_index + 1) as LineItemMenuItem
 			
 		Callable(grab_focus_after_break.bind(next_focus_item)).call_deferred()
-#		Callable(next_focus_item.grab_focus).call_deferred()
 		
 	print("removing sold item from shop")
-	current_line_item_in_focus.queue_free()
+	line_item.queue_free()
+		
 	
 
 func get_cursor_position_for_line_item(line_item: LineItemMenuItem):
@@ -113,6 +113,9 @@ func move_cursor_to_line_item(line_item: LineItemMenuItem):
 	
 
 func on_line_item_selected(line_item: LineItemMenuItem):
+	if current_line_item_in_focus == line_item:
+		return
+	
 	current_line_item_in_focus = line_item
 	move_cursor_audio_player.play()
 	move_cursor_to_line_item(line_item)
