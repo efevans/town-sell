@@ -18,8 +18,14 @@ var buyer_inventory: Inventory
 var type_controller
 
 
+#func setup() -> LineItemMenu:
+#	setup_items()
+#	return self
+
+
 func _ready():
 	setup_items()
+	pass
 		
 		
 func _process(delta):
@@ -37,7 +43,7 @@ func setup_items():
 	for child in item_container.get_children():
 		child.queue_free()
 		
-	if type_controller.seller_inventory.is_empty():
+	if type_controller == null || type_controller.seller_inventory.is_empty():
 		cursor_parent.visible = false
 		return
 		

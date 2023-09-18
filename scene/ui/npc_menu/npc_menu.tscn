@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhbioi44kauyo"]
+[gd_scene load_steps=6 format=3 uid="uid://bhbioi44kauyo"]
 
 [ext_resource type="Script" path="res://scene/ui/npc_menu/npc_menu.gd" id="1_rn8s8"]
+[ext_resource type="PackedScene" uid="uid://dwq5msqhrm6jn" path="res://scene/ui/line_item_menu/line_item_menu.tscn" id="2_0wm78"]
 
 [sub_resource type="Animation" id="Animation_t432t"]
 length = 0.001
@@ -86,15 +87,18 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuMarginContainer/MenuPanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="InnerMenuContainer" type="MarginContainer" parent="MenuMarginContainer/MenuPanel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LineItemMenu" parent="MenuMarginContainer/MenuPanel/MarginContainer/InnerMenuContainer" instance=ExtResource("2_0wm78")]
+layout_mode = 2

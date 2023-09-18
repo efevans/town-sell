@@ -19,6 +19,8 @@ func _ready():
 	
 	
 func set_inner_menu(inner_menu: Container):
+	for child in inner_menu_container.get_children():
+		child.queue_free()
 	inner_menu_container.add_child(inner_menu)
 
 
