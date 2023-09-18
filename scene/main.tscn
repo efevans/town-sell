@@ -11,7 +11,7 @@
 [ext_resource type="Resource" path="res://resources/item/items/fire_sword/fire_sword.tres" id="8_kmtkt"]
 [ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="9_xah63"]
 [ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="10_0365f"]
-[ext_resource type="PackedScene" uid="uid://cbrj6b3vmnwxl" path="res://scene/ui/day_lights.tscn" id="10_guf5h"]
+[ext_resource type="PackedScene" uid="uid://cbrj6b3vmnwxl" path="res://scene/ui/day_lights/day_lights.tscn" id="10_guf5h"]
 [ext_resource type="PackedScene" uid="uid://dc5ugvdvxpkqu" path="res://scene/ui/player_gold/player_gold.tscn" id="13_ddihw"]
 
 [sub_resource type="Curve" id="Curve_1e6oh"]

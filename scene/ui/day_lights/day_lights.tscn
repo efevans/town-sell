@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbrj6b3vmnwxl"]
 
-[ext_resource type="Shader" path="res://scene/ui/day_lights.gdshader" id="1_djw4w"]
-[ext_resource type="Script" path="res://scene/ui/day_lights.gd" id="1_dtrdh"]
+[ext_resource type="Shader" path="res://scene/ui/day_lights/day_lights.gdshader" id="1_djw4w"]
+[ext_resource type="Script" path="res://scene/ui/day_lights/day_lights.gd" id="1_dtrdh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4l2c5"]
 shader = ExtResource("1_djw4w")
