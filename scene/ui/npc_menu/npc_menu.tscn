@@ -1,9 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhbioi44kauyo"]
+[gd_scene load_steps=6 format=3 uid="uid://bhbioi44kauyo"]
 
 [ext_resource type="Script" path="res://scene/ui/npc_menu/npc_menu.gd" id="1_rn8s8"]
-[ext_resource type="Resource" path="res://resources/item/items/fire_sword/fire_sword.tres" id="2_o25b5"]
-[ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="3_7up1a"]
-[ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="4_k3km4"]
 [ext_resource type="PackedScene" uid="uid://mdr0cluepn05" path="res://scene/ui/gold_panel_container/gold_panel_container.tscn" id="5_giahp"]
 
 [sub_resource type="Animation" id="Animation_t432t"]
@@ -70,7 +67,6 @@ _data = {
 [node name="NPCMenu" type="CanvasLayer"]
 layer = 5
 script = ExtResource("1_rn8s8")
-test_items = Array[Resource("res://resources/item/item.gd")]([ExtResource("2_o25b5"), ExtResource("3_7up1a"), ExtResource("4_k3km4")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
