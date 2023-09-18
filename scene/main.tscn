@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=17 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="9_xah63"]
 [ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="10_0365f"]
 [ext_resource type="PackedScene" uid="uid://cbrj6b3vmnwxl" path="res://scene/ui/day_lights.tscn" id="10_guf5h"]
+[ext_resource type="PackedScene" uid="uid://dc5ugvdvxpkqu" path="res://scene/ui/player_gold/player_gold.tscn" id="13_ddihw"]
 
 [sub_resource type="Curve" id="Curve_1e6oh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.528889, 0.854545), -0.568182, -0.568182, 0, 0, Vector2(0.982222, 0.0454545), -2.42424, 0.0, 0, 0]
@@ -97,3 +98,5 @@ lifetime = 4.0
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 
 [node name="DayLights" parent="." instance=ExtResource("10_guf5h")]
+
+[node name="PlayerGold" parent="." instance=ExtResource("13_ddihw")]

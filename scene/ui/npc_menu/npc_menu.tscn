@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhbioi44kauyo"]
+[gd_scene load_steps=5 format=3 uid="uid://bhbioi44kauyo"]
 
 [ext_resource type="Script" path="res://scene/ui/npc_menu/npc_menu.gd" id="1_rn8s8"]
-[ext_resource type="PackedScene" uid="uid://mdr0cluepn05" path="res://scene/ui/gold_panel_container/gold_panel_container.tscn" id="5_giahp"]
 
 [sub_resource type="Animation" id="Animation_t432t"]
 length = 0.001
@@ -85,25 +84,17 @@ theme_type_variation = &"MarginContainerNPCMenu"
 [node name="MenuPanel" type="PanelContainer" parent="MenuMarginContainer"]
 layout_mode = 2
 
-[node name="InnerMenuContainer" type="MarginContainer" parent="MenuMarginContainer/MenuPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuMarginContainer/MenuPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="InnerMenuContainer" type="MarginContainer" parent="MenuMarginContainer/MenuPanel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
-
-[node name="PlayerGoldMarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 480
-theme_override_constants/margin_top = 204
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 110
-
-[node name="GoldPanelContainer" parent="PlayerGoldMarginContainer" node_paths=PackedStringArray("canvas_layer") instance=ExtResource("5_giahp")]
-layout_mode = 2
-canvas_layer = NodePath("../..")

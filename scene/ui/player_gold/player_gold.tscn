@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc5ugvdvxpkqu"]
+
+[ext_resource type="Script" path="res://scene/ui/player_gold/player_gold.gd" id="1_0eehe"]
+
+[node name="PlayerGold" type="CanvasLayer"]
+script = ExtResource("1_0eehe")
+
+[node name="PlayerGold" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MarginContainerPlayerGold"
+
+[node name="GoldPanelContainer" type="PanelContainer" parent="PlayerGold"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerGold/GoldPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="PlayerGold/GoldPanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerLineItem"
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerGold/GoldPanelContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="GoldLabel" type="Label" parent="PlayerGold/GoldPanelContainer/MarginContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"LabelMenu"
+text = "500G"
+vertical_alignment = 1

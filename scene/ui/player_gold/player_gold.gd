@@ -1,7 +1,7 @@
-extends PanelContainer
+extends CanvasLayer
 
 @onready var gold_label = %GoldLabel
-@export var canvas_layer: CanvasLayer
+#@export var canvas_layer: CanvasLayer
 
 var floating_text_scene: PackedScene = preload("res://scene/ui/floating_text/floating_text.tscn")
 
@@ -26,7 +26,7 @@ func update_gold_with_animation(new_amount: int, amount_changed: int):
 		return
 	
 	var floating_text = floating_text_scene.instantiate() as Control
-	canvas_layer.add_child(floating_text)
+	add_child(floating_text)
 	
 	floating_text.global_position = gold_label.global_position + gold_label.size - Vector2(0, 10)
 	
