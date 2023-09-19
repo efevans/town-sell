@@ -36,20 +36,22 @@ script = ExtResource("1_xrveu")
 streams = Array[AudioStream]([ExtResource("3_durq0"), ExtResource("4_3xg6b"), ExtResource("5_j70hq")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
 texture = ExtResource("6_cwosm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_ehed2")
 
 [node name="NPCInteractArea2D" parent="." instance=ExtResource("7_1b8mg")]
+position = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCInteractArea2D"]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_35ws8")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(5, -7)
+position = Vector2(5, -6)
 emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_1jdbo")
