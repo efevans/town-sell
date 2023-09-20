@@ -6,5 +6,7 @@ func create(type: LineItemMenu.Type, owner_entity):
 			return PlayerBuyInteractionController.new().init(owner_entity)
 		LineItemMenu.Type.PLAYER_SELL:
 			return PlayerSellInteractionController.new().init(owner_entity)
+		LineItemMenu.Type.SINGLE_CHOICE_BUY:
+			return null
 		_:
 			return null

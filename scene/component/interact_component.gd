@@ -8,7 +8,6 @@ const BASE_MENU_SCENE: PackedScene = preload(GameStrings.NPC_MENU_SCENE_PATH)
 const BASE_DIALOG_SCENE: PackedScene = preload(GameStrings.NPC_DIALOG_SCENE_PATH)
 
 @export_group("Menu Properties")
-#@export var menu_type_scene: PackedScene
 @export var menu_type: NPCMenu.Type = NPCMenu.Type.LINE_ITEM
 @export var menu_sub_type: LineItemMenu.Type = LineItemMenu.Type.PLAYER_BUY
 

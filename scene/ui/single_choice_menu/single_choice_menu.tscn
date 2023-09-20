@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1nsryw4wqsn1"]
+
+[ext_resource type="Script" path="res://scene/ui/single_choice_menu/single_choice_menu.gd" id="1_0nc2p"]
+[ext_resource type="AudioStream" uid="uid://la2jigrl35c6" path="res://assets/audio/buy.ogg" id="2_5wcay"]
+[ext_resource type="Texture2D" uid="uid://cvybg47nt3bqp" path="res://assets/ui/Cursor.png" id="2_k5fje"]
+
+[sub_resource type="Animation" id="Animation_d2kxb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CursorParent/CursorHint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bbhn7"]
+resource_name = "oscillate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CursorParent/CursorHint:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7j8ap"]
+_data = {
+"RESET": SubResource("Animation_d2kxb"),
+"oscillate": SubResource("Animation_bbhn7")
+}
+
+[node name="SingleChoiceMenu" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0nc2p")
+
+[node name="CursorAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+autoplay = "oscillate"
+libraries = {
+"": SubResource("AnimationLibrary_7j8ap")
+}
+
+[node name="InteractLineItemAudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_5wcay")
+volume_db = -12.0
+pitch_scale = 1.07
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerLineItem"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelMenu"
+text = "PAY THE TOLL TO OPEN THE GATE?
+(5000g)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choice" type="PanelContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"PanelContainerLineItemSelected"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Choice"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+
+[node name="Label" type="Label" parent="VBoxContainer/Choice/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelMenu"
+text = "YES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="CursorParent" type="Control" parent="Control"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 53.0
+offset_right = 34.0
+offset_bottom = 53.0
+
+[node name="CursorHint" type="TextureRect" parent="Control/CursorParent"]
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k5fje")

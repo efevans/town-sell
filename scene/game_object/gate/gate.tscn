@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g1yujt1qmkg8"]
+[gd_scene load_steps=4 format=3 uid="uid://g1yujt1qmkg8"]
 
 [ext_resource type="Script" path="res://scene/game_object/gate/gate.gd" id="1_de7k5"]
 [ext_resource type="PackedScene" uid="uid://cyjwdtg8p5p23" path="res://scene/game_object/gate/gate_door.tscn" id="1_uj2d7"]
+[ext_resource type="PackedScene" uid="uid://cxlkcf4k1j0es" path="res://scene/component/interact_component.tscn" id="3_ej5f5"]
 
 [node name="Gate" type="Node2D"]
 script = ExtResource("1_de7k5")
@@ -14,3 +15,8 @@ position = Vector2(16, 0)
 scale = Vector2(-1, 1)
 
 [node name="GateDoor2" parent="Reverse" instance=ExtResource("1_uj2d7")]
+
+[node name="InteractComponent" parent="." instance=ExtResource("3_ej5f5")]
+position = Vector2(0, 16)
+menu_type = 1
+menu_sub_type = 2
