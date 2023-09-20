@@ -29,9 +29,7 @@ func _ready():
 #	npc_interact_area_2d.area_entered.connect(on_player_entered_area)
 #	npc_interact_area_2d.area_exited.connect(on_player_exited_area)
 	print(interact_component)
-	interact_component.opened.connect(on_interact_opened)
-	interact_component.closed.connect(on_interact_closed)
-	
+	setup_interaction()
 	
 func _process(delta):
 	if Input.is_action_just_pressed("debut_print_inventory"):
@@ -40,6 +38,12 @@ func _process(delta):
 			return
 		inventory.remove_item(item)
 
+
+func setup_interaction():
+	if interact_component == null:
+		return
+	interact_component.opened.connect(on_interact_opened)
+	interact_component.closed.connect(on_interact_closed)
 	
 	
 func init_inventory():

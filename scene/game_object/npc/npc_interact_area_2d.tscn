@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dblgeh1gl5xb0"]
-
-[ext_resource type="Script" path="res://scene/game_object/npc/npc_interact_area_2d.gd" id="1_hvraq"]
-
-[node name="NPCInteractArea2D" type="Area2D"]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("1_hvraq")

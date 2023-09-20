@@ -7,11 +7,10 @@ signal closed
 const BASE_MENU_SCENE: PackedScene = preload(GameStrings.NPC_MENU_SCENE_PATH)
 const BASE_DIALOG_SCENE: PackedScene = preload(GameStrings.NPC_DIALOG_SCENE_PATH)
 
-#@onready var interact_area_2d: CollisionShape2D = $CollisionShape2D
-
 @export_group("Menu Properties")
-@export var menu_type_scene: PackedScene
-@export var menu_type: LineItemMenu.Type = LineItemMenu.Type.PLAYER_BUY
+#@export var menu_type_scene: PackedScene
+@export var menu_type: NPCMenu.Type = NPCMenu.Type.LINE_ITEM
+@export var menu_sub_type: LineItemMenu.Type = LineItemMenu.Type.PLAYER_BUY
 
 @export_group("", "")
 
@@ -25,20 +24,17 @@ func _ready():
 	owner_entity = get_parent()
 	area_entered.connect(on_player_entered_area)
 	area_exited.connect(on_player_exited_area)
-	
-	
-#func init(owner):
-#	owner_entity = owner
 		
 		
 func setup_menu():
 	current_menu_instance = BASE_MENU_SCENE.instantiate() as NPCMenu
 	get_tree().root.add_child(current_menu_instance)
 	
-	var inner_shop_instance = menu_type_scene.instantiate() as LineItemMenu
+#	var inner_shop_instance = menu_type_scene.instantiate() as LineItemMenu
+	var inner_shop_instance = NPCMenuTypeFactory.create(menu_type)
 	# instantiate
 	var line_item_menu_type_controller = LineItemMenuInteractionControllerFactory.new()\
-	.create(menu_type, owner_entity)
+	.create(menu_sub_type, owner_entity)
 	inner_shop_instance.set_type_controller(line_item_menu_type_controller)
 	
 	current_menu_instance.set_inner_menu(inner_shop_instance)

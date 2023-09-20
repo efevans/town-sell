@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=17 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="9_xah63"]
 [ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="10_0365f"]
 [ext_resource type="PackedScene" uid="uid://cbrj6b3vmnwxl" path="res://scene/ui/day_lights/day_lights.tscn" id="10_guf5h"]
+[ext_resource type="PackedScene" uid="uid://cxlkcf4k1j0es" path="res://scene/component/interact_component.tscn" id="10_klt2c"]
 [ext_resource type="PackedScene" uid="uid://dc5ugvdvxpkqu" path="res://scene/ui/player_gold/player_gold.tscn" id="13_ddihw"]
 
 [sub_resource type="Curve" id="Curve_1e6oh"]
@@ -86,23 +87,34 @@ position = Vector2(381, 237)
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
 item_count = 15
 
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC" instance=ExtResource("10_klt2c")]
+
 [node name="ShopNPC2" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(217, 459)
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
 item_count = 15
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC2" instance=ExtResource("10_klt2c")]
 
 [node name="ShopNPC3" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(314, 430)
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
 item_count = 15
 
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC3" instance=ExtResource("10_klt2c")]
+
 [node name="ShopNPC4" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(203, 220)
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
 item_count = 15
 
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC4" instance=ExtResource("10_klt2c")]
+
 [node name="SellNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(395, 158)
+
+[node name="InteractComponent" parent="Node2D/Entities/SellNPC" instance=ExtResource("10_klt2c")]
+menu_sub_type = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D"]
 z_index = 5
