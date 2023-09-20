@@ -12,8 +12,8 @@ var targeting_mode = TARGETING_MODE.PLAYER
 
 func _ready():
 	make_current()
-	GameEvents.npc_menu_opened.connect(on_npc_menu_opened)
-	GameEvents.npc_menu_closed.connect(on_npc_menu_closed)
+	GameEvents.interactable_opened.connect(on_npc_menu_opened)
+	GameEvents.interactable_closed.connect(on_npc_menu_closed)
 
 
 func _process(delta):
