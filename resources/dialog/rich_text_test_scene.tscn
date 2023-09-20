@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bng6ten7dhbld"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_right = 217.0
+offset_bottom = 45.0
+theme_type_variation = &"RichTextLabelNPCDialog"
+theme_override_colors/table_border = Color(0.670588, 0.623529, 0.854902, 1)
+bbcode_enabled = true
+text = "THE GATE SEPARATING [color=#ab9fda]DISTRICTS 6 AND 7[/color]."
+fit_content = true
+scroll_active = false

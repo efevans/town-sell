@@ -7,9 +7,12 @@ signal closed
 const BASE_MENU_SCENE: PackedScene = preload(GameStrings.NPC_MENU_SCENE_PATH)
 const BASE_DIALOG_SCENE: PackedScene = preload(GameStrings.NPC_DIALOG_SCENE_PATH)
 
-@export_group("Menu Properties")
+@export_group("Menu Properties", "menu_")
 @export var menu_type: NPCMenu.Type = NPCMenu.Type.LINE_ITEM
 @export var menu_sub_type: LineItemMenu.Type = LineItemMenu.Type.PLAYER_BUY
+
+@export_group("Dialog Properties", "dialog_")
+@export var dialog_text: Dialog
 
 @export_group("", "")
 
@@ -42,6 +45,8 @@ func setup_menu():
 func setup_dialog():
 	current_dialog_instance = BASE_DIALOG_SCENE.instantiate() as NPCDialog
 	get_tree().root.add_child(current_dialog_instance)
+	if dialog_text != null:
+		current_dialog_instance.set_text(dialog_text.text)
 
 
 func on_player_entered_area(other_area: Area2D):

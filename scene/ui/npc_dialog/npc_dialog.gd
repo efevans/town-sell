@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name NPCDialog
 
 @onready var animation_player = $AnimationPlayer
+@onready var npc_text = %NPCText
 
 
 func _ready():
@@ -10,6 +11,11 @@ func _ready():
 
 func _process(delta):
 	pass
+	
+	
+func set_text(text: String):
+	npc_text.clear()
+	npc_text.append_text(text)
 
 
 func play_in():

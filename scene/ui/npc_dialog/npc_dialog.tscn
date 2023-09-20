@@ -83,6 +83,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="NPCText" type="RichTextLabel" parent="DialogMarginContainer/DialogPanel/InnerDialogContainer/NPCDialogContent/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 theme_type_variation = &"RichTextLabelNPCDialog"
