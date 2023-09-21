@@ -28,4 +28,6 @@ dialog_text = ExtResource("4_7veic")
 [node name="SingleChoiceMenuComponent" parent="." node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("5_dkga6")]
 interaction_signaler = NodePath("../InteractComponent")
 
-[node name="DialogComponent" parent="." instance=ExtResource("6_tn86w")]
+[node name="DialogComponent" parent="." node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("6_tn86w")]
+dialog_text = ExtResource("4_7veic")
+interaction_signaler = NodePath("../InteractComponent")
