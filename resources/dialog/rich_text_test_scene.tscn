@@ -4,8 +4,8 @@
 offset_right = 217.0
 offset_bottom = 45.0
 theme_type_variation = &"RichTextLabelNPCDialog"
-theme_override_colors/table_border = Color(0.670588, 0.623529, 0.854902, 1)
+theme_override_colors/table_border = Color(0.580392, 0.709804, 0.854902, 1)
 bbcode_enabled = true
-text = "THE GATE SEPARATING [color=#ab9fda]DISTRICTS 6 AND 7[/color]."
+text = "TERRIBLE [color=yellow]WEATHER[/color] TODAY, WHY DO THE NOBLES SICK BACK WHILE THE [color=#94b5da]CLOUD WIZARDS[/color] DO AS THEY PLEASE?"
 fit_content = true
 scroll_active = false

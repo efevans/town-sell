@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://tdfct3c3n62y"]
+
+[ext_resource type="Script" path="res://resources/dialog/dialog.gd" id="1_m7djb"]
+
+[resource]
+script = ExtResource("1_m7djb")
+text = "I'LL CUT YOU A DEAL IF YOU CAN BRING ME SOME [color=#ab9fda]SLIMEBERRIES[/color]. I'D GO MYSELF, BUT MY SON HAS WONDERED OFF WITH THAT HARLOT AGAIN AND I'VE NO ONE ELSE TO WATCH THE CART."

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c80py1lmilq1n"]
+
+[ext_resource type="Script" path="res://scene/component/single_choice_menu_component.gd" id="1_towvy"]
+
+[node name="SingleChoiceMenuComponent" type="Node"]
+script = ExtResource("1_towvy")

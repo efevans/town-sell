@@ -4,6 +4,9 @@ class_name InteractComponent
 signal opened
 signal closed
 
+signal area_enteredx
+signal area_exitedx
+
 const BASE_MENU_SCENE: PackedScene = preload(GameStrings.NPC_MENU_SCENE_PATH)
 const BASE_DIALOG_SCENE: PackedScene = preload(GameStrings.NPC_DIALOG_SCENE_PATH)
 
@@ -50,16 +53,18 @@ func setup_dialog():
 
 
 func on_player_entered_area(other_area: Area2D):
-	setup_menu()
-	setup_dialog()
-	
-	opened.emit()
+#	setup_menu()
+#	setup_dialog()
+#
+#	opened.emit()
 	GameEvents.emit_interactable_opened()
+	area_enteredx.emit()
 	
 	
 func on_player_exited_area(other_area: Area2D):
-	current_menu_instance.close()
-	current_dialog_instance.close()
-	
-	closed.emit()
+#	current_menu_instance.close()
+#	current_dialog_instance.close()
+#
+#	closed.emit()
 	GameEvents.emit_interactable_closed()
+	area_exitedx.emit()

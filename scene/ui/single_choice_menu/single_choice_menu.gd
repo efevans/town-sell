@@ -1,23 +1,40 @@
 extends MarginContainer
 class_name SingleChoiceMenu
 
+signal selected
+
 const CURSOR_OFFSET = Vector2(-22, 6)
 
 @onready var cursor_parent = %CursorParent
 @onready var interact_line_item_audio_player = %InteractLineItemAudioPlayer
 @onready var choice = %Choice
+@onready var main_label = %MainLabel
+@onready var choice_label = %ChoiceLabel
+
+var main_text: String = "Set Me"
+var choice_text: String = "Set Me"
 
 
 func _ready():
-	print("before")
 	set_cursor_position_after_break()
-	print("after")
-	pass
+	update_labels()
 		
 		
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		try_interact()
+
+
+func set_text(new_main_text: String, new_choice_text: String):
+	main_text = new_main_text
+	choice_text = new_choice_text
+	if is_node_ready():
+		update_labels()
+		
+		
+func update_labels():
+	main_label.text = main_text
+	choice_label.text = choice_text
 		
 		
 func set_type_controller(controller):
@@ -30,8 +47,5 @@ func set_cursor_position_after_break():
 
 
 func try_interact():
-#	var success = type_controller.interact(current_line_item_in_focus.item)
-#	if success:
-#		interact_line_item_audio_player.play()
 	interact_line_item_audio_player.play()
-	pass
+	selected.emit()

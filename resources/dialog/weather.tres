@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://orgnls8kul7s"]
+
+[ext_resource type="Script" path="res://resources/dialog/dialog.gd" id="1_1or50"]
+
+[resource]
+script = ExtResource("1_1or50")
+text = "TERRIBLE WEATHER TODAY, WHY DO THE NOBLES SIT BACK WHILE THE [color=#ab9fda]CLOUD WIZARDS[/color] DO AS THEY PLEASE?"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=20 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -12,6 +12,9 @@
 [ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="10_0365f"]
 [ext_resource type="PackedScene" uid="uid://cbrj6b3vmnwxl" path="res://scene/ui/day_lights/day_lights.tscn" id="10_guf5h"]
 [ext_resource type="PackedScene" uid="uid://cxlkcf4k1j0es" path="res://scene/component/interact_component.tscn" id="10_klt2c"]
+[ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="11_d6h5x"]
+[ext_resource type="Resource" uid="uid://tdfct3c3n62y" path="res://resources/dialog/slimeberries.tres" id="11_wd2mj"]
+[ext_resource type="PackedScene" uid="uid://c5e6d0qjays4s" path="res://scene/component/inventory_component.tscn" id="11_xw42s"]
 [ext_resource type="PackedScene" uid="uid://dc5ugvdvxpkqu" path="res://scene/ui/player_gold/player_gold.tscn" id="13_ddihw"]
 
 [sub_resource type="Curve" id="Curve_1e6oh"]
@@ -89,6 +92,9 @@ item_count = 15
 
 [node name="InteractComponent" parent="Node2D/Entities/ShopNPC" instance=ExtResource("10_klt2c")]
 
+[node name="InventoryComponent" parent="Node2D/Entities/ShopNPC" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
+
 [node name="ShopNPC2" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(217, 459)
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
@@ -109,12 +115,14 @@ item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtk
 item_count = 15
 
 [node name="InteractComponent" parent="Node2D/Entities/ShopNPC4" instance=ExtResource("10_klt2c")]
+dialog_text = ExtResource("11_d6h5x")
 
 [node name="SellNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(395, 158)
 
 [node name="InteractComponent" parent="Node2D/Entities/SellNPC" instance=ExtResource("10_klt2c")]
 menu_sub_type = 1
+dialog_text = ExtResource("11_wd2mj")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D"]
 z_index = 5

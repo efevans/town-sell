@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://g1yujt1qmkg8"]
+[gd_scene load_steps=7 format=3 uid="uid://g1yujt1qmkg8"]
 
 [ext_resource type="Script" path="res://scene/game_object/gate/gate.gd" id="1_de7k5"]
 [ext_resource type="PackedScene" uid="uid://cyjwdtg8p5p23" path="res://scene/game_object/gate/gate_door.tscn" id="1_uj2d7"]
 [ext_resource type="PackedScene" uid="uid://cxlkcf4k1j0es" path="res://scene/component/interact_component.tscn" id="3_ej5f5"]
 [ext_resource type="Resource" uid="uid://j8xsxqldfkbg" path="res://resources/dialog/gate.tres" id="4_7veic"]
+[ext_resource type="PackedScene" uid="uid://c80py1lmilq1n" path="res://scene/component/single_choice_menu_component.tscn" id="5_dkga6"]
+[ext_resource type="PackedScene" uid="uid://bepklrpua4aiu" path="res://scene/component/dialog_component.tscn" id="6_tn86w"]
 
 [node name="Gate" type="Node2D"]
 script = ExtResource("1_de7k5")
@@ -22,3 +24,8 @@ position = Vector2(0, 16)
 menu_type = 1
 menu_sub_type = 2
 dialog_text = ExtResource("4_7veic")
+
+[node name="SingleChoiceMenuComponent" parent="." node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("5_dkga6")]
+interaction_signaler = NodePath("../InteractComponent")
+
+[node name="DialogComponent" parent="." instance=ExtResource("6_tn86w")]
