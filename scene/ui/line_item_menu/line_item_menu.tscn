@@ -48,6 +48,42 @@ _data = {
 theme_type_variation = &"MarginContainerNPCSubMenu"
 script = ExtResource("1_xjmh1")
 
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerLineItem"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Instructions" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelMenu"
+text = "BUYING FROM NPC"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ItemContainer" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ShopLineItem" parent="HBoxContainer/ItemContainer" instance=ExtResource("1_6mxqc")]
+layout_mode = 2
+
+[node name="ShopLineItem2" parent="HBoxContainer/ItemContainer" instance=ExtResource("1_6mxqc")]
+layout_mode = 2
+
+[node name="ShopLineItem3" parent="HBoxContainer/ItemContainer" instance=ExtResource("1_6mxqc")]
+layout_mode = 2
+
 [node name="MoveCursorAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_4vyca")
 volume_db = -12.0
@@ -64,21 +100,8 @@ libraries = {
 "": SubResource("AnimationLibrary_7j8ap")
 }
 
-[node name="ItemContainer" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="ShopLineItem" parent="ItemContainer" instance=ExtResource("1_6mxqc")]
-layout_mode = 2
-
-[node name="ShopLineItem2" parent="ItemContainer" instance=ExtResource("1_6mxqc")]
-layout_mode = 2
-
-[node name="ShopLineItem3" parent="ItemContainer" instance=ExtResource("1_6mxqc")]
-layout_mode = 2
-
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="CursorParent" type="Control" parent="Control"]

@@ -1,0 +1,8 @@
+Line Item Menu tags to indicate to player if they are selling from their own inventory, or buying from the NPC's inventory
+Vary NPC buy and sell rates for items
+Indicate in line item the price the item (either buy or sell) compared to base price
+
+NPC Quest to make a seller NPC give out a rare item for cheap
+NPC Quest to make a seller buy an item for a lot more
+Stock Market
+Slot Marchine

@@ -1,17 +1,18 @@
 extends Node2D
 class_name NPC
 
-@onready var interact_component: InteractComponent = $InteractComponent
+#@onready var interact_component: InteractComponent = $InteractComponent
 @onready var gpu_particles_2d = $GPUParticles2D
 @onready var random_audio_stream_player_2d = $RandomAudioStreamPlayer2D
 
 
 func _ready():
-	print(interact_component)
 	setup_interaction()
 
 
 func setup_interaction():
+	var interact_component: InteractComponent = get_node_or_null("InteractComponent")
+	
 	if interact_component == null:
 		return
 	interact_component.area_enteredx.connect(on_interact_opened)

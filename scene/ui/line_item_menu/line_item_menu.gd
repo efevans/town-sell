@@ -5,6 +5,7 @@ enum Type {PLAYER_BUY, PLAYER_SELL, SINGLE_CHOICE_BUY}
 
 const CURSOR_OFFSET = Vector2(-22, 6)
 
+@onready var instructions: Label = %Instructions
 @onready var interact_line_item_audio_player = $InteractLineItemAudioPlayer
 @onready var item_container = %ItemContainer
 @onready var cursor_parent = %CursorParent
@@ -18,14 +19,9 @@ var buyer_inventory: Inventory
 var type_controller
 
 
-#func setup() -> LineItemMenu:
-#	setup_items()
-#	return self
-
-
 func _ready():
+	setup_instructions()
 	setup_items()
-	pass
 		
 		
 func _process(delta):
@@ -37,6 +33,12 @@ func set_type_controller(controller):
 	type_controller = controller
 	type_controller.seller_inventory.item_added.connect(on_item_added_to_inventory)
 	type_controller.seller_inventory.item_removed.connect(on_item_removed_from_inventory)
+	
+	
+func setup_instructions():
+	if type_controller == null:
+		return
+	instructions.text = type_controller.get_instructions()
 	
 	
 func setup_items():

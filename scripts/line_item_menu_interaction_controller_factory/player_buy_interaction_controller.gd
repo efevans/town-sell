@@ -8,6 +8,10 @@ func init(owner_inventory: Inventory):
 	buyer_inventory = PlayerInventory.inventory
 	seller_inventory = owner_inventory
 	return self
+	
+	
+func get_instructions() -> String:
+	return GameStrings.LINE_ITEM_MENU_BUYING_INSTRUCTIONS
 
 
 func get_buyer_inventory() -> Inventory:

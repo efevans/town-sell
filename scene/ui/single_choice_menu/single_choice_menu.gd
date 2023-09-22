@@ -35,10 +35,6 @@ func set_text(new_main_text: String, new_choice_text: String):
 func update_labels():
 	main_label.text = main_text
 	choice_label.text = choice_text
-		
-		
-func set_type_controller(controller):
-	pass
 	
 	
 func set_cursor_position_after_break():
