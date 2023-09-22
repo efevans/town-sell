@@ -33,7 +33,7 @@ func get_price_for_item(item: Item):
 		return item.base_price
 		
 	var price = item.base_price * item_pricer.get_rate_for_item(item)
-	return roundi(price)
+	return snappedi(price, 5)
 	
 
 func get_color_for_price_label(item: Item) -> Color:
