@@ -6,6 +6,9 @@ signal selected
 static var npc_menu_scene: PackedScene = preload(GameStrings.NPC_MENU_SCENE_PATH)
 static var single_choice_menu_scene: PackedScene = preload(GameStrings.SINGLE_CHOICE_MENU_SCENE_PATH)
 
+@export_group("Single Choice Menu Properties")
+@export var string: SingleChoiceMenuString
+
 @export_group("Node Dependencies")
 @export var interaction_signaler: InteractComponent
 
@@ -21,7 +24,7 @@ func _ready():
 	
 func open_menu():
 	var single_choice_menu_instance = single_choice_menu_scene.instantiate() as SingleChoiceMenu
-	single_choice_menu_instance.set_text("Hi", "Hello")
+	single_choice_menu_instance.set_text(string.title, string.button_text)
 	single_choice_menu_instance.selected.connect(on_menu_choice_selected)
 	
 	current_menu_instance = npc_menu_scene.instantiate() as NPCMenu

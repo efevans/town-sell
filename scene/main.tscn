@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=23 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dc5ugvdvxpkqu" path="res://scene/ui/player_gold/player_gold.tscn" id="13_ddihw"]
 [ext_resource type="PackedScene" uid="uid://bepklrpua4aiu" path="res://scene/component/dialog_component.tscn" id="13_wuxcc"]
 [ext_resource type="PackedScene" uid="uid://c4y7wrwfbl6rf" path="res://scene/component/item_pricer_component.tscn" id="15_mi2hh"]
+[ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="16_w8s08"]
 
 [sub_resource type="Curve" id="Curve_1e6oh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.528889, 0.854545), -0.568182, -0.568182, 0, 0, Vector2(0.982222, 0.0454545), -2.42424, 0.0, 0, 0]
@@ -110,8 +111,26 @@ interaction_signaler = NodePath("../InteractComponent")
 [node name="ShopNPC2" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(217, 459)
 
+[node name="DialogComponent" parent="Node2D/Entities/ShopNPC2" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
+dialog_text = ExtResource("16_w8s08")
+interaction_signaler = NodePath("../InteractComponent")
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC2" instance=ExtResource("10_klt2c")]
+
 [node name="ShopNPC3" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(314, 430)
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC3" instance=ExtResource("10_klt2c")]
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/ShopNPC3" instance=ExtResource("15_mi2hh")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/ShopNPC3" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="InventoryComponent" parent="Node2D/Entities/ShopNPC3" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("9_xah63")])
+item_count = 15
 
 [node name="ShopNPC4" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(203, 220)
@@ -119,6 +138,7 @@ position = Vector2(203, 220)
 [node name="InteractComponent" parent="Node2D/Entities/ShopNPC4" instance=ExtResource("10_klt2c")]
 
 [node name="DialogComponent" parent="Node2D/Entities/ShopNPC4" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
+dialog_text = ExtResource("16_w8s08")
 interaction_signaler = NodePath("../InteractComponent")
 
 [node name="SellNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]

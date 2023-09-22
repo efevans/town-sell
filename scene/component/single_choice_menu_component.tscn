@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c80py1lmilq1n"]
+[gd_scene load_steps=3 format=3 uid="uid://c80py1lmilq1n"]
 
 [ext_resource type="Script" path="res://scene/component/single_choice_menu_component.gd" id="1_towvy"]
+[ext_resource type="Resource" uid="uid://cqfv327ddigw6" path="res://resources/single_choice_menu_strings/placeholder/placeholder.tres" id="2_6l5j7"]
 
 [node name="SingleChoiceMenuComponent" type="Node"]
 script = ExtResource("1_towvy")
+string = ExtResource("2_6l5j7")

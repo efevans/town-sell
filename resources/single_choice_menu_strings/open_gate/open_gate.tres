@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SingleChoiceMenuString" load_steps=2 format=3 uid="uid://88idxpwlhggg"]
+
+[ext_resource type="Script" path="res://resources/single_choice_menu_strings/single_choice_menu_string.gd" id="1_w1a1a"]
+
+[resource]
+script = ExtResource("1_w1a1a")
+title = "PASSAGE THROUGH THE GATE IS 20,000,000,000g. WILL YOU PAY THE FEE?"
+button_text = "YES"
