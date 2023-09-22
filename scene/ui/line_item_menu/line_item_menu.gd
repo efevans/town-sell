@@ -74,6 +74,7 @@ func add_line_item(item: Item):
 	item_container.add_child(line_item_instance)
 	line_item_instance.set_inventory_to_track(type_controller.seller_inventory)
 	line_item_instance.set_item(item)
+	line_item_instance.set_controller(type_controller)
 	line_item_instance.selected.connect(on_line_item_selected)
 	return line_item_instance
 

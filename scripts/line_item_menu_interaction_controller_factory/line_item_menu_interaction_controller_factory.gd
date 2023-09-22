@@ -1,11 +1,11 @@
 class_name LineItemMenuInteractionControllerFactory
 
-func create(type: LineItemMenu.Type, owner_inventory: Inventory):
+func create(type: LineItemMenu.Type, owner: NPC):
 	match type:
 		LineItemMenu.Type.PLAYER_BUY:
-			return PlayerBuyInteractionController.new().init(owner_inventory)
+			return PlayerBuyInteractionController.new().init(owner)
 		LineItemMenu.Type.PLAYER_SELL:
-			return PlayerSellInteractionController.new().init(owner_inventory)
+			return PlayerSellInteractionController.new().init(owner)
 		LineItemMenu.Type.SINGLE_CHOICE_BUY:
 			return null
 		_:

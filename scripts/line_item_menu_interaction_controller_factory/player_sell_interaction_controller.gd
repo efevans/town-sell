@@ -1,12 +1,18 @@
 class_name PlayerSellInteractionController
 
+static var good_color = Color(1, 0.191, 0.176) # blue
+static var bad_color = Color(0.342, 0.545, 0.926) # red
+static var neutral_color = Color(1, 1, 1) # white
+
 var buyer_inventory: Inventory
 var seller_inventory: Inventory
+var item_pricer: ItemPricer
 
 
-func init(owner_inventory: Inventory):
-	buyer_inventory = owner_inventory
+func init(owner: NPC):
+	buyer_inventory = owner.get_inventory()
 	seller_inventory = PlayerInventory.inventory
+	item_pricer = owner.get_item_pricer()
 	return self
 	
 	
@@ -20,6 +26,25 @@ func get_buyer_inventory() -> Inventory:
 
 func get_seller_inventory() -> Inventory:
 	return seller_inventory
+	
+	
+func get_price_for_item(item: Item):
+	if item_pricer == null:
+		return item.base_price
+		
+	var price = item.base_price * item_pricer.get_rate_for_item(item)
+	return roundi(price)
+	
+
+func get_color_for_price_label(item: Item):
+	if item_pricer == null:
+		return neutral_color
+	var rate = item_pricer.get_rate_for_item(item)
+	if rate > 1.0:
+		return good_color
+	elif rate < 1.0:
+		return bad_color
+	return neutral_color
 
 
 func interact(item: Item):

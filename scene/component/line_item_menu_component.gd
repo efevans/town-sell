@@ -11,7 +11,7 @@ static var line_item_menu_scene: PackedScene = preload(GameStrings.LINE_ITEM_MEN
 
 @export_group("Node Dependencies")
 @export var interaction_signaler: InteractComponent
-@export var owner_inventory_component: InventoryComponent
+@export var owner_npc: NPC
 
 @export_group("", "")
 
@@ -26,7 +26,7 @@ func _ready():
 func open_menu():
 	
 	var line_item_menu_type_controller = LineItemMenuInteractionControllerFactory.new()\
-	.create(menu_sub_type, owner_inventory_component.inventory)
+	.create(menu_sub_type, owner_npc)
 	
 	var line_item_menu_instance = line_item_menu_scene.instantiate() as LineItemMenu
 	line_item_menu_instance.set_type_controller(line_item_menu_type_controller)

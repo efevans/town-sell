@@ -11,6 +11,11 @@ var storage: Dictionary = {
 #			"item_resource": item}}
 }
 
+
+func set_gold(amount: int):
+	storage["gold"] = amount
+	
+
 func get_gold():
 	return storage["gold"]
 	

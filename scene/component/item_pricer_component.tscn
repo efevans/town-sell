@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4y7wrwfbl6rf"]
+
+[ext_resource type="Script" path="res://scene/component/item_pricer_component.gd" id="1_a05eh"]
+
+[node name="ItemPricerComponent" type="Node"]
+script = ExtResource("1_a05eh")
