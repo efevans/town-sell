@@ -64,7 +64,7 @@ func try_interact_focused_item():
 	if current_line_item_in_focus == null:
 		return false
 		
-	var success = type_controller.interact(current_line_item_in_focus.item)
+	var success = type_controller.interact(current_line_item_in_focus)
 	if success:
 		interact_line_item_audio_player.play()
 	

@@ -6,11 +6,12 @@ signal selected(line_item: LineItemMenuItem)
 const default_theme: String = "PanelContainerLineItem"
 const in_focus_theme: String = "PanelContainerLineItemSelected"
 
-@onready var item_name: Label = %ItemName
-@onready var quantity: Label = %Quantity
-@onready var price: Label = %Price
+@onready var item_name_label: Label = %ItemName
+@onready var quantity_label: Label = %Quantity
+@onready var price_label: Label = %Price
 
 var item: Item
+var price: int
 var tracked_inventory: Inventory
 var type_controller
 
@@ -28,26 +29,32 @@ func set_inventory_to_track(inventory: Inventory):
 	
 func set_item(new_item: Item):
 	item = new_item
+	update_price()
 	update_labels()
 	
 	
 func set_controller(controller):
 	type_controller = controller
+	update_price()
 	update_labels()
 	
 	
+func update_price():
+	if type_controller == null:
+		var price = item.base_price
+		return
+	price = type_controller.get_price_for_item(item)
+	
+	
 func update_labels():
-	item_name.text = item.name
-	quantity.text = GameStrings.QUANTITY_PREFIX + str(tracked_inventory.get_item_count(item))
-	price.text = get_price_label_text()
-	price.modulate = get_color_for_price_label()
+	item_name_label.text = item.name
+	quantity_label.text = GameStrings.QUANTITY_PREFIX + str(tracked_inventory.get_item_count(item))
+	price_label.text = get_price_label_text()
+	price_label.modulate = get_color_for_price_label()
 	
 	
 func get_price_label_text():
-	var shop_price = item.base_price
-	if type_controller != null:
-		shop_price = type_controller.get_price_for_item(item)
-	return str(shop_price) + GameStrings.GOLD_SUFFIX
+	return str(price) + GameStrings.GOLD_SUFFIX
 	
 	
 func get_color_for_price_label():

@@ -43,14 +43,14 @@ func get_color_for_price_label(item: Item) -> Color:
 	elif rate < 1.0:
 		return good_color
 	return neutral_color
-
-
-func interact(item: Item):
-	if buyer_inventory.get_gold() < item.base_price:
+	
+	
+func interact(line_item: LineItemMenuItem):
+	if buyer_inventory.get_gold() < line_item.price:
 		return false
 
-	buyer_inventory.subtract_gold(item.base_price)
-	seller_inventory.add_gold(item.base_price)
-	seller_inventory.remove_item(item)
-	buyer_inventory.add_item(item)
+	buyer_inventory.subtract_gold(line_item.price)
+	seller_inventory.add_gold(line_item.price)
+	seller_inventory.remove_item(line_item.item)
+	buyer_inventory.add_item(line_item.item)
 	return true
