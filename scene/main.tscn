@@ -91,6 +91,7 @@ position = Vector2(328, 128)
 position = Vector2(381, 237)
 
 [node name="InteractComponent" parent="Node2D/Entities/ShopNPC" instance=ExtResource("10_klt2c")]
+collision_radius = 15
 
 [node name="InventoryComponent" parent="Node2D/Entities/ShopNPC" instance=ExtResource("11_xw42s")]
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])

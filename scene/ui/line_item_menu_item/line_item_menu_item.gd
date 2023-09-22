@@ -41,7 +41,7 @@ func set_controller(controller):
 	
 func update_price():
 	if type_controller == null:
-		var price = item.base_price
+		price = item.base_price
 		return
 	price = type_controller.get_price_for_item(item)
 	

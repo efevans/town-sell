@@ -1,8 +1,15 @@
-Vary NPC buy and sell rates for items
-Indicate in line item the price the item (either buy or sell) compared to base price
+Show relative price of item shown in shop relative to base price
 Reset NPC inventories on a timer
+Flesh out town a bit more
+Set price of opening the gate to a higher amount
+Upon paying to open gate, take control away from player and start a cutscene showing the gate opening. Afterwards, fade out, then restart the level
+Add an Inui sprite to the game as an NPC and animate it
 
+Add more items
 NPC Quest to make a seller NPC give out a rare item for cheap
 NPC Quest to make a seller buy an item for a lot more
+NPC Quest to change an NPC's price rate advantageously for the player
 Stock Market
 Slot Marchine
+Randomized something, like the NPC layouts, which are buy/sell shops, etc.
+Add some events (may via single choice shops) that buff the player, such as speed

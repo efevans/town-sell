@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 150
+const MAX_SPEED = 100
 const ACCELERATION_SMOOTHING = 25
 
 
