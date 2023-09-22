@@ -70,6 +70,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="NPCDialogContent" type="MarginContainer" parent="DialogMarginContainer/DialogPanel/InnerDialogContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="DialogMarginContainer/DialogPanel/InnerDialogContainer/NPCDialogContent"]
 layout_mode = 2

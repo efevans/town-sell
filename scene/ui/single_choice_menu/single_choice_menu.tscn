@@ -69,9 +69,10 @@ theme_type_variation = &"PanelContainerLineItem"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
 [node name="MainLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -80,7 +81,6 @@ theme_type_variation = &"LabelMenu"
 text = "PAY THE TOLL TO OPEN THE GATE?
 (5000g)"
 horizontal_alignment = 1
-vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Choice" type="PanelContainer" parent="VBoxContainer"]
