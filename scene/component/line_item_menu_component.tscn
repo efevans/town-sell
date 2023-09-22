@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbyulpnncf6rw"]
+
+[ext_resource type="Script" path="res://scene/component/line_item_menu_component.gd" id="1_po5ty"]
+
+[node name="LineItemMenuComponent" type="Node"]
+script = ExtResource("1_po5ty")

@@ -9,6 +9,14 @@ var inventory = Inventory.new()
 
 func _ready():
 	init_inventory()
+	
+	
+func _process(delta):
+	if Input.is_action_just_pressed("debut_print_inventory"):
+		var item = inventory.get_random_item()
+		if item == null:
+			return
+		inventory.remove_item(item)
 
 
 func init_inventory():

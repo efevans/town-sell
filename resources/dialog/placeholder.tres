@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://dgbjhjsgq3x0l"]
+
+[ext_resource type="Script" path="res://resources/dialog/dialog.gd" id="1_cafbh"]
+
+[resource]
+script = ExtResource("1_cafbh")
+text = "[color=#ab9fda]P[/color][color=#eb9fda]L[/color][color=#679fda]A[/color][color=#129fda]C[/color][color=#ababda]E[/color][color=#ab45da]H[/color][color=#129f12]O[/color][color=#12a456]L[/color][color=#f30a4f]D[/color][color=#8aba3a]E[/color][color=#4a9a2a]R[/color]"

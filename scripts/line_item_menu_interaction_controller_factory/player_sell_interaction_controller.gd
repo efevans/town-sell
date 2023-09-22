@@ -4,8 +4,8 @@ var buyer_inventory: Inventory
 var seller_inventory: Inventory
 
 
-func init(npc: NPC):
-	buyer_inventory = npc.inventory
+func init(owner_inventory: Inventory):
+	buyer_inventory = owner_inventory
 	seller_inventory = PlayerInventory.inventory
 	return self
 

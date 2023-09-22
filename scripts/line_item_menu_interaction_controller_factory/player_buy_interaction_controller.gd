@@ -4,9 +4,9 @@ var buyer_inventory: Inventory
 var seller_inventory: Inventory
 
 
-func init(owner_entity):
+func init(owner_inventory: Inventory):
 	buyer_inventory = PlayerInventory.inventory
-	seller_inventory = owner_entity.inventory
+	seller_inventory = owner_inventory
 	return self
 
 

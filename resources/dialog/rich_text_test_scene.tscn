@@ -6,6 +6,6 @@ offset_bottom = 45.0
 theme_type_variation = &"RichTextLabelNPCDialog"
 theme_override_colors/table_border = Color(0.580392, 0.709804, 0.854902, 1)
 bbcode_enabled = true
-text = "TERRIBLE [color=yellow]WEATHER[/color] TODAY, WHY DO THE NOBLES SICK BACK WHILE THE [color=#94b5da]CLOUD WIZARDS[/color] DO AS THEY PLEASE?"
+text = "[color=#ab9fda]P[/color][color=#eb9fda]L[/color][color=#679fda]A[/color][color=#129fda]C[/color][color=#ababda]E[/color][color=#ab45da]H[/color][color=#129f12]O[/color][color=#12a456]L[/color][color=#f30a4f]D[/color][color=#8aba3a]E[/color][color=#4a9a2a]R[/color]"
 fit_content = true
 scroll_active = false

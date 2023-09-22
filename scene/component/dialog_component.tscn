@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bepklrpua4aiu"]
+[gd_scene load_steps=3 format=3 uid="uid://bepklrpua4aiu"]
 
 [ext_resource type="Script" path="res://scene/component/dialog_component.gd" id="1_p5pa1"]
+[ext_resource type="Resource" uid="uid://dgbjhjsgq3x0l" path="res://resources/dialog/placeholder.tres" id="2_fbtmb"]
 
 [node name="DialogComponent" type="Node"]
 script = ExtResource("1_p5pa1")
+dialog_text = ExtResource("2_fbtmb")
