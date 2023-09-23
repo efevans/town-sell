@@ -92,7 +92,7 @@ position = Vector2(278, 211)
 position = Vector2(328, 128)
 
 [node name="ShopDialogNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
-position = Vector2(381, 237)
+position = Vector2(385, 243)
 
 [node name="InteractComponent" parent="Node2D/Entities/ShopDialogNPC" instance=ExtResource("10_klt2c")]
 collision_radius = 15
@@ -124,12 +124,12 @@ item_count = 8
 [node name="ItemPricerComponent" parent="Node2D/Entities/ShopDialogNPC2" instance=ExtResource("15_mi2hh")]
 
 [node name="LineItemMenuComponent" parent="Node2D/Entities/ShopDialogNPC2" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
-interaction_signaler = NodePath("../../ShopDialogNPC/InteractComponent")
-owner_npc = NodePath("../../ShopDialogNPC")
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
 
 [node name="DialogComponent" parent="Node2D/Entities/ShopDialogNPC2" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
 dialog_text = ExtResource("11_wd2mj")
-interaction_signaler = NodePath("../../ShopDialogNPC/InteractComponent")
+interaction_signaler = NodePath("../InteractComponent")
 
 [node name="ShopNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(314, 430)
@@ -170,7 +170,7 @@ position = Vector2(809, 253)
 [node name="LineItemMenuComponent" parent="Node2D/Entities/SellNPC2" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
 menu_sub_type = 1
 interaction_signaler = NodePath("../../SellNPC/InteractComponent")
-owner_npc = NodePath("../../SellNPC")
+owner_npc = NodePath("..")
 
 [node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC2" instance=ExtResource("15_mi2hh")]
 
@@ -183,8 +183,8 @@ position = Vector2(569, 594)
 
 [node name="LineItemMenuComponent" parent="Node2D/Entities/SellNPC3" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
 menu_sub_type = 1
-interaction_signaler = NodePath("../../SellNPC/InteractComponent")
-owner_npc = NodePath("../../SellNPC")
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
 
 [node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC3" instance=ExtResource("15_mi2hh")]
 

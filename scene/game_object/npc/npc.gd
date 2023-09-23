@@ -44,9 +44,7 @@ func on_interact_opened():
 	gpu_particles_2d.emitting = true
 	random_audio_stream_player_2d.play_random()
 	print("NPC: A player interacted with me!")
-	pass
 	
 	
 func on_interact_closed():
 	print("NPC: A player stopped interacting with me!");
-	pass

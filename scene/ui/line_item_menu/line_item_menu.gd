@@ -63,6 +63,8 @@ func try_interact_focused_item():
 	print("interacted with line item!")
 	if current_line_item_in_focus == null:
 		return false
+	else:
+		print(current_line_item_in_focus)
 		
 	var success = type_controller.interact(current_line_item_in_focus)
 	if success:

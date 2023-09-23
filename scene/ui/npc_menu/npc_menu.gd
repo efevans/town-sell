@@ -1,8 +1,6 @@
 extends CanvasLayer
 class_name NPCMenu
 
-enum Type { LINE_ITEM, SINGLE_CHOICE }
-
 @onready var animation_player = $AnimationPlayer
 @onready var inner_menu_container = %InnerMenuContainer
 @onready var menu_margin_container = %MenuMarginContainer
