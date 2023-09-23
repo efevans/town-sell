@@ -5,7 +5,7 @@ signal item_added(item: Item)
 signal item_removed(item: Item)
 
 var storage: Dictionary = {
-	"gold": 4000,
+	"gold": 400,
 	"items": {}
 #	"items": {"sword": {"quantity": 1,
 #			"item_resource": item}}
