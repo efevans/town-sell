@@ -61,7 +61,7 @@ func get_price_label_text():
 	
 	
 func get_percentage_label_text():
-	return "(" + str(roundi(100 * price / item.base_price)) + "%)"
+	return "(" + str(roundi(100.0 * price / item.base_price)) + "%)"
 	
 	
 func get_color_for_price_label():

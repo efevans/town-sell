@@ -1,8 +1,6 @@
-Show relative price of item shown in shop relative to base price
 Reset NPC inventories on a timer
 Flesh out town a bit more
-Set price of opening the gate to a higher amount
-Upon paying to open gate, take control away from player and start a cutscene showing the gate opening. After`wards, fade out, then restart the level
+Upon paying to open gate, take control away from player and start a cutscene showing the gate opening. Afterwards, fade out, then restart the level
 Add an Inui sprite to the game as an NPC and animate it
 
 Add a timer the player must get through the gate by
