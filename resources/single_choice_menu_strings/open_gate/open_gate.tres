@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_w1a1a")
-title = "PASSAGE THROUGH THE GATE IS 20,000,000,000g. WILL YOU PAY THE FEE?"
+title = "PASSAGE THROUGH THE GATE IS {gate_fee}g. WILL YOU PAY THE FEE?"
 button_text = "YES"

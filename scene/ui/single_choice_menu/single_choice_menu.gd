@@ -6,7 +6,6 @@ signal selected
 const CURSOR_OFFSET = Vector2(-22, 6)
 
 @onready var cursor_parent = %CursorParent
-@onready var interact_line_item_audio_player = %InteractLineItemAudioPlayer
 @onready var choice = %Choice
 @onready var main_label = %MainLabel
 @onready var choice_label = %ChoiceLabel
@@ -43,5 +42,4 @@ func set_cursor_position_after_break():
 
 
 func try_interact():
-	interact_line_item_audio_player.play()
 	selected.emit()

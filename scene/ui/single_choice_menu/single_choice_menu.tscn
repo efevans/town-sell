@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1nsryw4wqsn1"]
+[gd_scene load_steps=6 format=3 uid="uid://c1nsryw4wqsn1"]
 
 [ext_resource type="Script" path="res://scene/ui/single_choice_menu/single_choice_menu.gd" id="1_0nc2p"]
-[ext_resource type="AudioStream" uid="uid://la2jigrl35c6" path="res://assets/audio/buy.ogg" id="2_5wcay"]
 [ext_resource type="Texture2D" uid="uid://cvybg47nt3bqp" path="res://assets/ui/Cursor.png" id="2_k5fje"]
 
 [sub_resource type="Animation" id="Animation_d2kxb"]
@@ -53,12 +52,6 @@ autoplay = "oscillate"
 libraries = {
 "": SubResource("AnimationLibrary_7j8ap")
 }
-
-[node name="InteractLineItemAudioPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("2_5wcay")
-volume_db = -12.0
-pitch_scale = 1.07
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

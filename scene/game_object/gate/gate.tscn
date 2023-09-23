@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g1yujt1qmkg8"]
+[gd_scene load_steps=9 format=3 uid="uid://g1yujt1qmkg8"]
 
 [ext_resource type="Script" path="res://scene/game_object/gate/gate.gd" id="1_de7k5"]
 [ext_resource type="PackedScene" uid="uid://cyjwdtg8p5p23" path="res://scene/game_object/gate/gate_door.tscn" id="1_uj2d7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://88idxpwlhggg" path="res://resources/single_choice_menu_strings/open_gate/open_gate.tres" id="5_3e1qx"]
 [ext_resource type="PackedScene" uid="uid://c80py1lmilq1n" path="res://scene/component/single_choice_menu_component.tscn" id="5_dkga6"]
 [ext_resource type="PackedScene" uid="uid://bepklrpua4aiu" path="res://scene/component/dialog_component.tscn" id="6_tn86w"]
+[ext_resource type="PackedScene" uid="uid://rg83vk24a05b" path="res://scene/component/toll_gate_component.tscn" id="8_nvqkk"]
 
 [node name="Gate" type="Node2D"]
 script = ExtResource("1_de7k5")
@@ -24,9 +25,14 @@ scale = Vector2(-1, 1)
 position = Vector2(0, 16)
 
 [node name="SingleChoiceMenuComponent" parent="." node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("5_dkga6")]
-string = ExtResource("5_3e1qx")
 interaction_signaler = NodePath("../InteractComponent")
 
 [node name="DialogComponent" parent="." node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("6_tn86w")]
 dialog_text = ExtResource("4_7veic")
 interaction_signaler = NodePath("../InteractComponent")
+
+[node name="TollGateComponent" parent="." node_paths=PackedStringArray("gate", "single_choice_component") instance=ExtResource("8_nvqkk")]
+gate_strings = ExtResource("5_3e1qx")
+gate = NodePath("..")
+gate_fee = 20000
+single_choice_component = NodePath("../SingleChoiceMenuComponent")

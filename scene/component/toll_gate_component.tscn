@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rg83vk24a05b"]
+
+[ext_resource type="Script" path="res://scene/component/toll_gate_component.gd" id="1_cns10"]
+
+[node name="TollGateComponent" type="Node"]
+script = ExtResource("1_cns10")

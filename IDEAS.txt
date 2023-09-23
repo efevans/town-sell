@@ -1,4 +1,3 @@
-Allow consumers of single choice menus to set text
 Allow consumers of single choice menus to set condition on selecting choice
 Show relative price of item shown in shop relative to base price
 Reset NPC inventories on a timer
@@ -13,8 +12,10 @@ NPC Quest to make a seller buy an item for a lot more
 NPC Quest to change an NPC's price rate advantageously for the player
 Stock Market
 Slot Marchine
+Minigame using single choice menu where you get money based on what it says when you select, but it changes rapidly
 Randomized something, like the NPC layouts, which are buy/sell shops, etc.
 Add some events (may via single choice shops) that buff the player, such as speed
+Shortcut routes you can open in town (maybe pay money to open, complete quest, find hidden location)
 
 
 Player Upgrades
