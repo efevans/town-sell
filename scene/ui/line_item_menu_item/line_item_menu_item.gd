@@ -9,6 +9,7 @@ const in_focus_theme: String = "PanelContainerLineItemSelected"
 @onready var item_name_label: Label = %ItemName
 @onready var quantity_label: Label = %Quantity
 @onready var price_label: Label = %Price
+@onready var percentage_label = %Percentage
 
 var item: Item
 var price: int
@@ -51,10 +52,16 @@ func update_labels():
 	quantity_label.text = GameStrings.QUANTITY_PREFIX + str(tracked_inventory.get_item_count(item))
 	price_label.text = get_price_label_text()
 	price_label.modulate = get_color_for_price_label()
+	percentage_label.text = get_percentage_label_text()
+	percentage_label.modulate = price_label.modulate
 	
 	
 func get_price_label_text():
 	return str(price) + GameStrings.GOLD_SUFFIX
+	
+	
+func get_percentage_label_text():
+	return "(" + str(roundi(100 * price / item.base_price)) + "%)"
 	
 	
 func get_color_for_price_label():

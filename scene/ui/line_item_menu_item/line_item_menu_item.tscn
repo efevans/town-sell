@@ -46,8 +46,18 @@ vertical_alignment = 1
 
 [node name="Price" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+modulate = Color(1, 0.623529, 0.611765, 1)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"LabelMenu"
+text = "300g"
+vertical_alignment = 1
+
+[node name="Percentage" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.804035, 0.869401, 0.979379, 1)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_type_variation = &"LabelMenu"
-text = "300g (110%)"
+text = "(110%)"
 vertical_alignment = 1

@@ -1,8 +1,10 @@
 class_name PlayerBuyInteractionController
 
-static var good_color = Color(1, 0.191, 0.176) # blue
-static var bad_color = Color(0.342, 0.545, 0.926) # red
-static var neutral_color = Color(1, 1, 1) # white
+static var good_color = Color(1, 0.623, 0.611)
+static var slight_good_color = Color(1, 0.797, 0.766)
+static var neutral_color = Color(1, 1, 1)
+static var slightly_bad_color = Color(0.804, 0.869, 0.979)
+static var bad_color = Color(0.342, 0.545, 0.926)
 
 var buyer_inventory: Inventory
 var seller_inventory: Inventory
@@ -37,11 +39,17 @@ func get_price_for_item(item: Item):
 	
 
 func get_color_for_price_label(item: Item) -> Color:
+	if item_pricer == null:
+		return neutral_color
 	var rate = item_pricer.get_rate_for_item(item)
-	if rate > 1.0:
+	if rate > 1.20:
 		return bad_color
-	elif rate < 1.0:
+	elif rate > 1.05:
+		return slightly_bad_color
+	elif rate < 0.80:
 		return good_color
+	elif rate < 0.95:
+		return slight_good_color
 	return neutral_color
 	
 	
