@@ -20,6 +20,7 @@ func _process(delta):
 
 
 func init_inventory():
+	inventory.add_gold(999999)
 	if item_pool == null || item_pool.is_empty():
 		return
 		
