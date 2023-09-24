@@ -76,7 +76,7 @@ func add_line_item(item: Item):
 	
 	if item_container.get_child_count() == 1:
 		cursor_parent.visible = true
-		Callable(grab_focus_after_break.bind(line_item_instance)).call_deferred()
+		grab_focus_after_break(line_item_instance)
 		
 	return line_item_instance
 
@@ -97,7 +97,7 @@ func remove_item_and_update_focus(line_item: LineItemMenuItem):
 	if items_in_shop_now == 0:
 		cursor_parent.visible = false
 	elif current_line_item_in_focus != line_item:
-		Callable(grab_focus_after_break.bind(current_line_item_in_focus)).call_deferred()
+		grab_focus_after_break(current_line_item_in_focus)
 	else:
 		var next_focus_item
 		if removed_item_index == items_in_shop_now:
@@ -109,7 +109,7 @@ func remove_item_and_update_focus(line_item: LineItemMenuItem):
 			+ str(get_cursor_position_for_line_item(item_container.get_child(0))))
 			next_focus_item = item_container.get_child(removed_item_index) as LineItemMenuItem
 			
-		Callable(grab_focus_after_break.bind(next_focus_item)).call_deferred()
+		grab_focus_after_break(next_focus_item)
 		
 	line_item.queue_free()
 		
