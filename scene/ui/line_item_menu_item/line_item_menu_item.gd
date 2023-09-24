@@ -16,6 +16,10 @@ var price: int
 var tracked_inventory: Inventory
 var type_controller
 
+# used by the HOC to deal with removing multiple line items and
+# updating focus 
+var marked_for_deletion: bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	focus_entered.connect(on_focus_entered)

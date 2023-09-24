@@ -1,0 +1,28 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccrqnno3vitla"]
+
+[ext_resource type="PackedScene" uid="uid://c7d2p03aarywf" path="res://scene/game_object/player/player.tscn" id="1_nuu3o"]
+[ext_resource type="PackedScene" uid="uid://755l4g054bp8" path="res://scene/game_object/npc/npc.tscn" id="2_e1y8p"]
+[ext_resource type="PackedScene" uid="uid://c5e6d0qjays4s" path="res://scene/component/inventory_component.tscn" id="3_tcg24"]
+[ext_resource type="Resource" path="res://resources/item/items/fire_sword/fire_sword.tres" id="4_1nu2h"]
+[ext_resource type="PackedScene" uid="uid://dbyulpnncf6rw" path="res://scene/component/line_item_menu_component.tscn" id="4_nrlj5"]
+[ext_resource type="PackedScene" uid="uid://cxlkcf4k1j0es" path="res://scene/component/interact_component.tscn" id="5_4gode"]
+[ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="5_icw4s"]
+[ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="6_7r2ej"]
+
+[node name="player_npc" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_nuu3o")]
+position = Vector2(162, 83)
+
+[node name="NPC" parent="." instance=ExtResource("2_e1y8p")]
+position = Vector2(287, 75)
+
+[node name="InventoryComponent" parent="NPC" instance=ExtResource("3_tcg24")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("4_1nu2h"), ExtResource("5_icw4s"), ExtResource("6_7r2ej")])
+item_count = 10
+
+[node name="LineItemMenuComponent" parent="NPC" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("4_nrlj5")]
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="InteractComponent" parent="NPC" instance=ExtResource("5_4gode")]

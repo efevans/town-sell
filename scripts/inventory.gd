@@ -5,7 +5,7 @@ signal item_added(item: Item)
 signal item_removed(item: Item)
 
 var storage: Dictionary = {
-	"gold": 400,
+	"gold": 4000,
 	"items": {}
 #	"items": {"sword": {"quantity": 1,
 #			"item_resource": item}}
@@ -63,10 +63,16 @@ func add_item(item: Item):
 	item_added.emit(item)
 
 
-func remove_item(item: Item):
+func remove_item(item: Item, amount: int = 1):
 	if storage["items"].has(item.id):
-		storage["items"][item.id]["quantity"] -= 1
+		storage["items"][item.id]["quantity"] -= amount
 		if storage["items"][item.id]["quantity"] <= 0:
 			var items_dict = storage["items"] as Dictionary
 			items_dict.erase(item.id)
 		item_removed.emit(item)
+		
+		
+func remove_all_items():
+	for item_id in storage["items"].keys():
+		remove_item(storage["items"][item_id]["item_resource"],\
+		storage["items"][item_id]["quantity"])

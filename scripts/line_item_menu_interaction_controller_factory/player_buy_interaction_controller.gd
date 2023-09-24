@@ -13,8 +13,8 @@ var item_pricer: ItemPricer
 
 func init(owner: NPC):
 	buyer_inventory = PlayerInventory.inventory
-	seller_inventory = owner.inventory_component.inventory
-	item_pricer = owner.item_pricer_component.item_pricer
+	seller_inventory = owner.get_inventory()
+	item_pricer = owner.get_item_pricer()
 	return self
 	
 	

@@ -43,20 +43,15 @@ func setup_instructions():
 	
 func setup_items():
 	for child in item_container.get_children():
-		child.queue_free()
+		child.free()
 		
 	if type_controller == null || type_controller.seller_inventory.is_empty():
 		cursor_parent.visible = false
 		return
 		
-	var first_line_item: LineItemMenuItem = null
 	for item in type_controller.seller_inventory.storage["items"]:
-		var line_item_instance = add_line_item(type_controller.seller_inventory.storage["items"][item]["item_resource"])
-		
-		if first_line_item == null:
-			first_line_item = line_item_instance
-		
-	Callable(grab_focus_after_break.bind(first_line_item)).call_deferred()
+		add_line_item(type_controller.seller_inventory\
+		.storage["items"][item]["item_resource"])
 	
 
 func try_interact_focused_item():
@@ -78,35 +73,44 @@ func add_line_item(item: Item):
 	line_item_instance.set_item(item)
 	line_item_instance.set_controller(type_controller)
 	line_item_instance.selected.connect(on_line_item_selected)
+	
+	if item_container.get_child_count() == 1:
+		cursor_parent.visible = true
+		Callable(grab_focus_after_break.bind(line_item_instance)).call_deferred()
+		
 	return line_item_instance
 
 
 func grab_focus_after_break(next_focus_item: LineItemMenuItem):
 	await get_tree().create_timer(0.02).timeout
+	if next_focus_item == null:
+		return
 	next_focus_item.grab_focus()
 	
 	
 func remove_item_and_update_focus(line_item: LineItemMenuItem):
-	var item_index = item_container.get_children().find(line_item)
+	var removed_item_index = item_container.get_children().find(line_item)
+	print("removing sold item from shop")
+	item_container.remove_child(line_item)
 	
-	var items_in_shop = item_container.get_child_count()
-	print("before selling, " + str(items_in_shop) + " items in shop")
-	if items_in_shop == 1:
+	var items_in_shop_now = item_container.get_child_count()
+	if items_in_shop_now == 0:
 		cursor_parent.visible = false
 	elif current_line_item_in_focus != line_item:
 		Callable(grab_focus_after_break.bind(current_line_item_in_focus)).call_deferred()
 	else:
 		var next_focus_item
-		if item_index == items_in_shop - 1:
+		if removed_item_index == items_in_shop_now:
 			# Last item, set focus to previous item
-			next_focus_item = item_container.get_child(item_index - 1) as LineItemMenuItem
+			next_focus_item = item_container.get_child(removed_item_index - 1) as LineItemMenuItem
 		else:
 			# Not last item, set focus to next item
-			next_focus_item = item_container.get_child(item_index + 1) as LineItemMenuItem
+			print("position of cursor for index 0 item: " \
+			+ str(get_cursor_position_for_line_item(item_container.get_child(0))))
+			next_focus_item = item_container.get_child(removed_item_index) as LineItemMenuItem
 			
 		Callable(grab_focus_after_break.bind(next_focus_item)).call_deferred()
 		
-	print("removing sold item from shop")
 	line_item.queue_free()
 		
 	

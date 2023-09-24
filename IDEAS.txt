@@ -15,6 +15,7 @@ Randomized something, like the NPC layouts, which are buy/sell shops, etc.
 Add some events (may via single choice shops) that buff the player, such as speed
 Shortcut routes you can open in town (maybe pay money to open, complete quest, find hidden location)
 Hirelings
+Lighting
 
 
 Player Upgrades
