@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://gwdslkvpa2su"]
+
+[ext_resource type="Script" path="res://scene/test/game_timer.gd" id="1_kej7w"]
+
+[node name="GameTimer" type="CanvasLayer"]
+script = ExtResource("1_kej7w")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 27.0
+offset_right = 47.0
+offset_bottom = 45.0
+theme_type_variation = &"LabelMenu"
+text = "Timer: 0"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

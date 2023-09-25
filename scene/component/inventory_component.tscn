@@ -7,5 +7,5 @@ script = ExtResource("1_5avnt")
 
 [node name="ItemRefreshTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 6.0
+wait_time = 60.0
 autostart = true
