@@ -1,5 +1,7 @@
 class_name PlayerBuyInteractionController
 
+signal item_price_rates_changed
+
 static var good_color = Color(1, 0.623, 0.611)
 static var slight_good_color = Color(1, 0.797, 0.766)
 static var neutral_color = Color(1, 1, 1)
@@ -15,6 +17,8 @@ func init(owner: NPC):
 	buyer_inventory = PlayerInventory.inventory
 	seller_inventory = owner.get_inventory()
 	item_pricer = owner.get_item_pricer()
+	if item_pricer != null:
+		item_pricer.item_price_rates_changed.connect(func(): item_price_rates_changed.emit())
 	return self
 	
 	

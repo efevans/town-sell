@@ -16,11 +16,7 @@ var price: int
 var tracked_inventory: Inventory
 var type_controller
 
-# used by the HOC to deal with removing multiple line items and
-# updating focus 
-var marked_for_deletion: bool
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	focus_entered.connect(on_focus_entered)
 	focus_exited.connect(on_focus_exited)
@@ -32,15 +28,18 @@ func set_inventory_to_track(inventory: Inventory):
 	tracked_inventory.item_removed.connect(on_tracked_inventory_item_removed)
 	
 	
+func set_pricer_to_track(item_pricer: ItemPricer):
+	pass
+	
+	
 func set_item(new_item: Item):
 	item = new_item
-	update_price()
 	update_labels()
 	
 	
 func set_controller(controller):
 	type_controller = controller
-	update_price()
+	type_controller.item_price_rates_changed.connect(on_price_rates_changed)
 	update_labels()
 	
 	
@@ -52,6 +51,7 @@ func update_price():
 	
 	
 func update_labels():
+	update_price()
 	item_name_label.text = item.name
 	quantity_label.text = GameStrings.QUANTITY_PREFIX + str(tracked_inventory.get_item_count(item))
 	price_label.text = get_price_label_text()
@@ -93,3 +93,7 @@ func on_tracked_inventory_item_added(added_item: Item):
 func on_tracked_inventory_item_removed(removed_item: Item):
 	if removed_item.id == item.id:
 		update_labels()
+		
+		
+func on_price_rates_changed():
+	update_labels()

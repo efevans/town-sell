@@ -1,5 +1,10 @@
 class_name ItemPricer
 
+signal item_price_rates_changed
+
+const RATE_MIN = 0.6
+const RATE_MAX = 1.3
+
 var item_price_rates: Dictionary = {
 #	"item.id": rate (i.e. 0.8 or 1.2) ex. flame_sword: 0.94
 }
@@ -9,6 +14,12 @@ func get_rate_for_item(item: Item) -> float:
 	if item_price_rates.has(item.id):
 		return item_price_rates[item.id]
 	return 1.0
+	
+	
+func randomize_rates():
+	for item_id in item_price_rates:
+		item_price_rates[item_id] = randf_range(RATE_MIN, RATE_MAX)
+	item_price_rates_changed.emit()
 
 
 static func get_random_pricer() -> ItemPricer:

@@ -36,6 +36,7 @@ func add_items_from_pool():
 		var item = item_pool.pick_random()
 		inventory.add_item(item)
 		
+		
 func refresh_items():
 	if item_pool == null || item_pool.is_empty():
 		return

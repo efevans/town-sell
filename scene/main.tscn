@@ -165,10 +165,11 @@ position = Vector2(809, 253)
 [node name="InteractComponent" parent="Node2D/Entities/SellNPC2" instance=ExtResource("10_klt2c")]
 
 [node name="InventoryComponent" parent="Node2D/Entities/SellNPC2" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
 
 [node name="LineItemMenuComponent" parent="Node2D/Entities/SellNPC2" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
 menu_sub_type = 1
-interaction_signaler = NodePath("../../SellNPC/InteractComponent")
+interaction_signaler = NodePath("../InteractComponent")
 owner_npc = NodePath("..")
 
 [node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC2" instance=ExtResource("15_mi2hh")]
@@ -179,6 +180,7 @@ position = Vector2(569, 594)
 [node name="InteractComponent" parent="Node2D/Entities/SellNPC3" instance=ExtResource("10_klt2c")]
 
 [node name="InventoryComponent" parent="Node2D/Entities/SellNPC3" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
 
 [node name="LineItemMenuComponent" parent="Node2D/Entities/SellNPC3" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
 menu_sub_type = 1
