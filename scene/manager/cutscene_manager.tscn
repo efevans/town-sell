@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" path="res://scene/manager/cutscene_manager.gd" id="1_hv5j0"]
 
-[node name="CutsceneManager" type="Node"]
+[node name="CutsceneManager" type="AnimationPlayer"]
+root_node = NodePath(".")
 script = ExtResource("1_hv5j0")

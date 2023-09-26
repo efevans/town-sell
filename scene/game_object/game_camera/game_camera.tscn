@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="GameCamera" type="Camera2D"]
+process_mode = 3
 script = ExtResource("1_mspkh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

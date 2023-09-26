@@ -29,4 +29,6 @@ func on_interaction_started():
 	
 
 func on_interaction_ended():
+	if current_dialog_instance == null:
+		return
 	current_dialog_instance.close()

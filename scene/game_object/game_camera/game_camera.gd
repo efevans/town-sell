@@ -8,15 +8,20 @@ const MENU_MODE_OFFSET = Vector2.UP * 30
 
 var target_position = Vector2.ZERO
 var targeting_mode = TARGETING_MODE.PLAYER
+var track: bool = true
 
 
 func _ready():
 	make_current()
 	GameEvents.interactable_opened.connect(on_npc_menu_opened)
 	GameEvents.interactable_closed.connect(on_npc_menu_closed)
+	GameEvents.cutscene_started.connect(on_cutscene_started)
+	GameEvents.cutscene_ended.connect(on_cutscene_ended)
 
 
 func _process(delta):
+	if !track:
+		return
 	acquire_target()
 	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 20))
 
@@ -33,12 +38,24 @@ func acquire_target():
 		
 		
 func on_npc_menu_opened():
-#	zoom = Vector2(2, 2)
+	if !track:
+		return
 	animation_player.play("menu_zoom")
 	targeting_mode = TARGETING_MODE.MENU
 	
 	
 func on_npc_menu_closed():
-#	zoom = Vector2.ONE
+	if !track:
+		return
 	animation_player.play_backwards("menu_zoom")
 	targeting_mode = TARGETING_MODE.PLAYER
+	
+	
+func on_cutscene_started():
+	track = false
+	pass
+	
+	
+func on_cutscene_ended():
+	track = true
+	pass

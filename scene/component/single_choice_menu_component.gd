@@ -49,6 +49,8 @@ func on_interaction_started():
 	
 
 func on_interaction_ended():
+	if current_menu_instance == null:
+		return
 	current_menu_instance.close()
 	
 	
