@@ -30,6 +30,7 @@ func try_open_gate():
 	if PlayerInventory.inventory.get_gold() >= gate_fee:
 		PlayerInventory.inventory.subtract_gold(gate_fee)
 		gate.open()
+		GameEvents.emit_gate_opened(gate)
 
 
 func on_choice_selected():

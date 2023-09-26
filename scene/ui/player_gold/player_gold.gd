@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var gold_label = %GoldLabel
-#@export var canvas_layer: CanvasLayer
+@onready var animation_player = %AnimationPlayer
 
 var floating_text_scene: PackedScene = preload("res://scene/ui/floating_text/floating_text.tscn")
 
@@ -33,6 +33,12 @@ func update_gold_with_animation(new_amount: int, amount_changed: int):
 	var sign_char = "+" if amount_changed > 0 else ""
 	var text = sign_char + str(amount_changed) + "G"
 	floating_text.start(text)
+	
+	
+func close():
+	animation_player.play_backwards("in")
+	await animation_player.animation_finished
+	queue_free()
 	
 	
 func on_gold_changed(new_amount: int, original_amount: int, amount_changed: int):

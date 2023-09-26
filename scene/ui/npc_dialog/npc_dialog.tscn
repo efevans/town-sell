@@ -39,7 +39,7 @@ _data = {
 "in": SubResource("Animation_okek6")
 }
 
-[node name="NPCDialog" type="CanvasLayer"]
+[node name="NPCDialog" type="CanvasLayer" groups=["ui_menu"]]
 layer = 5
 script = ExtResource("1_sh081")
 

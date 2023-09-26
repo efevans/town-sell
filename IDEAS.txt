@@ -1,4 +1,4 @@
-Reset NPC inventories on a timer
+Screen transistion effect to be used for various uses like loading the game, starting a cutscene (like gate passage), etc.
 Upon paying to open gate, take control away from player and start a cutscene showing the gate opening. Afterwards, fade out, then restart the level
 Add an Inui sprite to the game as an NPC and animate it
 Cleanup main tree
@@ -16,7 +16,6 @@ Add some events (may via single choice shops) that buff the player, such as spee
 Shortcut routes you can open in town (maybe pay money to open, complete quest, find hidden location)
 Hirelings
 Lighting
-
 
 Player Upgrades
 Move speed

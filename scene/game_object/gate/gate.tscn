@@ -32,6 +32,7 @@ dialog_text = ExtResource("4_7veic")
 interaction_signaler = NodePath("../InteractComponent")
 
 [node name="TollGateComponent" parent="." node_paths=PackedStringArray("gate", "single_choice_component") instance=ExtResource("8_nvqkk")]
+process_mode = 3
 gate_strings = ExtResource("5_3e1qx")
 gate = NodePath("..")
 gate_fee = 20000

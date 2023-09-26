@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scene/test/FPSCounter.gd" id="1_kumf4"]
 
 [node name="FPSCounter" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_kumf4")
 
 [node name="FPSLabel" type="Label" parent="."]

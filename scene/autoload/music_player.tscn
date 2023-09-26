@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://cyef12tc6u7y4" path="res://assets/audio/town_bgm.mp3" id="1_c51js"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_c51js")
 volume_db = -30.0
 autoplay = true

@@ -42,8 +42,6 @@ static func get_all_item_ids() -> Array[String]:
 		var dir_name = dir.get_next()
 		while dir_name != "":
 			ids.append(dir_name)
-			if dir.current_is_dir():
-				print("Found directory: " + dir_name)
 			dir_name = dir.get_next()
 			
 	return ids

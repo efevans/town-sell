@@ -23,7 +23,6 @@ func init_radius():
 	if collision_radius != BASE_RADIUS:
 		var shape = CircleShape2D.new() as CircleShape2D
 		shape.set_radius(collision_radius)
-		print("setting shape")
 		collision_shape_2d.shape = shape
 
 

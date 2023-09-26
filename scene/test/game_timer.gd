@@ -13,4 +13,4 @@ func _ready():
 	
 func on_timeout():
 	var ticks = Time.get_ticks_msec()
-	label.text = "Timer: " + str(ticks / 1000)
+	label.text = "Timer: " + str(ticks / 1000.0)

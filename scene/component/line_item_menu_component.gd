@@ -32,7 +32,8 @@ func open_menu():
 	line_item_menu_instance.set_type_controller(line_item_menu_type_controller)
 	
 	current_menu_instance = npc_menu_scene.instantiate() as NPCMenu
-	get_tree().root.add_child(current_menu_instance)
+	
+	get_tree().get_first_node_in_group("ui_menu_layer").add_child(current_menu_instance)
 	current_menu_instance.set_inner_menu(line_item_menu_instance)
 
 
