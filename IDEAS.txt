@@ -1,4 +1,3 @@
-Upon paying to open gate, take control away from player and start a cutscene showing the gate opening. Afterwards, fade out, then restart the level
 Add an Inui sprite to the game as an NPC and animate it
 Cleanup main tree
 
