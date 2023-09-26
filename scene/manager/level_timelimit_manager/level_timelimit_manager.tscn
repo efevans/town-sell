@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvo5fioor4m44"]
+
+[ext_resource type="Script" path="res://scene/manager/level_timelimit_manager/level_timelimit_manager.gd" id="1_rieqq"]
+[ext_resource type="Texture2D" uid="uid://becj5rfp6qac6" path="res://scene/manager/level_timelimit_manager/clock.png" id="1_tacpm"]
+[ext_resource type="Texture2D" uid="uid://d1jbamcbnofod" path="res://scene/manager/level_timelimit_manager/clock_transparent.png" id="2_n7w1a"]
+[ext_resource type="Texture2D" uid="uid://e1lb70ultd0b" path="res://scene/manager/level_timelimit_manager/clock_fill.png" id="3_je0po"]
+
+[node name="LevelTimelimitManager" type="CanvasLayer"]
+script = ExtResource("1_rieqq")
+
+[node name="Clock" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 32.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.01
+value = 0.3
+fill_mode = 4
+texture_under = ExtResource("1_tacpm")
+texture_over = ExtResource("2_n7w1a")
+texture_progress = ExtResource("3_je0po")
+
+[node name="LevelTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 300.0
+autostart = true
+
+[node name="UpdateTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
