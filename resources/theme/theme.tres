@@ -1,7 +1,27 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bvhb3i3wnvnt0"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bvhb3i3wnvnt0"]
 
 [ext_resource type="Texture2D" uid="uid://cl1wdt3imxyj4" path="res://assets/ui/InnerPanel.png" id="1_33nrx"]
+[ext_resource type="Texture2D" uid="uid://cte28l06hydl5" path="res://assets/ui/button_brown.png" id="1_hnddm"]
 [ext_resource type="FontFile" uid="uid://dw7o6ptmkpcdi" path="res://resources/theme/Rockboxcond12.ttf" id="1_w6bsd"]
+[ext_resource type="Texture2D" uid="uid://b80osayglyfyy" path="res://assets/ui/button_brown_pressed.png" id="2_gofdd"]
+[ext_resource type="Texture2D" uid="uid://dybvw6oscaqtl" path="res://assets/ui/panel_beige.png" id="4_ofa4a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrccg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_da35w"]
+texture = ExtResource("2_gofdd")
+texture_margin_left = 7.0
+texture_margin_top = 8.0
+texture_margin_right = 7.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nal6q"]
+texture = ExtResource("1_hnddm")
+texture_margin_left = 9.0
+texture_margin_top = 6.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 45, 49)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eusxa"]
 content_margin_left = 0.0
@@ -16,6 +36,14 @@ texture_margin_bottom = 10.0
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 16, 16)
 modulate_color = Color(1, 1, 1, 0.890196)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fme0"]
+texture = ExtResource("4_ofa4a")
+texture_margin_left = 8.0
+texture_margin_top = 7.0
+texture_margin_right = 8.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(0, 0, 100, 100)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vh7h"]
 content_margin_left = 0.0
@@ -54,6 +82,15 @@ anti_aliasing = false
 [resource]
 default_font = ExtResource("1_w6bsd")
 default_font_size = 16
+Button/colors/font_color = Color(0.235294, 0.172549, 0.164706, 1)
+Button/colors/font_disabled_color = Color(0.211765, 0.168627, 0.337255, 0.498039)
+Button/colors/font_focus_color = Color(0.235294, 0.172549, 0.164706, 1)
+Button/colors/font_hover_color = Color(0.235294, 0.172549, 0.164706, 1)
+Button/colors/font_hover_pressed_color = Color(0.235294, 0.172549, 0.164706, 1)
+Button/colors/font_pressed_color = Color(0.235294, 0.172549, 0.164706, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_hrccg")
+Button/styles/hover = SubResource("StyleBoxTexture_da35w")
+Button/styles/normal = SubResource("StyleBoxTexture_nal6q")
 LabelMenu/base_type = &"Label"
 LabelMenu/colors/font_outline_color = Color(0.211765, 0.168627, 0.337255, 1)
 LabelMenu/colors/font_shadow_color = Color(0.211765, 0.168627, 0.337255, 1)
@@ -81,6 +118,8 @@ MarginContainerPlayerGold/constants/margin_left = 480
 MarginContainerPlayerGold/constants/margin_right = 16
 MarginContainerPlayerGold/constants/margin_top = 312
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_eusxa")
+PanelContainerFancyMenu/base_type = &"PanelContainer"
+PanelContainerFancyMenu/styles/panel = SubResource("StyleBoxTexture_6fme0")
 PanelContainerLineItem/base_type = &"PanelContainer"
 PanelContainerLineItem/styles/panel = SubResource("StyleBoxFlat_5vh7h")
 PanelContainerLineItemSelected/base_type = &"PanelContainer"

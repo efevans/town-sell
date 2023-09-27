@@ -1,6 +1,7 @@
 Add an Inui sprite to the game as an NPC and animate it
 Cleanup main tree
 
+More ways for the player to spend money
 Add a timer the player must get through the gate by
 Add more items
 NPC Quest to make a seller NPC give out a rare item for cheap
