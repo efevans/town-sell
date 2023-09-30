@@ -57,6 +57,7 @@ func on_focus_exited(button: Button):
 
 
 func on_retry_pressed():
+	ScreenTransition.transition_to_scene(GameStrings.LEVEL_SCENE)
 	print("retry pressed")
 	
 	

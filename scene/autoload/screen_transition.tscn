@@ -87,6 +87,7 @@ shader_parameter/transition_texture = ExtResource("2_617ro")
 
 [node name="ScreenTransition" type="CanvasLayer"]
 process_mode = 3
+layer = 120
 script = ExtResource("1_cctm8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
