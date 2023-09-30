@@ -35,7 +35,7 @@ func open_menu():
 	current_choice_menu_instance.selected.connect(on_menu_choice_selected)
 	
 	current_menu_instance = npc_menu_scene.instantiate() as NPCMenu
-	get_tree().get_first_node_in_group("ui_menu_layer").add_child(current_menu_instance)
+	get_tree().get_first_node_in_group(GameStrings.UI_INSTANCE_LAYER).add_child(current_menu_instance)
 	current_menu_instance.set_inner_menu(current_choice_menu_instance)
 	
 	

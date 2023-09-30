@@ -19,7 +19,7 @@ func _ready():
 
 func setup():
 	current_dialog_instance = BASE_DIALOG_SCENE.instantiate() as NPCDialog
-	get_tree().get_first_node_in_group("ui_menu_layer").add_child(current_dialog_instance)
+	get_tree().get_first_node_in_group(GameStrings.UI_INSTANCE_LAYER).add_child(current_dialog_instance)
 	if dialog_text != null:
 		current_dialog_instance.set_text(dialog_text.text)
 

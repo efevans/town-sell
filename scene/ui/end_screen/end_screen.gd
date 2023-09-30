@@ -11,6 +11,7 @@ var first_focus: bool = true
 
 
 func _ready():
+	get_tree().paused = true
 	normal_stylebox_theme = retry_button.get_theme_stylebox("normal")
 	retry_button.pressed.connect(on_retry_pressed)
 	quit_button.pressed.connect(on_quit_pressed)
@@ -58,6 +59,8 @@ func on_focus_exited(button: Button):
 
 func on_retry_pressed():
 	ScreenTransition.transition_to_scene(GameStrings.LEVEL_SCENE)
+	await ScreenTransition.transitioned_halfway
+	get_tree().paused = false
 	print("retry pressed")
 	
 	

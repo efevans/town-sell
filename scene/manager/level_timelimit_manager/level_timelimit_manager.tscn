@@ -1,49 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvo5fioor4m44"]
+[gd_scene load_steps=2 format=3 uid="uid://cvo5fioor4m44"]
 
 [ext_resource type="Script" path="res://scene/manager/level_timelimit_manager/level_timelimit_manager.gd" id="1_rieqq"]
-[ext_resource type="Texture2D" uid="uid://becj5rfp6qac6" path="res://scene/manager/level_timelimit_manager/clock.png" id="1_tacpm"]
-[ext_resource type="Texture2D" uid="uid://d1jbamcbnofod" path="res://scene/manager/level_timelimit_manager/clock_transparent.png" id="2_n7w1a"]
-[ext_resource type="Texture2D" uid="uid://phycfgb4e3ko" path="res://scene/manager/level_timelimit_manager/clock_background.png" id="2_slfls"]
-[ext_resource type="Texture2D" uid="uid://e1lb70ultd0b" path="res://scene/manager/level_timelimit_manager/clock_fill.png" id="3_je0po"]
 
 [node name="LevelTimelimitManager" type="CanvasLayer"]
 script = ExtResource("1_rieqq")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_bottom = 4.0
-grow_horizontal = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="Background" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(0, 5)
-texture = ExtResource("2_slfls")
-offset = Vector2(0, 17.5)
-
-[node name="Clock" type="TextureProgressBar" parent="MarginContainer/Background"]
-unique_name_in_owner = true
-offset_left = -16.0
-offset_top = 6.0
-offset_right = 16.0
-offset_bottom = 38.0
-size_flags_horizontal = 4
-max_value = 1.0
-step = 0.01
-fill_mode = 4
-texture_under = ExtResource("1_tacpm")
-texture_over = ExtResource("2_n7w1a")
-texture_progress = ExtResource("3_je0po")
-
 [node name="LevelTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 300.0
-autostart = true
-
-[node name="UpdateTimer" type="Timer" parent="."]
-unique_name_in_owner = true
+wait_time = 5.0
 autostart = true

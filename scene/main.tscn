@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=29 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
 [ext_resource type="TileSet" uid="uid://ujg37uru0myo" path="res://resources/tileset/tileset.tres" id="2_fayvw"]
 [ext_resource type="PackedScene" uid="uid://c7d2p03aarywf" path="res://scene/game_object/player/player.tscn" id="2_hdwl7"]
+[ext_resource type="PackedScene" uid="uid://cvo5fioor4m44" path="res://scene/manager/level_timelimit_manager/level_timelimit_manager.tscn" id="3_2lsjx"]
 [ext_resource type="PackedScene" uid="uid://755l4g054bp8" path="res://scene/game_object/npc/npc.tscn" id="3_fbbyu"]
 [ext_resource type="PackedScene" uid="uid://bpgcem8cdd3io" path="res://scene/test/fps_counter.tscn" id="3_sr1lm"]
 [ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera/game_camera.tscn" id="5_2fs1g"]
@@ -15,12 +16,12 @@
 [ext_resource type="Resource" uid="uid://tdfct3c3n62y" path="res://resources/dialog/slimeberries.tres" id="11_wd2mj"]
 [ext_resource type="PackedScene" uid="uid://c5e6d0qjays4s" path="res://scene/component/inventory_component.tscn" id="11_xw42s"]
 [ext_resource type="PackedScene" uid="uid://dbyulpnncf6rw" path="res://scene/component/line_item_menu_component.tscn" id="12_ow8e5"]
-[ext_resource type="PackedScene" uid="uid://dc5ugvdvxpkqu" path="res://scene/ui/player_gold/player_gold.tscn" id="13_ddihw"]
 [ext_resource type="PackedScene" uid="uid://bepklrpua4aiu" path="res://scene/component/dialog_component.tscn" id="13_wuxcc"]
 [ext_resource type="PackedScene" uid="uid://c4y7wrwfbl6rf" path="res://scene/component/item_pricer_component.tscn" id="15_mi2hh"]
 [ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="16_w8s08"]
 [ext_resource type="PackedScene" uid="uid://gwdslkvpa2su" path="res://scene/test/game_timer.tscn" id="20_nots6"]
 [ext_resource type="PackedScene" uid="uid://bc7r7qxv2f5x5" path="res://scene/manager/cutscene_manager.tscn" id="22_61clx"]
+[ext_resource type="PackedScene" uid="uid://d28lx2f1qryst" path="res://scene/ui/ui_menus_container/ui_menus_container.tscn" id="22_xv8ne"]
 
 [sub_resource type="Animation" id="Animation_h8hcg"]
 length = 0.001
@@ -153,6 +154,8 @@ libraries = {
 "": SubResource("AnimationLibrary_tqbvw")
 }
 
+[node name="LevelTimelimitManager" parent="." instance=ExtResource("3_2lsjx")]
+
 [node name="GroundTilemap" type="TileMap" parent="."]
 tile_set = ExtResource("2_fayvw")
 format = 2
@@ -198,6 +201,7 @@ layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array(131094, 720899, 6)
 
 [node name="Player" parent="Node2D/Entities" groups=["player"] instance=ExtResource("2_hdwl7")]
+process_mode = 0
 y_sort_enabled = true
 position = Vector2(290, 198)
 
@@ -377,7 +381,4 @@ process_material = SubResource("ParticleProcessMaterial_68ip0")
 texture = ExtResource("7_q61mj")
 lifetime = 4.0
 
-[node name="UIMenus" type="Node" parent="." groups=["ui_menu_layer"]]
-process_mode = 3
-
-[node name="PlayerGold" parent="UIMenus" instance=ExtResource("13_ddihw")]
+[node name="UIMenusContainer" parent="." instance=ExtResource("22_xv8ne")]

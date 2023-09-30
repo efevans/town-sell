@@ -1,24 +1,15 @@
 extends CanvasLayer
 
 @onready var level_timer = %LevelTimer
-@onready var update_timer = %UpdateTimer
-@onready var clock := %Clock
 
-var base_wait_time: float
-var timer_fill_color := Color("FIREBRICK", 0.8)
+var end_screen_scene = preload(GameStrings.GAME_OVER_SCREEN_SCENE)
 
 
 func _ready():
-	base_wait_time = level_timer.wait_time
-	update_timer.timeout.connect(on_update_timeout)
-	update_clock()
+	level_timer.timeout.connect(on_level_timeout)
 	
 	
-func update_clock():
-	var time_remaining = level_timer.time_left
-	clock.value =  1.0 - (time_remaining / base_wait_time)
-	clock.tint_progress = timer_fill_color
-
-
-func on_update_timeout():
-	update_clock()
+func on_level_timeout():
+	GameEvents.emit_game_over()
+	var end_screen_instance = end_screen_scene.instantiate()
+	get_tree().get_first_node_in_group(GameStrings.UI_INSTANCE_LAYER).add_child(end_screen_instance)
