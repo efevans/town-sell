@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb0tp40tmlxdb"]
+
+[ext_resource type="Script" path="res://scene/component/item_obtain_quest_component/item_obtain_quest_component.gd" id="1_gm3ol"]
+
+[node name="ItemObtainQuestComponent" type="Node"]
+script = ExtResource("1_gm3ol")

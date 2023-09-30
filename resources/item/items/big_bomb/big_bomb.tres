@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://5je2lbqsv48f"]
+
+[ext_resource type="Script" path="res://resources/item/item.gd" id="1_hfq1o"]
+[ext_resource type="Texture2D" uid="uid://7ef2fouiodp7" path="res://resources/item/items/big_bomb/big_bomb.png" id="1_m3iuh"]
+
+[resource]
+script = ExtResource("1_hfq1o")
+id = "big_bomb"
+name = "Big Bomb"
+base_price = 2350
+icon = ExtResource("1_m3iuh")
