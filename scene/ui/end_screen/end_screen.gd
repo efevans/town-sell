@@ -2,9 +2,12 @@ extends CanvasLayer
 
 @onready var retry_button := %RetryButton
 @onready var quit_button := %QuitButton
+@onready var audio_stream_player := %AudioStreamPlayer
 
 var normal_stylebox_theme: StyleBox
 var focused_button: Button
+
+var first_focus: bool = true
 
 
 func _ready():
@@ -24,8 +27,8 @@ func _process(delta):
 	
 	
 func ready_button_stylebox_changes(button: Button):
-	button.focus_entered.connect(set_pressed_style.bind(button))
-	button.focus_exited.connect(set_unpressed_style.bind(button))
+	button.focus_entered.connect(on_focus_entered.bind(button))
+	button.focus_exited.connect(on_focus_exited.bind(button))
 	
 	
 func set_pressed_style(button: Button):
@@ -39,6 +42,18 @@ func set_unpressed_style(button: Button):
 	
 func handle_button_pressed():
 	focused_button.pressed.emit()
+	
+	
+func on_focus_entered(button: Button):
+	if first_focus:
+		first_focus = false
+	else:
+		audio_stream_player.play()
+	set_pressed_style(button)
+	
+	
+func on_focus_exited(button: Button):
+	set_unpressed_style(button)
 
 
 func on_retry_pressed():

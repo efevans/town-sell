@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjqdtuunsfitm"]
+[gd_scene load_steps=6 format=3 uid="uid://cjqdtuunsfitm"]
 
 [ext_resource type="Script" path="res://scene/ui/end_screen/end_screen.gd" id="1_w82ni"]
+[ext_resource type="AudioStream" uid="uid://dvwqokes6t7b6" path="res://assets/audio/menu_move_cursor.ogg" id="2_y8pgt"]
 
 [sub_resource type="Animation" id="Animation_faev8"]
 length = 0.001
@@ -46,6 +47,10 @@ script = ExtResource("1_w82ni")
 libraries = {
 "": SubResource("AnimationLibrary_0ska3")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_y8pgt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
