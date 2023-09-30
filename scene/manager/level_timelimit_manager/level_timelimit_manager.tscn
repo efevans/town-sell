@@ -21,15 +21,16 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
 [node name="Background" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(0, 5)
 texture = ExtResource("2_slfls")
 offset = Vector2(0, 17.5)
 
 [node name="Clock" type="TextureProgressBar" parent="MarginContainer/Background"]
 unique_name_in_owner = true
 offset_left = -16.0
-offset_top = 1.0
+offset_top = 6.0
 offset_right = 16.0
-offset_bottom = 33.0
+offset_bottom = 38.0
 size_flags_horizontal = 4
 max_value = 1.0
 step = 0.01

@@ -1,10 +1,9 @@
+Add a timer the player must get through the gate by (F: Took too much screen. Instead, maybe have clocks around town that are displaying time)
 Add an Inui sprite to the game as an NPC and animate it
-Cleanup main tree
 
 Rucksack that limits how many items the player carries
 
 More ways for the player to spend money
-Add a timer the player must get through the gate by
 Add more items
 NPC Quest that makes a seller NPC sell an equipment upgrade, such as inventory space upgrade
 NPC Quest to make a seller NPC give out a rare item for cheap
