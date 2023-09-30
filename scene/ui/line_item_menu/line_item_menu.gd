@@ -131,8 +131,10 @@ func on_line_item_selected(line_item: LineItemMenuItem):
 	if current_line_item_in_focus == line_item:
 		return
 	
+	if current_line_item_in_focus != null:
+		move_cursor_audio_player.play()
+		
 	current_line_item_in_focus = line_item
-	move_cursor_audio_player.play()
 	move_cursor_to_line_item(line_item)
 	
 	
