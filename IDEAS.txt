@@ -1,3 +1,7 @@
+Top
+-------
+Make a quest for the NPC. It should work with a player sell NPC. If you sell him a fire sword, a potion, and then a second fire sword, all in that order, he should add a new, up until now unobtainable item. This should be implemented as a component that can be added to an NPC, and allow and order of items, as well as add any item to the NPC inventory
+
 Add an Inui sprite to the game as an NPC and animate it
 Rucksack that limits how many items the player carries
 
