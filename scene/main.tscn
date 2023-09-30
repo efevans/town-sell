@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=28 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://c4y7wrwfbl6rf" path="res://scene/component/item_pricer_component.tscn" id="15_mi2hh"]
 [ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="16_w8s08"]
 [ext_resource type="PackedScene" uid="uid://gwdslkvpa2su" path="res://scene/test/game_timer.tscn" id="20_nots6"]
-[ext_resource type="PackedScene" uid="uid://cvo5fioor4m44" path="res://scene/manager/level_timelimit_manager/level_timelimit_manager.tscn" id="21_me3lv"]
 [ext_resource type="PackedScene" uid="uid://bc7r7qxv2f5x5" path="res://scene/manager/cutscene_manager.tscn" id="22_61clx"]
 
 [sub_resource type="Animation" id="Animation_h8hcg"]
@@ -380,7 +379,5 @@ lifetime = 4.0
 
 [node name="UIMenus" type="Node" parent="." groups=["ui_menu_layer"]]
 process_mode = 3
-
-[node name="LevelTimelimitManager" parent="UIMenus" instance=ExtResource("21_me3lv")]
 
 [node name="PlayerGold" parent="UIMenus" instance=ExtResource("13_ddihw")]

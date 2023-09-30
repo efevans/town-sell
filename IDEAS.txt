@@ -1,6 +1,4 @@
-Add a timer the player must get through the gate by (F: Took too much screen. Instead, maybe have clocks around town that are displaying time)
 Add an Inui sprite to the game as an NPC and animate it
-
 Rucksack that limits how many items the player carries
 
 More ways for the player to spend money
@@ -23,3 +21,7 @@ Move speed
 Multi-item buying
 Better deal buying
 Better deal selling
+
+Fail
+------
+Add a timer the player must get through the gate by (F: Took too much screen. Instead, maybe have clocks around town that are displaying time)
