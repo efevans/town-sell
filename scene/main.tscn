@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=30 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://c4y7wrwfbl6rf" path="res://scene/component/item_pricer_component.tscn" id="15_mi2hh"]
 [ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="16_w8s08"]
 [ext_resource type="PackedScene" uid="uid://bb0tp40tmlxdb" path="res://scene/component/item_obtain_quest_component/item_obtain_quest_component.tscn" id="18_5424r"]
-[ext_resource type="Resource" uid="uid://5je2lbqsv48f" path="res://resources/item/items/big_bomb/big_bomb.tres" id="19_01xv8"]
 [ext_resource type="PackedScene" uid="uid://gwdslkvpa2su" path="res://scene/test/game_timer.tscn" id="20_nots6"]
 [ext_resource type="PackedScene" uid="uid://bc7r7qxv2f5x5" path="res://scene/manager/cutscene_manager.tscn" id="22_61clx"]
 [ext_resource type="PackedScene" uid="uid://d28lx2f1qryst" path="res://scene/ui/ui_menus_container/ui_menus_container.tscn" id="22_xv8ne"]
@@ -281,7 +280,7 @@ owner_npc = NodePath("..")
 [node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC" instance=ExtResource("15_mi2hh")]
 
 [node name="ItemObtainQuestComponent" parent="Node2D/Entities/SellNPC" node_paths=PackedStringArray("inventory_component") instance=ExtResource("18_5424r")]
-item_reward = ExtResource("19_01xv8")
+gold_reward = 1300
 item_obtain_requirements = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("8_kmtkt")])
 inventory_component = NodePath("../InventoryComponent")
 

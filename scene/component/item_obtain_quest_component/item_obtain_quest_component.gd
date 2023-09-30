@@ -1,7 +1,7 @@
 extends Node
 
 @export_group("Quest Properties")
-@export var item_reward: Item
+@export var gold_reward: int
 @export var item_obtain_requirements: Array[Item]
 
 @export_group("Node Dependencies")
@@ -21,7 +21,8 @@ func on_item_added(item: Item):
 	print("quest: noticed item added")
 	obtained_item_memory.push(item)
 	if obtained_item_memory.matches(item_obtain_requirements):
-		print("quest complete!")
+		PlayerInventory.inventory.add_gold(gold_reward)
+		print("quest complete! Adding gold to player: " + str(gold_reward))
 	
 	
 func print_pretty_item_array(arr: Array[Item]):
