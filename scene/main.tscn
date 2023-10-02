@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=34 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -20,7 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://c4y7wrwfbl6rf" path="res://scene/component/item_pricer_component.tscn" id="15_mi2hh"]
 [ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="16_w8s08"]
 [ext_resource type="PackedScene" uid="uid://bb0tp40tmlxdb" path="res://scene/component/item_obtain_quest_component/item_obtain_quest_component.tscn" id="18_5424r"]
+[ext_resource type="PackedScene" uid="uid://dulbiq4cq3ws8" path="res://scene/component/item_lose_quest_component/item_lose_quest_component.tscn" id="18_r3yjw"]
+[ext_resource type="PackedScene" uid="uid://dpypsodadgqb4" path="res://scene/component/item_gain_quest_reward_component/item_gain_quest_reward_component.tscn" id="19_ewaky"]
+[ext_resource type="PackedScene" uid="uid://qpay88xg865t" path="res://scene/component/gold_gain_quest_reward/gold_gain_quest_reward.tscn" id="19_qlx7x"]
 [ext_resource type="PackedScene" uid="uid://gwdslkvpa2su" path="res://scene/test/game_timer.tscn" id="20_nots6"]
+[ext_resource type="Resource" uid="uid://5je2lbqsv48f" path="res://resources/item/items/big_bomb/big_bomb.tres" id="20_s3bpw"]
 [ext_resource type="PackedScene" uid="uid://bc7r7qxv2f5x5" path="res://scene/manager/cutscene_manager.tscn" id="22_61clx"]
 [ext_resource type="PackedScene" uid="uid://d28lx2f1qryst" path="res://scene/ui/ui_menus_container/ui_menus_container.tscn" id="22_xv8ne"]
 
@@ -218,7 +222,7 @@ collision_radius = 15
 
 [node name="InventoryComponent" parent="Node2D/Entities/ShopDialogNPC" instance=ExtResource("11_xw42s")]
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
-item_count = 8
+item_count = 15
 
 [node name="ItemPricerComponent" parent="Node2D/Entities/ShopDialogNPC" instance=ExtResource("15_mi2hh")]
 
@@ -229,6 +233,14 @@ owner_npc = NodePath("..")
 [node name="DialogComponent" parent="Node2D/Entities/ShopDialogNPC" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
 dialog_text = ExtResource("11_wd2mj")
 interaction_signaler = NodePath("../InteractComponent")
+
+[node name="ItemLoseQuestComponent" parent="Node2D/Entities/ShopDialogNPC" node_paths=PackedStringArray("inventory_component") instance=ExtResource("18_r3yjw")]
+item_lose_requirements = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("8_kmtkt")])
+inventory_component = NodePath("../InventoryComponent")
+
+[node name="ItemGainQuestRewardComponent" parent="Node2D/Entities/ShopDialogNPC" node_paths=PackedStringArray("quest_node") instance=ExtResource("19_ewaky")]
+item_reward = ExtResource("20_s3bpw")
+quest_node = NodePath("../ItemLoseQuestComponent")
 
 [node name="ShopDialogNPC2" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(504, 575)
@@ -280,9 +292,12 @@ owner_npc = NodePath("..")
 [node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC" instance=ExtResource("15_mi2hh")]
 
 [node name="ItemObtainQuestComponent" parent="Node2D/Entities/SellNPC" node_paths=PackedStringArray("inventory_component") instance=ExtResource("18_5424r")]
-gold_reward = 1300
 item_obtain_requirements = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("8_kmtkt")])
 inventory_component = NodePath("../InventoryComponent")
+
+[node name="GoldGainQuestReward" parent="Node2D/Entities/SellNPC" node_paths=PackedStringArray("quest_node") instance=ExtResource("19_qlx7x")]
+gold_reward = 1300
+quest_node = NodePath("../ItemObtainQuestComponent")
 
 [node name="SellNPC2" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(809, 253)

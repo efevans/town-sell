@@ -3,25 +3,25 @@ extends Node
 signal quest_completed
 
 @export_group("Quest Properties")
-@export var item_obtain_requirements: Array[Item]
+@export var item_lose_requirements: Array[Item]
 
 @export_group("Node Dependencies")
 @export var inventory_component: InventoryComponent
 
 @export_group("", "")
 
-var obtained_item_memory: ItemMemory
+var lost_item_memory: ItemMemory
 
 
 func _ready():
-	inventory_component.inventory.item_added.connect(on_item_added)
-	obtained_item_memory = ItemMemory.new(item_obtain_requirements.size())
+	inventory_component.inventory.item_removed.connect(on_item_lost)
+	lost_item_memory = ItemMemory.new(item_lose_requirements.size())
 	
 	
-func on_item_added(item: Item):
-	print("quest: noticed item added")
-	obtained_item_memory.push(item)
-	if obtained_item_memory.matches(item_obtain_requirements):
+func on_item_lost(item: Item):
+	print("quest: noticed item lost")
+	lost_item_memory.push(item)
+	if lost_item_memory.matches(item_lose_requirements):
 		print("quest completed, emitting signal")
 		quest_completed.emit()
 	

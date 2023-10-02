@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qpay88xg865t"]
+
+[ext_resource type="Script" path="res://scene/component/gold_gain_quest_reward/gold_gain_quest_reward.gd" id="1_qobvr"]
+
+[node name="GoldGainQuestReward" type="Node"]
+script = ExtResource("1_qobvr")

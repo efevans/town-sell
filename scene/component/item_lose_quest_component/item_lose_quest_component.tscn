@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dulbiq4cq3ws8"]
+
+[ext_resource type="Script" path="res://scene/component/item_lose_quest_component/item_lose_quest_component.gd" id="1_5mfxe"]
+
+[node name="ItemLoseQuestComponent" type="Node"]
+script = ExtResource("1_5mfxe")

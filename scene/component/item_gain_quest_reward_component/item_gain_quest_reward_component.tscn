@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpypsodadgqb4"]
+
+[ext_resource type="Script" path="res://scene/component/item_gain_quest_reward_component/item_gain_quest_reward_component.gd" id="1_j3f8u"]
+
+[node name="ItemGainQuestRewardComponent" type="Node"]
+script = ExtResource("1_j3f8u")
