@@ -3,7 +3,7 @@ class_name SingleChoiceMenu
 
 signal selected
 
-const CURSOR_OFFSET = Vector2(-22, 6)
+const CURSOR_OFFSET = Vector2(-22, 3)
 
 @onready var cursor_parent = %CursorParent
 @onready var choice = %Choice

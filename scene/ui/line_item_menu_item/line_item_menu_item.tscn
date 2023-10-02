@@ -6,7 +6,7 @@
 [node name="LineItemMenuItem" type="PanelContainer"]
 focus_mode = 2
 mouse_filter = 2
-theme_type_variation = &"PanelContainerLineItem"
+theme_type_variation = &"PanelContainerFancyLineItem"
 script = ExtResource("1_g64px")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

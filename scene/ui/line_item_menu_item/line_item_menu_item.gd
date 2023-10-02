@@ -3,8 +3,8 @@ class_name LineItemMenuItem
 
 signal selected(line_item: LineItemMenuItem)
 
-const default_theme: String = "PanelContainerLineItem"
-const in_focus_theme: String = "PanelContainerLineItemSelected"
+const default_theme: String = "PanelContainerFancyLineItem"
+const in_focus_theme: String = "PanelContainerFancyLineItemSelected"
 
 @onready var icon := %Icon
 @onready var item_name_label: Label = %ItemName

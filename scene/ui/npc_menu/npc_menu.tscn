@@ -84,6 +84,7 @@ theme_type_variation = &"MarginContainerNPCMenu"
 
 [node name="MenuPanel" type="PanelContainer" parent="MenuMarginContainer"]
 layout_mode = 2
+theme_type_variation = &"PanelContainerFancyMenu"
 
 [node name="InnerMenuContainer" type="MarginContainer" parent="MenuMarginContainer/MenuPanel"]
 unique_name_in_owner = true

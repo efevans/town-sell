@@ -59,6 +59,7 @@ theme_type_variation = &"MarginContainerNPCDialog"
 
 [node name="DialogPanel" type="PanelContainer" parent="DialogMarginContainer"]
 layout_mode = 2
+theme_type_variation = &"PanelContainerFancyMenu"
 
 [node name="InnerDialogContainer" type="MarginContainer" parent="DialogMarginContainer/DialogPanel"]
 unique_name_in_owner = true
@@ -74,7 +75,7 @@ theme_override_constants/margin_left = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="DialogMarginContainer/DialogPanel/InnerDialogContainer/NPCDialogContent"]
 layout_mode = 2
-theme_type_variation = &"PanelContainerLineItem"
+theme_type_variation = &"PanelContainerFancyLineItem"
 
 [node name="MarginContainer" type="MarginContainer" parent="DialogMarginContainer/DialogPanel/InnerDialogContainer/NPCDialogContent/PanelContainer"]
 layout_mode = 2

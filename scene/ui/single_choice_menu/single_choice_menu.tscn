@@ -42,6 +42,7 @@ _data = {
 }
 
 [node name="SingleChoiceMenu" type="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_0nc2p")
@@ -58,7 +59,7 @@ layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_type_variation = &"PanelContainerLineItem"
+theme_type_variation = &"PanelContainerFancyLineItem"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -80,7 +81,7 @@ autowrap_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_type_variation = &"PanelContainerLineItemSelected"
+theme_type_variation = &"PanelContainerFancyLineItemSelected"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Choice"]
 layout_mode = 2

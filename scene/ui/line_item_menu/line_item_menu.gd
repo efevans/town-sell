@@ -3,7 +3,7 @@ class_name LineItemMenu
 
 enum Type {PLAYER_BUY, PLAYER_SELL, SINGLE_CHOICE_BUY}
 
-const CURSOR_OFFSET = Vector2(-22, 6)
+const CURSOR_OFFSET = Vector2(-22, 5)
 
 @onready var instructions: Label = %Instructions
 @onready var interact_line_item_audio_player = $InteractLineItemAudioPlayer
