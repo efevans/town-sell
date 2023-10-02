@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://cxb4hc0hilwvs"]
+
+[ext_resource type="Script" path="res://resources/dialog/dialog.gd" id="1_h4yeu"]
+
+[resource]
+script = ExtResource("1_h4yeu")
+text = "BUY A [img=b,b]res://resources/item/items/fire_sword/fire_sword.png[/img][color=ORANGE]FIRE SWORD[/color], A [img=b,b]res://resources/item/items/healing_potion/healing_potion.png[/img][color=RED]HEALING POTION[/color], AND ANOTHER [img=b,b]res://resources/item/items/fire_sword/fire_sword.png[/img][color=ORANGE]FIRE SWORD[/color], ALL IN THAT ORDER, AND I'LL THROW IN  [color=DIM_GRAY]SOMETHING EXPLOSIVE[/color] FOR FREE."

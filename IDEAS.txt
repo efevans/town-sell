@@ -1,11 +1,11 @@
 Top
 -------
-Make a quest for the NPC. It should work with a player buy NPC. If you buy from him a fire sword, a potion, and then a second fire sword, all in that order, he should add a new, up until now unobtainable item. This should be implemented as a component that can be added to an NPC, and allow and order of items, as well as add any item to the NPC inventory
-
+A toast menu for describing items or gold added indirectly (such as via quest rewards)
 
 Rucksack that limits how many items the player carries
-
 More ways for the player to spend money
+Automatically, randomly generated quests
+Automatically, randomly generated dialog that explain a quest with proper icon and coloring. For example, a sell quest for sword, potion, sword that rewards gold should explain that, with accompanying color coordination and icons
 Add more items
 NPC Quest that makes a seller NPC sell an equipment upgrade, such as inventory space upgrade
 NPC Quest to make a seller NPC give out a rare item for cheap

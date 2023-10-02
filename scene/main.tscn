@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=35 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bepklrpua4aiu" path="res://scene/component/dialog_component.tscn" id="13_wuxcc"]
 [ext_resource type="PackedScene" uid="uid://c4y7wrwfbl6rf" path="res://scene/component/item_pricer_component.tscn" id="15_mi2hh"]
 [ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="16_w8s08"]
+[ext_resource type="Resource" uid="uid://cxb4hc0hilwvs" path="res://resources/dialog/quest/bomb_quest.tres" id="17_frgao"]
 [ext_resource type="PackedScene" uid="uid://bb0tp40tmlxdb" path="res://scene/component/item_obtain_quest_component/item_obtain_quest_component.tscn" id="18_5424r"]
 [ext_resource type="PackedScene" uid="uid://dulbiq4cq3ws8" path="res://scene/component/item_lose_quest_component/item_lose_quest_component.tscn" id="18_r3yjw"]
 [ext_resource type="PackedScene" uid="uid://dpypsodadgqb4" path="res://scene/component/item_gain_quest_reward_component/item_gain_quest_reward_component.tscn" id="19_ewaky"]
@@ -231,7 +232,7 @@ interaction_signaler = NodePath("../InteractComponent")
 owner_npc = NodePath("..")
 
 [node name="DialogComponent" parent="Node2D/Entities/ShopDialogNPC" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
-dialog_text = ExtResource("11_wd2mj")
+dialog_text = ExtResource("17_frgao")
 interaction_signaler = NodePath("../InteractComponent")
 
 [node name="ItemLoseQuestComponent" parent="Node2D/Entities/ShopDialogNPC" node_paths=PackedStringArray("inventory_component") instance=ExtResource("18_r3yjw")]
