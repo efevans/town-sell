@@ -1,24 +1,27 @@
 Top
 -------
-A toast menu for describing items or gold added indirectly (such as via quest rewards)
+Add a Rucksack that limits how many items the player carries. The game should indicate to the player when their rucksack is full, so they know why they can't buy an item. When trying to buy an item while the rucksack is full, there should be a feedback to the player that the cause of not being able to buy is the maxed rucksack. This may be accomplished by having the capacity of the rucksack in the bottom left, and playing an animation when a max size rucksack is the cause of not being able to gain more items. For player enjoyment sake, it may be good to allow players to go over the size if they gain an item indirectly, like from a quest
 
 Rucksack that limits how many items the player carries
 More ways for the player to spend money
 Automatically, randomly generated quests
 Automatically, randomly generated dialog that explain a quest with proper icon and coloring. For example, a sell quest for sword, potion, sword that rewards gold should explain that, with accompanying color coordination and icons
 Add more items
+Different tiers of items
 NPC Quest that makes a seller NPC sell an equipment upgrade, such as inventory space upgrade
 NPC Quest to make a seller NPC give out a rare item for cheap
 NPC Quest to make a seller buy an item for a lot more
 NPC Quest to change an NPC's price rate advantageously for the player
+NPC Quest that upgrades a player buy NPC offer higher tier items from now on
 Stock Market
 Slot Marchine
-Minigame using single choice menu where you get money based on what it says when you select, but it changes rapidly
+Minigame using single choice menu where you get money based on what it says when you select, but it changes rapidly (maybe slot machine)
 Randomized something, like the NPC layouts, which are buy/sell shops, etc.
 Add some events (may via single choice shops) that buff the player, such as speed
 Shortcut routes you can open in town (maybe pay money to open, complete quest, find hidden location)
 Hirelings
 Lighting
+When starting, allow players to choose a bonus to start with (increased speed, rucksack size, set gold amount, etc.)
 
 Player Upgrades
 Move speed
