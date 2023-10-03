@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ck0mkq1jfmbfk" path="res://scene/manager/toast_manager/toast_manager.tscn" id="4_o1pea"]
 [ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera/game_camera.tscn" id="5_2fs1g"]
 [ext_resource type="Texture2D" uid="uid://ba8f8cc2sr33u" path="res://assets/environment/smoke.png" id="7_q61mj"]
-[ext_resource type="Resource" path="res://resources/item/items/fire_sword/fire_sword.tres" id="8_kmtkt"]
+[ext_resource type="Resource" uid="uid://m3h6po7qij3e" path="res://resources/item/items/fire_sword/fire_sword.tres" id="8_kmtkt"]
 [ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="9_xah63"]
 [ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="10_0365f"]
 [ext_resource type="PackedScene" uid="uid://cxlkcf4k1j0es" path="res://scene/component/interact_component.tscn" id="10_klt2c"]

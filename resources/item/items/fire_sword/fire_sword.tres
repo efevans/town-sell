@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://m3h6po7qij3e"]
 
 [ext_resource type="Script" path="res://resources/item/item.gd" id="1_3psso"]
 [ext_resource type="Texture2D" uid="uid://c6ayptk8dvnrd" path="res://resources/item/items/fire_sword/fire_sword.png" id="1_404wy"]
@@ -9,3 +9,4 @@ id = "fire_sword"
 name = "Fire Sword"
 base_price = 240
 icon = ExtResource("1_404wy")
+rich_text_color = Color(0.843137, 0.27451, 0.286275, 1)

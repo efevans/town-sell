@@ -14,9 +14,11 @@ func on_item_indirectly_obtained(item: Item):
 	audio_stream_player.play()
 	var toast_instance = toast_scene.instantiate()
 	Common.get_ui_layer().add_child(toast_instance)
+	toast_instance.set_subject(item)
 
 
 func on_gold_indirectly_obtained(amount: int):
 	audio_stream_player.play()
 	var toast_instance = toast_scene.instantiate()
 	Common.get_ui_layer().add_child(toast_instance)
+	toast_instance.set_subject(amount)

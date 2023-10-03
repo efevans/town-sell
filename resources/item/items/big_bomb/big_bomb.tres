@@ -9,3 +9,4 @@ id = "big_bomb"
 name = "Big Bomb"
 base_price = 2350
 icon = ExtResource("1_m3iuh")
+rich_text_color = Color(0.180392, 0.180392, 0.180392, 1)
