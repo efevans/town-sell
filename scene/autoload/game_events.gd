@@ -3,6 +3,9 @@ extends Node
 signal interactable_opened
 signal interactable_closed
 
+signal item_indirectly_obtained(item: Item)
+signal gold_indirectly_obtained(amount: int)
+
 signal gate_opened(gate: Gate)
 
 signal cutscene_started
@@ -17,6 +20,14 @@ func emit_interactable_opened():
 
 func emit_interactable_closed():
 	interactable_closed.emit()
+	
+	
+func emit_item_indirectly_obtained(item: Item):
+	item_indirectly_obtained.emit(item)
+	
+	
+func emit_gold_indirectly_obtained(amount: int):
+	gold_indirectly_obtained.emit(amount)
 
 
 func emit_gate_opened(gate: Gate):

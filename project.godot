@@ -22,6 +22,7 @@ MusicPlayer="*res://scene/autoload/music_player.tscn"
 PlayerInventory="*res://scene/autoload/player_inventory.tscn"
 GameStrings="*res://scene/autoload/game_strings.tscn"
 ScreenTransition="*res://scene/autoload/screen_transition.tscn"
+Common="*res://scene/autoload/common.tscn"
 
 [debug]
 

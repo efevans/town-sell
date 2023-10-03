@@ -13,4 +13,5 @@ func _ready():
 	
 func on_quest_completed():
 	PlayerInventory.inventory.add_item(item_reward)
+	GameEvents.emit_item_indirectly_obtained(item_reward)
 	print("quest complete! Adding item to player: " + item_reward.name)

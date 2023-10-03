@@ -13,4 +13,5 @@ func _ready():
 	
 func on_quest_completed():
 	PlayerInventory.inventory.add_gold(gold_reward)
+	GameEvents.emit_gold_indirectly_obtained(gold_reward)
 	print("quest complete! Adding gold to player: " + str(gold_reward))

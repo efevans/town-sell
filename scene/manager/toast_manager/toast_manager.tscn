@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck0mkq1jfmbfk"]
+
+[ext_resource type="Script" path="res://scene/manager/toast_manager/toast_manager.gd" id="1_plvxa"]
+[ext_resource type="AudioStream" uid="uid://ds3hihg3mlugs" path="res://assets/audio/toast_pop_in.ogg" id="2_2025e"]
+
+[node name="ToastManager" type="Node"]
+script = ExtResource("1_plvxa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_2025e")
+volume_db = -28.0
+pitch_scale = 0.9
