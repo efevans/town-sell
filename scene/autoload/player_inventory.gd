@@ -5,6 +5,7 @@ var inventory := Inventory.new()
 
 func _ready():
 	inventory.max_storage_size = 8
+	inventory.set_gold(500)
 
 
 func _process(delta):

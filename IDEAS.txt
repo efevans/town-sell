@@ -1,10 +1,10 @@
 Top
 -------
-Add a Rucksack that limits how many items the player carries. The game should indicate to the player when their rucksack is full, so they know why they can't buy an item. When trying to buy an item while the rucksack is full, there should be a feedback to the player that the cause of not being able to buy is the maxed rucksack. This may be accomplished by having the capacity of the rucksack in the bottom left, and playing an animation when a max size rucksack is the cause of not being able to gain more items. For player enjoyment sake, it may be good to allow players to go over the size if they gain an item indirectly, like from a quest
+Stock Market
 
 More ways for the player to spend money
 Automatically, randomly generated quests
-Automatically, randomly generated dialog that explain a quest with proper icon and coloring. For example, a sell quest for sword, potion, sword that rewards gold should explain that, with accompanying color coordination and icons
+Automatically, randomly generated dialog that explains a quest with proper icon and coloring. For example, a sell quest for sword, potion, sword that rewards gold should explain that, with accompanying color coordination and icons
 Add more items
 Different tiers of items
 NPC Quest that makes a seller NPC sell an equipment upgrade, such as inventory space upgrade
