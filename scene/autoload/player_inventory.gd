@@ -1,6 +1,10 @@
 extends Node
 
-var inventory: Inventory = Inventory.new()
+var inventory := Inventory.new()
+
+
+func _ready():
+	inventory.max_storage_size = 8
 
 
 func _process(delta):

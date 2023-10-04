@@ -58,11 +58,16 @@ func get_color_for_price_label(item: Item) -> Color:
 	
 	
 func interact(line_item: LineItemMenuItem):
-	if buyer_inventory.get_gold() < line_item.price:
-		return false
-
-	buyer_inventory.subtract_gold(line_item.price)
-	seller_inventory.add_gold(line_item.price)
-	seller_inventory.remove_item(line_item.item)
-	buyer_inventory.add_item(line_item.item)
-	return true
+	var success = buyer_inventory.try_buy_item(line_item.item, line_item.price)
+	if success:
+		seller_inventory.add_gold(line_item.price)
+		seller_inventory.remove_item(line_item.item)
+	return success
+#	if buyer_inventory.get_gold() < line_item.price:
+#		return false
+#
+#	buyer_inventory.subtract_gold(line_item.price)
+#	seller_inventory.add_gold(line_item.price)
+#	seller_inventory.remove_item(line_item.item)
+#	buyer_inventory.add_item(line_item.item)
+#	return true

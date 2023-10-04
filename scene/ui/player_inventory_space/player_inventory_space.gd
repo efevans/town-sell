@@ -10,6 +10,8 @@ extends CanvasLayer
 func _ready():
 	PlayerInventory.inventory.item_added.connect(on_inventory_changed)
 	PlayerInventory.inventory.item_removed.connect(on_inventory_changed)
+	PlayerInventory.inventory.failed_to_add_item_due_to_insufficient_storage\
+	.connect(on_insufficient_storage)
 	update_labels()
 	
 	
@@ -28,4 +30,8 @@ func update_labels():
 
 func on_inventory_changed(_item: Item):
 	update_labels()
+	
+	
+func on_insufficient_storage():
+	numerator_animation_player.play("jiggle_color")
 	

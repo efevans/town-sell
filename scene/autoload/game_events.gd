@@ -3,6 +3,8 @@ extends Node
 signal interactable_opened
 signal interactable_closed
 
+signal failed_to_obtain_item_due_to_storage_limits
+
 signal item_indirectly_obtained(item: Item)
 signal gold_indirectly_obtained(amount: int)
 
@@ -20,6 +22,10 @@ func emit_interactable_opened():
 
 func emit_interactable_closed():
 	interactable_closed.emit()
+	
+	
+func emit_failed_to_obtain_item_due_to_storage_limits():
+	failed_to_obtain_item_due_to_storage_limits.emit()
 	
 	
 func emit_item_indirectly_obtained(item: Item):

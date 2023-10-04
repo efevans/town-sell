@@ -3,8 +3,10 @@ class_name Inventory
 signal gold_changed(new_amount: int, original_amount: int, amount_changed: int)
 signal item_added(item: Item)
 signal item_removed(item: Item)
+signal failed_to_add_item_due_to_insufficient_gold
+signal failed_to_add_item_due_to_insufficient_storage
 
-var max_storage_size: int = 8
+var max_storage_size: int = 10000
 
 var storage: Dictionary = {
 	"gold": 40000,
@@ -61,9 +63,27 @@ func get_random_item() -> Item:
 	
 func is_empty():
 	return storage["items"].is_empty()
+	
+	
+func try_buy_item(item: Item, price: int) -> bool:
+	# returns a truthy value indicating if the inventory was able to
+	# buy the item for the price. This checks first available gold,
+	# and then storage space
+	if get_gold() < price:
+		failed_to_add_item_due_to_insufficient_gold.emit()
+		return false
+	if max_storage_size < get_storage_count() + 1:
+		failed_to_add_item_due_to_insufficient_storage.emit()
+		return false
+		
+	add_item(item)
+	subtract_gold(price)
+	return true
 
 
 func add_item(item: Item):
+	# Does not check for storage space, so use this if you want to
+	# add an item regardless of available space (e.g. quest rewards)
 	if !storage["items"].has(item.id):
 		storage["items"][item.id] = {
 			"quantity": 0,
