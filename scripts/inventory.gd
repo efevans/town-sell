@@ -4,6 +4,8 @@ signal gold_changed(new_amount: int, original_amount: int, amount_changed: int)
 signal item_added(item: Item)
 signal item_removed(item: Item)
 
+var max_storage_size: int = 8
+
 var storage: Dictionary = {
 	"gold": 40000,
 	"items": {}
@@ -30,6 +32,14 @@ func add_gold(amount: int):
 	
 func subtract_gold(amount: int):
 	add_gold(-amount)
+	
+	
+func get_number_of_items() -> int:
+	var count = 0
+	for item_id in storage["items"].keys():
+		count += storage["items"][item_id]["quantity"]
+	
+	return count
 	
 	
 func has_item(item: Item):

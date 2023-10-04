@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d28lx2f1qryst"]
+[gd_scene load_steps=4 format=3 uid="uid://d28lx2f1qryst"]
 
 [ext_resource type="PackedScene" uid="uid://dc5ugvdvxpkqu" path="res://scene/ui/player_gold/player_gold.tscn" id="1_65o68"]
 [ext_resource type="Script" path="res://scene/ui/ui_menus_container/ui_menus_container.gd" id="1_k7r0c"]
+[ext_resource type="PackedScene" uid="uid://bwweqirtiqy6g" path="res://scene/ui/player_inventory_space/player_inventory_space.tscn" id="3_630k8"]
 
 [node name="UIMenusContainer" type="Node" groups=["ui_menu_layer"]]
 process_mode = 3
 script = ExtResource("1_k7r0c")
 
 [node name="PlayerGold" parent="." instance=ExtResource("1_65o68")]
+
+[node name="PlayerInventorySpace" parent="." instance=ExtResource("3_630k8")]

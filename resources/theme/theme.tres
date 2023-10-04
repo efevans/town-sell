@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://bvhb3i3wnvnt0"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bvhb3i3wnvnt0"]
 
 [ext_resource type="Texture2D" uid="uid://cl1wdt3imxyj4" path="res://assets/ui/InnerPanel.png" id="1_33nrx"]
 [ext_resource type="Texture2D" uid="uid://cte28l06hydl5" path="res://assets/ui/button_brown.png" id="1_hnddm"]
@@ -75,40 +75,6 @@ texture_margin_right = 8.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(0, 0, 100, 100)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vh7h"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.537255, 0.556863, 0.6, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dlbkk"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.537255, 0.556863, 0.6, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.337255, 0.266667, 0.537255, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
-
 [resource]
 default_font = ExtResource("1_w6bsd")
 default_font_size = 16
@@ -154,10 +120,6 @@ PanelContainerFancyLineItemSelected/base_type = &"PanelContainer"
 PanelContainerFancyLineItemSelected/styles/panel = SubResource("StyleBoxTexture_ep8wb")
 PanelContainerFancyMenu/base_type = &"PanelContainer"
 PanelContainerFancyMenu/styles/panel = SubResource("StyleBoxTexture_6fme0")
-PanelContainerLineItem/base_type = &"PanelContainer"
-PanelContainerLineItem/styles/panel = SubResource("StyleBoxFlat_5vh7h")
-PanelContainerLineItemSelected/base_type = &"PanelContainer"
-PanelContainerLineItemSelected/styles/panel = SubResource("StyleBoxFlat_dlbkk")
 RichTextLabelNPCDialog/base_type = &"RichTextLabel"
 RichTextLabelNPCDialog/colors/font_outline_color = Color(0.211765, 0.168627, 0.337255, 1)
 RichTextLabelNPCDialog/colors/font_shadow_color = Color(0.211765, 0.168627, 0.337255, 1)
