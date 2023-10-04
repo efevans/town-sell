@@ -14,7 +14,7 @@ func _ready():
 	
 	
 func update_labels():
-	var new_numerator = str(PlayerInventory.inventory.get_number_of_items())
+	var new_numerator = str(PlayerInventory.inventory.get_storage_count())
 	var new_denominator = str(PlayerInventory.inventory.max_storage_size)
 	
 	if numerator.text != new_numerator:

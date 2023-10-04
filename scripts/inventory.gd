@@ -34,7 +34,7 @@ func subtract_gold(amount: int):
 	add_gold(-amount)
 	
 	
-func get_number_of_items() -> int:
+func get_storage_count() -> int:
 	var count = 0
 	for item_id in storage["items"].keys():
 		count += storage["items"][item_id]["quantity"]

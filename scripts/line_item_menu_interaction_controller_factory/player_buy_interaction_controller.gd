@@ -58,7 +58,8 @@ func get_color_for_price_label(item: Item) -> Color:
 	
 	
 func interact(line_item: LineItemMenuItem):
-	if buyer_inventory.get_gold() < line_item.price:
+	if buyer_inventory.get_gold() < line_item.price || \
+	buyer_inventory.max_storage_size < buyer_inventory.get_storage_count() + 1:
 		return false
 
 	buyer_inventory.subtract_gold(line_item.price)
