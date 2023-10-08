@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=40 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -14,9 +14,13 @@
 [ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="9_xah63"]
 [ext_resource type="Resource" uid="uid://bwmer40jwvct5" path="res://resources/item/items/wooden_shield/wooden_shield.tres" id="10_0365f"]
 [ext_resource type="PackedScene" uid="uid://cxlkcf4k1j0es" path="res://scene/component/interact_component.tscn" id="10_klt2c"]
+[ext_resource type="PackedScene" uid="uid://rg83vk24a05b" path="res://scene/component/toll_gate_component.tscn" id="11_auckk"]
 [ext_resource type="Resource" uid="uid://tdfct3c3n62y" path="res://resources/dialog/slimeberries.tres" id="11_wd2mj"]
 [ext_resource type="PackedScene" uid="uid://c5e6d0qjays4s" path="res://scene/component/inventory_component.tscn" id="11_xw42s"]
+[ext_resource type="Resource" uid="uid://j8xsxqldfkbg" path="res://resources/dialog/gate.tres" id="11_xxvbp"]
 [ext_resource type="PackedScene" uid="uid://dbyulpnncf6rw" path="res://scene/component/line_item_menu_component.tscn" id="12_ow8e5"]
+[ext_resource type="Resource" uid="uid://88idxpwlhggg" path="res://resources/single_choice_menu_strings/open_gate/open_gate.tres" id="12_smafx"]
+[ext_resource type="PackedScene" uid="uid://c80py1lmilq1n" path="res://scene/component/single_choice_menu_component.tscn" id="13_ib8xy"]
 [ext_resource type="PackedScene" uid="uid://bepklrpua4aiu" path="res://scene/component/dialog_component.tscn" id="13_wuxcc"]
 [ext_resource type="PackedScene" uid="uid://c4y7wrwfbl6rf" path="res://scene/component/item_pricer_component.tscn" id="15_mi2hh"]
 [ext_resource type="Resource" uid="uid://orgnls8kul7s" path="res://resources/dialog/weather.tres" id="16_w8s08"]
@@ -217,6 +221,22 @@ position = Vector2(290, 198)
 [node name="Gate" parent="Node2D/Entities" instance=ExtResource("1_2d4nf")]
 process_mode = 3
 position = Vector2(321, 132)
+
+[node name="InteractComponent" parent="Node2D/Entities/Gate" instance=ExtResource("10_klt2c")]
+position = Vector2(0, 13)
+collision_radius = 8
+
+[node name="DialogComponent" parent="Node2D/Entities/Gate" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
+dialog_text = ExtResource("11_xxvbp")
+interaction_signaler = NodePath("../InteractComponent")
+
+[node name="TollGateComponent" parent="Node2D/Entities/Gate" node_paths=PackedStringArray("gate", "single_choice_component") instance=ExtResource("11_auckk")]
+gate_strings = ExtResource("12_smafx")
+gate = NodePath("..")
+single_choice_component = NodePath("../SingleChoiceMenuComponent")
+
+[node name="SingleChoiceMenuComponent" parent="Node2D/Entities/Gate" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_ib8xy")]
+interaction_signaler = NodePath("../InteractComponent")
 
 [node name="ShopDialogNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(385, 243)
