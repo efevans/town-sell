@@ -1,7 +1,13 @@
 Top
 -------
-Stock Market
+Get to an MVP:
+Start from a gate at the bottom of the town
 
+
+Buddies that give bonuses like more space, better prices, etc at a cost
+Slot Machine
+Make NPCs favor and item, randomzied numbers favored to those items
+Make it more clear Interactable NPCs are interactable
 More ways for the player to spend money
 Automatically, randomly generated quests
 Automatically, randomly generated dialog that explains a quest with proper icon and coloring. For example, a sell quest for sword, potion, sword that rewards gold should explain that, with accompanying color coordination and icons
@@ -12,8 +18,8 @@ NPC Quest to make a seller NPC give out a rare item for cheap
 NPC Quest to make a seller buy an item for a lot more
 NPC Quest to change an NPC's price rate advantageously for the player
 NPC Quest that upgrades a player buy NPC offer higher tier items from now on
-Stock Market
-Slot Marchine
+Stock Market - Maybe implement as a line item menu for the player interface. Have a manager for stocks that update every 5 seconds. Come up with 5 random stock companies. Allow the player the buy and sell stocks at a single NPC, possibly by switching between buy and sell modes with with left and right arrows. On every 5 second update, adjust the stocks in a random direction 1-10%. This should be sufficient for now, perhaps enabling more interaction later on with quests and stuff to interfere with the price
+
 Minigame using single choice menu where you get money based on what it says when you select, but it changes rapidly (maybe slot machine)
 Randomized something, like the NPC layouts, which are buy/sell shops, etc.
 Add some events (may via single choice shops) that buff the player, such as speed
@@ -21,10 +27,17 @@ Shortcut routes you can open in town (maybe pay money to open, complete quest, f
 Hirelings
 Lighting
 When starting, allow players to choose a bonus to start with (increased speed, rucksack size, set gold amount, etc.)
+City-wide sale on item
+Start out with little money, picking up apples and stuff to sell before they get rich enough to start buying and selling
+Specializations to make the game fun each
+- Sell X type of item for more (sword, food)
+- X type of item only take up half bag space
+Shop Loyalty
 
 Player Upgrades
 Move speed
 Multi-item buying
+Shops sell higher tier of items
 Better deal buying
 Better deal selling
 
@@ -32,3 +45,9 @@ Fail
 ------
 Add a timer the player must get through the gate by (F: Took too much screen. Instead, maybe have clocks around town that are displaying time)
 Add an Inui sprite to the game as an NPC and animate it (F: Sprite does no look good with the kenney tileset. Her proportions do not match the other humans, and she has too many dark colors in her image that don't allow a good looking outline)
+
+
+
+Visuals
+-----------
+Color palettes
