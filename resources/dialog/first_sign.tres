@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://c5h8vb5ykqx7r"]
+
+[ext_resource type="Script" path="res://resources/dialog/dialog.gd" id="1_lt2wb"]
+
+[resource]
+script = ExtResource("1_lt2wb")
+text = "[center]WELCOME TO [color=dbdb2b]HEAVEN[/color]
+PLEASE ENJOY YOU STAY
+PASSAGE TO LAYER 2 IS 20,000G, PAYABLE AT THE NORTHERN GATEW"
