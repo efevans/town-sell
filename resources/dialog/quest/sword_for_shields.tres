@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=2 format=3 uid="uid://ceewmqcx2gabm"]
+
+[ext_resource type="Script" path="res://resources/dialog/dialog.gd" id="1_mre6t"]
+
+[resource]
+script = ExtResource("1_mre6t")
+text = "I'M DESPARATELY IN NEED OF[img=b,b]res://resources/item/items/wooden_shield/wooden_shield.png[/img][color=884913]WOODEN SHIELD[/color]S. IF YOU CAN GET ME THREE, I'LL REWARD YOU WITH A [color=ff9080]FINE WEAPON[/color]"

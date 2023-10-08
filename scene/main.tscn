@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=44 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/main.gd" id="1_xmxft"]
@@ -33,8 +33,10 @@
 [ext_resource type="Resource" uid="uid://5je2lbqsv48f" path="res://resources/item/items/big_bomb/big_bomb.tres" id="20_s3bpw"]
 [ext_resource type="PackedScene" uid="uid://bc7r7qxv2f5x5" path="res://scene/manager/cutscene_manager.tscn" id="22_61clx"]
 [ext_resource type="PackedScene" uid="uid://d28lx2f1qryst" path="res://scene/ui/ui_menus_container/ui_menus_container.tscn" id="22_xv8ne"]
+[ext_resource type="Resource" uid="uid://ceewmqcx2gabm" path="res://resources/dialog/quest/sword_for_shields.tres" id="27_5aupe"]
 [ext_resource type="PackedScene" uid="uid://bbknig6lby2ar" path="res://scene/game_object/sign/sign.tscn" id="30_7k07q"]
-[ext_resource type="Resource" uid="uid://c5h8vb5ykqx7r" path="res://resources/dialog/first_sign.tres" id="31_3txr4"]
+[ext_resource type="Resource" uid="uid://c5h8vb5ykqx7r" path="res://resources/dialog/newbie_tips/first_sign.tres" id="31_sjcn8"]
+[ext_resource type="Resource" uid="uid://cmnxcyu71bptp" path="res://resources/dialog/newbie_tips/quest_explanation.tres" id="32_8hkal"]
 
 [sub_resource type="Animation" id="Animation_h8hcg"]
 length = 0.001
@@ -299,12 +301,96 @@ position = Vector2(314, 430)
 [node name="ItemPricerComponent" parent="Node2D/Entities/ShopNPC" instance=ExtResource("15_mi2hh")]
 
 [node name="LineItemMenuComponent" parent="Node2D/Entities/ShopNPC" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+menu_sub_type = 1
 interaction_signaler = NodePath("../InteractComponent")
 owner_npc = NodePath("..")
 
 [node name="InventoryComponent" parent="Node2D/Entities/ShopNPC" instance=ExtResource("11_xw42s")]
+
+[node name="DialogComponent" parent="Node2D/Entities/ShopNPC" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
+dialog_text = ExtResource("27_5aupe")
+interaction_signaler = NodePath("../InteractComponent")
+
+[node name="ItemGainQuestRewardComponent" parent="Node2D/Entities/ShopNPC" node_paths=PackedStringArray("quest_node") instance=ExtResource("19_ewaky")]
+item_reward = ExtResource("8_kmtkt")
+quest_node = NodePath("../ItemObtainQuestComponent")
+
+[node name="ItemObtainQuestComponent" parent="Node2D/Entities/ShopNPC" node_paths=PackedStringArray("inventory_component") instance=ExtResource("18_5424r")]
+item_obtain_requirements = Array[Resource("res://resources/item/item.gd")]([ExtResource("10_0365f"), ExtResource("10_0365f"), ExtResource("10_0365f")])
+inventory_component = NodePath("../InventoryComponent")
+
+[node name="ShopNPC2" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(-471.42, 286.182)
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/ShopNPC2" instance=ExtResource("15_mi2hh")]
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC2" instance=ExtResource("10_klt2c")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/ShopNPC2" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="InventoryComponent" parent="Node2D/Entities/ShopNPC2" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("10_0365f"), ExtResource("8_kmtkt")])
+item_count = 7
+
+[node name="ShopNPC3" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(-120, 593)
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC3" instance=ExtResource("10_klt2c")]
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/ShopNPC3" instance=ExtResource("15_mi2hh")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/ShopNPC3" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="InventoryComponent" parent="Node2D/Entities/ShopNPC3" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("20_s3bpw")])
+item_count = 2
+
+[node name="ShopNPC4" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(-470, 625)
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC4" instance=ExtResource("10_klt2c")]
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/ShopNPC4" instance=ExtResource("15_mi2hh")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/ShopNPC4" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="InventoryComponent" parent="Node2D/Entities/ShopNPC4" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("8_kmtkt"), ExtResource("9_xah63"), ExtResource("10_0365f")])
+item_count = 6
+
+[node name="ShopNPC5" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(-73, 385)
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC5" instance=ExtResource("10_klt2c")]
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/ShopNPC5" instance=ExtResource("15_mi2hh")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/ShopNPC5" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="InventoryComponent" parent="Node2D/Entities/ShopNPC5" instance=ExtResource("11_xw42s")]
 item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("9_xah63")])
-item_count = 15
+
+[node name="ShopNPC6" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(1225, 496)
+
+[node name="InteractComponent" parent="Node2D/Entities/ShopNPC6" instance=ExtResource("10_klt2c")]
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/ShopNPC6" instance=ExtResource("15_mi2hh")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/ShopNPC6" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="InventoryComponent" parent="Node2D/Entities/ShopNPC6" instance=ExtResource("11_xw42s")]
+item_pool = Array[Resource("res://resources/item/item.gd")]([ExtResource("10_0365f")])
 
 [node name="SellNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(395, 158)
@@ -358,6 +444,48 @@ owner_npc = NodePath("..")
 
 [node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC3" instance=ExtResource("15_mi2hh")]
 
+[node name="SellNPC4" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(-69, 635)
+
+[node name="InteractComponent" parent="Node2D/Entities/SellNPC4" instance=ExtResource("10_klt2c")]
+
+[node name="InventoryComponent" parent="Node2D/Entities/SellNPC4" instance=ExtResource("11_xw42s")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/SellNPC4" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+menu_sub_type = 1
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC4" instance=ExtResource("15_mi2hh")]
+
+[node name="SellNPC5" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(855, 434)
+
+[node name="InteractComponent" parent="Node2D/Entities/SellNPC5" instance=ExtResource("10_klt2c")]
+
+[node name="InventoryComponent" parent="Node2D/Entities/SellNPC5" instance=ExtResource("11_xw42s")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/SellNPC5" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+menu_sub_type = 1
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC5" instance=ExtResource("15_mi2hh")]
+
+[node name="SellNPC6" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
+position = Vector2(1160, 210)
+
+[node name="InteractComponent" parent="Node2D/Entities/SellNPC6" instance=ExtResource("10_klt2c")]
+
+[node name="InventoryComponent" parent="Node2D/Entities/SellNPC6" instance=ExtResource("11_xw42s")]
+
+[node name="LineItemMenuComponent" parent="Node2D/Entities/SellNPC6" node_paths=PackedStringArray("interaction_signaler", "owner_npc") instance=ExtResource("12_ow8e5")]
+menu_sub_type = 1
+interaction_signaler = NodePath("../InteractComponent")
+owner_npc = NodePath("..")
+
+[node name="ItemPricerComponent" parent="Node2D/Entities/SellNPC6" instance=ExtResource("15_mi2hh")]
+
 [node name="DialogNPC" parent="Node2D/Entities" instance=ExtResource("3_fbbyu")]
 position = Vector2(217, 459)
 
@@ -376,13 +504,22 @@ position = Vector2(203, 220)
 dialog_text = ExtResource("16_w8s08")
 interaction_signaler = NodePath("../InteractComponent")
 
-[node name="Sign" parent="Node2D/Entities" instance=ExtResource("30_7k07q")]
+[node name="IntroSign" parent="Node2D/Entities" instance=ExtResource("30_7k07q")]
 position = Vector2(319, 712)
 
-[node name="InteractComponent" parent="Node2D/Entities/Sign" instance=ExtResource("10_klt2c")]
+[node name="InteractComponent" parent="Node2D/Entities/IntroSign" instance=ExtResource("10_klt2c")]
 
-[node name="DialogComponent" parent="Node2D/Entities/Sign" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
-dialog_text = ExtResource("31_3txr4")
+[node name="DialogComponent" parent="Node2D/Entities/IntroSign" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
+dialog_text = ExtResource("31_sjcn8")
+interaction_signaler = NodePath("../InteractComponent")
+
+[node name="QuestTipsSign" parent="Node2D/Entities" instance=ExtResource("30_7k07q")]
+position = Vector2(261, 530)
+
+[node name="InteractComponent" parent="Node2D/Entities/QuestTipsSign" instance=ExtResource("10_klt2c")]
+
+[node name="DialogComponent" parent="Node2D/Entities/QuestTipsSign" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_wuxcc")]
+dialog_text = ExtResource("32_8hkal")
 interaction_signaler = NodePath("../InteractComponent")
 
 [node name="Particles" type="Node2D" parent="."]

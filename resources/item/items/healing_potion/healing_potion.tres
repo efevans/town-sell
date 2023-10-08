@@ -9,4 +9,4 @@ id = "healing_potion"
 name = "Healing Potion"
 base_price = 430
 icon = ExtResource("1_st0vh")
-rich_text_color = Color(0.90625, 0.269531, 0.214844, 1)
+text_color = Color(0.741176, 0, 0, 1)

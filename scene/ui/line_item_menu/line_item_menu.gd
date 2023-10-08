@@ -1,7 +1,7 @@
 extends MarginContainer
 class_name LineItemMenu
 
-enum Type {PLAYER_BUY, PLAYER_SELL, SINGLE_CHOICE_BUY}
+enum Type {PLAYER_BUY, PLAYER_SELL}
 
 const CURSOR_OFFSET = Vector2(-22, 5)
 

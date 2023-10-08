@@ -9,4 +9,4 @@ id = "fire_sword"
 name = "Fire Sword"
 base_price = 240
 icon = ExtResource("1_404wy")
-rich_text_color = Color(0.843137, 0.27451, 0.286275, 1)
+text_color = Color(1, 0.564706, 0.501961, 1)

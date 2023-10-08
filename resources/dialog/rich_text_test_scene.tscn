@@ -6,8 +6,6 @@ offset_bottom = 45.0
 theme_type_variation = &"RichTextLabelNPCDialog"
 theme_override_colors/table_border = Color(0.580392, 0.709804, 0.854902, 1)
 bbcode_enabled = true
-text = "[center]WELCOME TO [color=dbdb2b]HEAVEN[/color]
-PLEASE ENJOY YOU STAY
-PASSAGE TO LAYER 2 IS 20,000G"
+text = "I'M DESPARATELY IN NEED OF[img=b,b]res://resources/item/items/wooden_shield/wooden_shield.png[/img][color=884913]WOODEN SHIELD[/color]S. IF YOU CAN GET ME THREE, I'LL REWARD YOU WITH A [color=ff9080]FINE WEAPON[/color]"
 fit_content = true
 scroll_active = false
