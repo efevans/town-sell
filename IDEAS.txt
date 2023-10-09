@@ -4,6 +4,7 @@ Get to an MVP:
 Start from a gate at the bottom of the town
 
 
+Buy a temporary shop that you can put items into and they have a chance of being sold, likely for worse prices than if you tried hard to sell well
 Buddies that give bonuses like more space, better prices, etc at a cost
 Slot Machine
 Make NPCs favor and item, randomzied numbers favored to those items
