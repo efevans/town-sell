@@ -240,6 +240,7 @@ interaction_signaler = NodePath("../InteractComponent")
 [node name="TollGateComponent" parent="Node2D/Entities/EndGate" node_paths=PackedStringArray("gate", "single_choice_component") instance=ExtResource("11_auckk")]
 gate_strings = ExtResource("12_smafx")
 gate = NodePath("..")
+gate_fee = 20000
 single_choice_component = NodePath("../SingleChoiceMenuComponent")
 
 [node name="SingleChoiceMenuComponent" parent="Node2D/Entities/EndGate" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_ib8xy")]

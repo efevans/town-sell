@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const MAX_SPEED = 100
+const MAX_SPEED = 120
 const ACCELERATION_SMOOTHING = 25
 
 var player_has_control: bool = true
