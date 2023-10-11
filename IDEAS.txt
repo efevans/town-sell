@@ -3,6 +3,7 @@ Top
 Get to an MVP:
 Start from a gate at the bottom of the town
 
+Maybe no every npc needs to buy every item?
 Own your own hamlot, recruit people to come to you
 Color coordinate a buy npc and sell npc
 Buy a temporary shop that you can put items into and they have a chance of being sold, likely for worse prices than if you tried hard to sell well

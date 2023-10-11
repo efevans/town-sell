@@ -515,7 +515,7 @@ dialog_text = ExtResource("31_sjcn8")
 interaction_signaler = NodePath("../InteractComponent")
 
 [node name="QuestTipsSign" parent="Node2D/Entities" instance=ExtResource("30_7k07q")]
-position = Vector2(261, 530)
+position = Vector2(319, 552)
 
 [node name="InteractComponent" parent="Node2D/Entities/QuestTipsSign" instance=ExtResource("10_klt2c")]
 
