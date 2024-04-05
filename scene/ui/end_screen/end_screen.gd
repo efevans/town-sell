@@ -65,5 +65,7 @@ func on_retry_pressed():
 	
 	
 func on_quit_pressed():
-	get_tree().quit()
+	ScreenTransition.transition_to_scene(GameStrings.TITLE_SCREEN)
+	await ScreenTransition.transitioned_halfway
+	get_tree().paused = false
 	print("quit pressed")

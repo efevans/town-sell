@@ -18,6 +18,7 @@ const NPC_DIALOG_SCENE_PATH = "res://scene/ui/npc_dialog/npc_dialog.tscn"
 
 const TOAST_SCENE_PATH = "res://scene/ui/toast/toast.tscn"
 
-const LEVEL_SCENE = "res://scene/main.tscn"
+const LEVEL_SCENE = "res://scene/top_level_scenes/main.tscn"
+const TITLE_SCREEN = "res://scene/top_level_scenes/title_screen.tscn"
 
 const GAME_OVER_SCREEN_SCENE = "res://scene/ui/end_screen/end_screen.tscn"
