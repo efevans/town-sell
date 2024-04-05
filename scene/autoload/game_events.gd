@@ -13,6 +13,7 @@ signal gate_opened(gate: Gate)
 signal cutscene_started
 signal cutscene_ended
 
+signal game_won
 signal game_over
 
 
@@ -46,6 +47,10 @@ func emit_cutscene_started():
 	
 func emit_cutscene_ended():
 	cutscene_ended.emit()
+	
+	
+func emit_game_won():
+	game_won.emit()
 
 
 func emit_game_over():

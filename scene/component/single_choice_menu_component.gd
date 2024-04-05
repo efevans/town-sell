@@ -30,6 +30,7 @@ func set_title_and_label(new_title: String, new_label: String):
 	
 	
 func open_menu():
+	print("opened menu")
 	current_choice_menu_instance = single_choice_menu_scene.instantiate() as SingleChoiceMenu
 	update_text()
 	current_choice_menu_instance.selected.connect(on_menu_choice_selected)

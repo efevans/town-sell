@@ -17,10 +17,11 @@ func play_player_opening_gate_cutscene(gate: Gate):
 	play("pass_through_gate")
 	await ScreenTransition.transition_completed
 	await animation_finished
-	ScreenTransition.transition_with_custom_speed(0.2)
-	await ScreenTransition.transitioned_halfway
-	get_tree().paused = false
-	get_tree().change_scene_to_file(GameStrings.LEVEL_SCENE)
+#	ScreenTransition.transition_with_custom_speed(0.2)
+#	await ScreenTransition.transitioned_halfway
+#	get_tree().paused = false
+#	get_tree().change_scene_to_file(GameStrings.TITLE_SCREEN)
+	GameEvents.emit_game_won()
 
 	
 func on_gate_opened(gate: Gate):

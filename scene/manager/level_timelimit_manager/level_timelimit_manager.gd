@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name LevelTimelimitManager
 
 @onready var level_timer = %LevelTimer
 
@@ -7,6 +8,10 @@ var end_screen_scene = preload(GameStrings.GAME_OVER_SCREEN_SCENE)
 
 func _ready():
 	level_timer.timeout.connect(on_level_timeout)
+	
+
+func get_remaining_time() -> int:
+	return int(level_timer.time_left)
 	
 	
 func on_level_timeout():

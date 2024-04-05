@@ -27,6 +27,7 @@ func try_get_gate():
 	
 	
 func try_open_gate():
+	print("tried to open gate")
 	if PlayerInventory.inventory.get_gold() >= gate_fee:
 		PlayerInventory.inventory.subtract_gold(gate_fee)
 #		gate.open()

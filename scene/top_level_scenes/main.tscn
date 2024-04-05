@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b5ryc8v3ex1ae"]
+[gd_scene load_steps=45 format=3 uid="uid://b5ryc8v3ex1ae"]
 
 [ext_resource type="PackedScene" uid="uid://g1yujt1qmkg8" path="res://scene/game_object/gate/gate.tscn" id="1_2d4nf"]
 [ext_resource type="Script" path="res://scene/top_level_scenes/main.gd" id="1_xmxft"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpgcem8cdd3io" path="res://scene/test/fps_counter.tscn" id="3_sr1lm"]
 [ext_resource type="PackedScene" uid="uid://ck0mkq1jfmbfk" path="res://scene/manager/toast_manager/toast_manager.tscn" id="4_o1pea"]
 [ext_resource type="PackedScene" uid="uid://dsa7lqqcbhohp" path="res://scene/game_object/game_camera/game_camera.tscn" id="5_2fs1g"]
+[ext_resource type="PackedScene" uid="uid://dfrsse5vbd1l" path="res://scene/manager/game_ended_manager/game_ended_manager.tscn" id="6_hxhax"]
 [ext_resource type="Texture2D" uid="uid://ba8f8cc2sr33u" path="res://assets/environment/smoke.png" id="7_q61mj"]
 [ext_resource type="Resource" uid="uid://m3h6po7qij3e" path="res://resources/item/items/fire_sword/fire_sword.tres" id="8_kmtkt"]
 [ext_resource type="Resource" uid="uid://cvk6fl1psjw20" path="res://resources/item/items/healing_potion/healing_potion.tres" id="9_xah63"]
@@ -175,6 +176,9 @@ libraries = {
 
 [node name="ToastManager" parent="." instance=ExtResource("4_o1pea")]
 
+[node name="GameEndedManager" parent="." node_paths=PackedStringArray("level_timelimit_manager") instance=ExtResource("6_hxhax")]
+level_timelimit_manager = NodePath("../LevelTimelimitManager")
+
 [node name="GroundTilemap" type="TileMap" parent="."]
 tile_set = ExtResource("2_fayvw")
 format = 2
@@ -240,7 +244,7 @@ interaction_signaler = NodePath("../InteractComponent")
 [node name="TollGateComponent" parent="Node2D/Entities/EndGate" node_paths=PackedStringArray("gate", "single_choice_component") instance=ExtResource("11_auckk")]
 gate_strings = ExtResource("12_smafx")
 gate = NodePath("..")
-gate_fee = 20000
+gate_fee = 300
 single_choice_component = NodePath("../SingleChoiceMenuComponent")
 
 [node name="SingleChoiceMenuComponent" parent="Node2D/Entities/EndGate" node_paths=PackedStringArray("interaction_signaler") instance=ExtResource("13_ib8xy")]
@@ -576,6 +580,7 @@ lifetime = 4.0
 
 [node name="FPSCounter" parent="." instance=ExtResource("3_sr1lm")]
 
-[node name="GameTimer" parent="." instance=ExtResource("20_nots6")]
+[node name="GameTimer" parent="." node_paths=PackedStringArray("level_timelimit_manager") instance=ExtResource("20_nots6")]
+level_timelimit_manager = NodePath("../LevelTimelimitManager")
 
 [node name="UIMenusContainer" parent="." instance=ExtResource("22_xv8ne")]

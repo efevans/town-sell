@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfrsse5vbd1l"]
+
+[ext_resource type="Script" path="res://scene/manager/game_ended_manager/game_ended_manager.gd" id="1_m2ywc"]
+[ext_resource type="PackedScene" uid="uid://baqrcdk3u3aya" path="res://scene/ui/win_screen/win_screen.tscn" id="2_ur5j5"]
+
+[node name="GameEndedManager" type="Node"]
+script = ExtResource("1_m2ywc")
+win_screen_scene = ExtResource("2_ur5j5")

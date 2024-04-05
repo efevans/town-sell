@@ -133,7 +133,7 @@ rotation = -0.00255754
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="BlueRect" type="TextureRect" parent="CanvasLayer"]
+[node name="BlurRect" type="TextureRect" parent="CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_i88w4")
 anchors_preset = 15
